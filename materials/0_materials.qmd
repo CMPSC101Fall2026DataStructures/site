@@ -1,0 +1,20 @@
+---
+title: "Materials"
+# listing:
+  # contents:
+    # - "*.qmd"
+    # - "lab-notes/*reports.qmd"
+---
+
+<center>
+**CS101::Spring 2026**
+</center>
+
+Here you will find a listing of lesson materials for the course such as slides, assignments, and similar.
+
+<!-- ![](../graphics/levelup.png){width=10%} -->
+
+## 1. Welcome Weeks
+- **Getting to Know You**: [Welcome Week Survey](https://forms.gle/EobK4xncr4f63Z8WA)
+
+---
