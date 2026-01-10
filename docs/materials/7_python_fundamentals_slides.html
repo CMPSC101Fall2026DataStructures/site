@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-59898bd1c6b9d2bb783127feaa000c76.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.33">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-4a990d8dcb58f517c7c86712b8f2ac7c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.31">
 
   <meta name="author" content="CS 101 - Fall 2025">
   <title>CMPSC101 Spring 2026 :: DataStructures – Chapter 5: STRUCTURED TYPES AND MUTABILITY</title>
@@ -319,7 +319,7 @@ CS 101 - Fall 2025
 <span id="cb2-5"><a></a><span class="bu">print</span>(<span class="ss">f" (t1 + t2) --&gt; </span><span class="sc">{</span>(t1 <span class="op">+</span> t2)<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb2-6"><a></a><span class="bu">print</span>(<span class="ss">f" (t1 + t2)[3] --&gt;  </span><span class="sc">{</span>(t1 <span class="op">+</span> t2)[<span class="dv">3</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb2-7"><a></a><span class="bu">print</span>(<span class="ss">f" (t1 + t2)[2:5] --&gt; </span><span class="sc">{</span>(t1 <span class="op">+</span> t2)[<span class="dv">2</span>:<span class="dv">5</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="c9a0345e" class="cell" data-execution_count="1">
+<div id="5e89688b" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code> t2 --&gt; ((1, 'two', 3), 3.25)
  (t1 + t2) --&gt; (1, 'two', 3, (1, 'two', 3), 3.25)
@@ -512,7 +512,7 @@ CS 101 - Fall 2025
 <span id="cb8-8"><a></a><span class="bu">print</span>(<span class="ss">f" L2 is copy of L1 --&gt; </span><span class="sc">{</span>L2<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb8-9"><a></a>L2.append(<span class="st">"2000"</span>) <span class="co"># Modify L2</span></span>
 <span id="cb8-10"><a></a><span class="bu">print</span>(<span class="ss">f"Appending to L2 modifies L1 = </span><span class="sc">{</span>L2<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="6e5bc6e4" class="cell" data-execution_count="2">
+<div id="6d53d839" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>L1 --&gt; [1, 2, 3]
  L2 is copy of L1 --&gt; [1, 2, 3]
@@ -609,7 +609,7 @@ Appending to L2 modifies L1 = [1, 2, 3, '100', '2000']</code></pre>
 <span id="cb12-4"><a></a><span class="co"># Create a list of tuples combining elements from list1 and list2</span></span>
 <span id="cb12-5"><a></a>combined_list <span class="op">=</span> [(x, y) <span class="cf">for</span> x <span class="kw">in</span> list1 <span class="cf">for</span> y <span class="kw">in</span> list2]</span>
 <span id="cb12-6"><a></a><span class="bu">print</span>(combined_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="174dd7c6" class="cell" data-execution_count="3">
+<div id="0155040d" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-stdout">
 <pre><code>[(1, 'a'), (1, 'b'), (2, 'a'), (2, 'b'), (3, 'a'), (3, 'b')]</code></pre>
 </div>
@@ -800,7 +800,7 @@ Appending to L2 modifies L1 = [1, 2, 3, '100', '2000']</code></pre>
 </section>
 <section id="output" class="slide level2">
 <h2>Output</h2>
-<div id="40c1f43f" class="cell" data-execution_count="4">
+<div id="f1d01699" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code>1. L = [1, -2, 3.33, -5]
 Apply ABS() to each element of L
@@ -944,12 +944,12 @@ Apply squaring to each element of L : [1.0, 2.0, 3.0, 5.0]
 <span id="cb21-12"><a></a><span class="bu">print</span>(<span class="ss">f"Add purple to Colors1 (again): </span><span class="sc">{</span>colors1<span class="sc">}</span><span class="ss">"</span>)  <span class="co"># {'red', 'green', 'blue', 'purple'}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="output-1" class="slide level2">
 <h2>Output</h2>
-<div id="458db9ae" class="cell" data-execution_count="5">
+<div id="671ffc9d" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-stdout">
-<pre><code>Colors1: {'red', 'blue', 'green'}
+<pre><code>Colors1: {'green', 'red', 'blue'}
 Numbers: {1, 2, 3, 4}
-Add purple to Colors1: {'red', 'blue', 'green', 'purple'}
-Add purple to Colors1 (again): {'red', 'blue', 'green', 'purple'}</code></pre>
+Add purple to Colors1: {'purple', 'green', 'red', 'blue'}
+Add purple to Colors1 (again): {'purple', 'green', 'red', 'blue'}</code></pre>
 </div>
 </div>
 </section>
@@ -981,10 +981,10 @@ Add purple to Colors1 (again): {'red', 'blue', 'green', 'purple'}</code></pre>
 <span id="cb23-14"><a></a><span class="bu">print</span>(<span class="st">"red"</span> <span class="kw">in</span> colors1)  <span class="co"># True - very fast!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="output-2" class="slide level2">
 <h2>Output</h2>
-<div id="4e1aff9d" class="cell" data-execution_count="6">
+<div id="1084cbe9" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-stdout">
 <pre><code>Common colors: {'blue'}
-All colors: {'yellow', 'red', 'purple', 'blue', 'green'}
+All colors: {'purple', 'yellow', 'blue', 'green', 'red'}
 True</code></pre>
 </div>
 </div>
