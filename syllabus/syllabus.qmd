@@ -19,9 +19,7 @@ author: "Oliver Bonham-Carter"
 
 ## Quick Links
 
-+ [The attendance form](https://forms.gle/PQRJH3PoZwbNgC3y8)
 + [Token Form for Automatic Extension](https://forms.gle/hjrJLnpHrauFmJqH8)
-+ [Gradebook repository](https://classroom.github.com/a/34hXX52q)
 
 ## Course Description
 
@@ -73,7 +71,9 @@ understanding of the nature, approaches, and domain of scientific inquiry.
 
 [Introduction to Computation and Programming Using Python](https://mitpress.mit.edu/books/introduction-computation-and-programming-using-python-third-edition) by [John V. Guttag](https://people.csail.mit.edu/guttag/)
 
+<center>
 ![](graphics/book_logo.png){width=200}
+</center>
 
 ### Online Resources and Course Materials
 
@@ -91,12 +91,12 @@ understanding of the nature, approaches, and domain of scientific inquiry.
 
 We will be using the following technologies in class.
 
-- VSCode
-- Python 3.12 or later
-- pipx
-- Poetry
-- Gatorgrade
-- Git
+- [VSCode](https://code.visualstudio.com/download)
+- [Python](https://www.python.org/downloads/) 3.12 or later
+- [pipx](https://github.com/pypa/pipx)
+- [UV](https://docs.astral.sh/uv/getting-started/installation/)
+- [Gatorgrade](https://pypi.org/project/gatorgrade/)
+- [Git](https://github.com/git-guides/install-git)
 - Free GitHub Account
 - Free Discord Account
 - Allegheny College Email
@@ -104,6 +104,8 @@ We will be using the following technologies in class.
 ### Grading
 
 #### Grading Scale
+
+Grades will be communicated by [Canvas](https://allegheny.instructure.com/)
 
 <!-- =IF(DE6>94,"A",IF(DE6>90,"A-",IF(DE6>87,"B+",IF(DE6>83,"B",IF(DE6>80,"B-",IF(DE6>77,"C+",IF(DE6>73,"C",IF(DE6>70,"C-",IF(DE6>67,"D+",IF(DE6>60,"D","F")))))))))) -->
 
@@ -141,7 +143,9 @@ The grade that a student receives in this class will be based on the following c
 
 ---
 
+<center>
 ![](graphics/levelup.png)
+</center>
 
 ### Final Deliverable
 
@@ -186,8 +190,9 @@ Each day of class, please complete the attendance [form](https://forms.gle/PQRJH
 
 #### _Preparedness_
 
-Coming to class prepared means coming with everything you need to engage in a class session. To satisfy basic expectations of CIS courses, this means, at minimum, that students must:
-- Come to class with a department-approved laptop such as a Mac, Linux or Windows machine. The instructure will likely not have time during class to diagnose computer problems and so it will be assumed that the student will be able to maintain their own machine during the class.
+Coming to class prepared means coming with everything you need to engage in a class session. To satisfy basic expectations of CIS courses, this means, at minimum, that students must;
+
+- Come to class with a department-approved laptop such as a Mac, Linux or Windows machine. There will be no time to diagnose and fix computer-related trouble during class-time. It will be assumed that the student is able to maintain their own machine on their own time.
 - Arrive at class with a fully charged laptop, or with a laptop charger /batter pack to ensure that the laptop
   works throughout the entire class session.
 - Complete any pre-session work such as readings and preparatory assignments.
