@@ -3,6 +3,8 @@ title: "CMPSC101 Spring 2026 :: DataStructures"
 author: "Oliver Bonham-Carter"
 ---
 
+👋 Welcome! 👋
+
 **Class Sessions**: MWF 9:00 AM to 9:50 AM, Alden 109  
 **Laboratory Session**: Friday, 2:30 PM to 4 PM, Alden 109  
 **Instructor**: Dr. Bonham-Carter, [obonhamcarter@allegheny.edu](obonhamcarter@allegheny.edu)  
