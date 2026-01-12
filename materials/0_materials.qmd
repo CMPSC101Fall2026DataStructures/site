@@ -20,9 +20,9 @@ Here you will find a listing of lesson materials for the course such as slides, 
   -  What is your name?
   -  Where is home?
   -  What is your favorite part about life at Allegheny College so far?
-  -  What Computer Science experience(s) do you already have (academic /industrial)?
+  -  Do you have any Computer Science experience(s) already (jobs, academic, industrial, similar)?
   -  Have you done any projects with programming?
-  -  What Can you share about the projects?
+  -  What can you share about the projects?
   -  What is your favorite phone app?
   -  What is your favorite breakfast cereal?
 
