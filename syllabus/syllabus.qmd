@@ -1,5 +1,5 @@
 ---
-title: "CMPSC101 Spring 2026 :: DataStructures"
+title: "CMPSC101 Fall 2026 :: DataStructures"
 author: "Oliver Bonham-Carter"
 ---
 

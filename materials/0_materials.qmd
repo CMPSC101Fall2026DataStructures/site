@@ -7,7 +7,7 @@ title: "Materials"
 ---
 
 <center>
-**CS101::Spring 2026**
+**CS101::FALL 2026**
 </center>
 
 Here you will find a listing of lesson materials for the course such as slides, assignments, and similar.
