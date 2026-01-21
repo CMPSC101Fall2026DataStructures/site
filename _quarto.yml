@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "CMPSC101 Spring 2026 :: DataStructures"
+  title: "CMPSC101 Fall 2026 :: DataStructures"
   navbar:
     left:
       - href: index.qmd
