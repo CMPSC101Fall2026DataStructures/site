@@ -7,15 +7,18 @@ title: "Materials"
 ---
 
 <center>
-**CS101::FALL 2026**
+**CS101::Spring 2026**
 </center>
 
 Here you will find a listing of lesson materials for the course such as slides, assignments, and similar.
 
+- **Project Downloads**: [Starter files, tutorials, and other downloadable project materials](1_project_files.html)
+
 <!-- ![](../graphics/levelup.png){width=10%} -->
 
-## 1. Welcome Weeks
-- **Getting to Know You**: [Welcome Week Survey](https://forms.gle/EobK4xncr4f63Z8WA)
+## W1. Welcome Weeks
+
+- **Getting to Know You**: [Welcome Week Survey](LINK)
 - **Getting to know your neighbor** Pair-up with **two** people in the class to ask the following questions. Write down their answers -- you will be introducing them during next class! 
   -  What is your name?
   -  Where is home?
@@ -27,7 +30,30 @@ Here you will find a listing of lesson materials for the course such as slides, 
   -  What is your favorite breakfast cereal?
 - Be sure to join the class' GitHub Organization (check your email!)
 - Also, be sure that you are in the Discord channel for the course. If you are not in the Discord channel, please let me know!
+
 - **Activity 01**: Installing Essential Tools and Solving the Maze
   - [GitHub Classroom Link](https://classroom.github.com/a/WIB5VCnJ)
+- Installing necessary software for the course (if anyone needs help!) 
+  - [Python](https://www.python.org/)
+  - [Visual Studio Code](https://code.visualstudio.com/download) 
+  - [GitHub](https://github.com/git-guides/install-git)
+  - [Pipx](https://pipx.pypa.io/stable/installation/)
+
+## W2. Reviewing Python
+
+- **Literals, Variables, Conditionals, Strings, etc. ** 
+  - [HTML](2_i_introToPython_solutions.html) Slides
+<!-- - **Loops, Dictionaries and Lists ** 
+  - [HTML](3_ii_introToPython_solutions.html) Slides -->
+<!-- - **Lab 01**: Mastering Python Loops
+  - [GitHub Classroom Link](https://classroom.github.com/a/AnsmidnZ) -->
 
 ---
+
+<!-- ## Special Notes
+::: {.callout-note}
+## Please plan accordingly for the following important deadlines:
+- The final project will be due on April 30th, 2026 at 9:00am.
+- Presentations will be held on Friday, 24th April 2026 during lab.
+- These are hard deadlines and no late submissions can be accepted.
+::: -->
