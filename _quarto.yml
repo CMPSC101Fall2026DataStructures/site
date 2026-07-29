@@ -15,6 +15,9 @@ website:
         text: Playground
       - href: materials/0_materials.qmd
         text: Materials
+      - href: https://www.oliverbonhamcarter.com/live/lab/index.html
+        text: JupyterLite
+        target: _blank
 
 format:
   html:

@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "CMPSC101 Fall 2026 :: DataStructures",
     "section": "",
-    "text": "👋 Welcome! 👋\nClass Sessions: MWF 9:00 AM to 9:50 AM, Alden 109\nLaboratory Session: Friday, 2:30 PM to 4 PM, Alden 109\nInstructor: Dr. Bonham-Carter, obonhamcarter@allegheny.edu\nOffice Location: Alden Hall 203\nInstructor Office Hours: Visit the below URL to find availability and schedule and appointment. https://www.oliverbonhamcarter.com/contactandabout/\nBook An Appointment: https://www.oliverbonhamcarter.com/contactandabout/\nNote: If the office hours times are not convenient, then please reach out to me and we can find an alternative time to meet."
+    "text": "CMPSC101 :: Data Structures :: Fall 2026\nClass Sessions: MWF 9:00 AM to 9:50 AM, Alden 109\nLaboratory Session: Friday, 2:30 PM to 4 PM, Alden 109\nInstructor: Dr. Bonham-Carter, obonhamcarter@allegheny.edu\nOffice Location: Alden Hall 203\nInstructor Office Hours: Visit the below URL to find availability and schedule and appointment. https://www.oliverbonhamcarter.com/contactandabout/\nBook An Appointment: https://www.oliverbonhamcarter.com/contactandabout/\nNote: If the office hours times are not convenient, then please reach out to me and we can find an alternative time to meet."
   },
   {
     "objectID": "index.html#quick-info",
@@ -480,49 +480,14 @@
     "href": "materials/1_project_files.html",
     "title": "Project Downloads",
     "section": "",
-    "text": "CS101::Spring 2026\nUse this page to download project files, starter code, and tutorial materials.\nThe page is organized by project folder. To add a new project later, place its files in a new folder inside materials/files/, render the site again, and Quarto will publish both the page and the downloadable files."
-  },
-  {
-    "objectID": "materials/1_project_files.html#act-07",
-    "href": "materials/1_project_files.html#act-07",
-    "title": "Project Downloads",
-    "section": "Act 07",
-    "text": "Act 07\nThis project currently has 19 downloadable file(s) organized into 3 folder(s).\n\n1 Tutorial\nFolder: 1_tutorial\n\n\n\nFile\nType\nDownload\n\n\n\n\n.python-version\nConfig\nDownload\n\n\npyproject.toml\nTOML\nDownload\n\n\nsimple_game.py\nPY\nDownload\n\n\n\n\n\n2 Tutorial\nFolder: 2_tutorial\n\n\n\nFile\nType\nDownload\n\n\n\n\n.python-version\nConfig\nDownload\n\n\nconfig.py\nPY\nDownload\n\n\ngame.py\nPY\nDownload\n\n\nmain.py\nPY\nDownload\n\n\npyproject.toml\nTOML\nDownload\n\n\n\n\n\nSpace Invaders Pixel Matrix Edition\nFolder: space_invaders_pixel_matrix_edition\n\n\n\nFile\nType\nDownload\n\n\n\n\nREADME.md\nMD\nDownload\n\n\nconfig.py\nPY\nDownload\n\n\nenemy.py\nPY\nDownload\n\n\ngame.py\nPY\nDownload\n\n\nmain.py\nPY\nDownload\n\n\nplayer.py\nPY\nDownload\n\n\npyproject.toml\nTOML\nDownload\n\n\nscreenshot.png\nPNG\nDownload\n\n\nsprites.py\nPY\nDownload\n\n\nutils.py\nPY\nDownload\n\n\nuv.lock\nLOCK\nDownload"
-  },
-  {
-    "objectID": "materials/1_project_files.html#act-08",
-    "href": "materials/1_project_files.html#act-08",
-    "title": "Project Downloads",
-    "section": "Act 08",
-    "text": "Act 08\nThis project currently has 5 downloadable file(s) organized into 1 folder(s).\n\nProject Files\n\n\n\nFile\nType\nDownload\n\n\n\n\ngame_client.py\nPY\nDownload\n\n\nmessage_client_i.py\nPY\nDownload\n\n\nmessage_server_i.py\nPY\nDownload\n\n\npyproject.toml\nTOML\nDownload\n\n\nuv.lock\nLOCK\nDownload"
-  },
-  {
-    "objectID": "materials/1_project_files.html#act-09",
-    "href": "materials/1_project_files.html#act-09",
-    "title": "Project Downloads",
-    "section": "Act 09",
-    "text": "Act 09\nThis project currently has 5 downloadable file(s) organized into 1 folder(s).\n\nProject Files\n\n\n\nFile\nType\nDownload\n\n\n\n\npyproject.toml\nTOML\nDownload\n\n\nsample_article.txt\nTXT\nDownload\n\n\nsample_review.txt\nTXT\nDownload\n\n\nsample_story.txt\nTXT\nDownload\n\n\ntext_analyzer_sol.py\nPY\nDownload"
-  },
-  {
-    "objectID": "materials/1_project_files.html#filesearcher",
-    "href": "materials/1_project_files.html#filesearcher",
-    "title": "Project Downloads",
-    "section": "Filesearcher",
-    "text": "Filesearcher\nThis project currently has 2 downloadable file(s) organized into 1 folder(s).\n\nProject Files\n\n\n\nFile\nType\nDownload\n\n\n\n\nmain.py\nPY\nDownload\n\n\npyproject.toml\nTOML\nDownload"
-  },
-  {
-    "objectID": "materials/1_project_files.html#myqr",
-    "href": "materials/1_project_files.html#myqr",
-    "title": "Project Downloads",
-    "section": "Myqr",
-    "text": "Myqr\nThis project currently has 7 downloadable file(s) organized into 3 folder(s).\n\nProject Files\n\n\n\nFile\nType\nDownload\n\n\n\n\npyproject.toml\nTOML\nDownload\n\n\nuv.lock\nLOCK\nDownload\n\n\n\n\n\nMyqr\nFolder: myqr\n\n\n\nFile\nType\nDownload\n\n\n\n\n__init__.py\nPY\nDownload\n\n\nfile_ops.py\nPY\nDownload\n\n\nmain.py\nPY\nDownload\n\n\nmyqr_streamlit.py\nPY\nDownload\n\n\n\n\n\nTests\nFolder: tests\n\n\n\nFile\nType\nDownload\n\n\n\n\ntest_myqr.py\nPY\nDownload"
+    "text": "CMPSC101 :: Data Structures :: Fall 2026\n\n\n\n~~~\n\nUse this page to download project files, starter code, and tutorial materials.\nThe page is organized by project folder. To add a new project later, place its files in a new folder inside materials/files/, render the site again, and Quarto will publish both the page and the downloadable files.\n\nNo project files are available yet. Add folders inside materials/files/ and render the site again."
   },
   {
     "objectID": "materials/0_materials.html",
     "href": "materials/0_materials.html",
     "title": "Materials",
     "section": "",
-    "text": "CS101::Spring 2026\nHere you will find a listing of lesson materials for the course such as slides, assignments, and similar."
+    "text": "CMPSC101 :: Data Structures :: Fall 2026\nHere you will find a listing of lesson materials for the course such as slides, assignments, and similar."
   },
   {
     "objectID": "materials/0_materials.html#w1.-welcome-weeks",
@@ -697,7 +662,7 @@
     "href": "syllabus/syllabus.html",
     "title": "CMPSC101 Fall 2026 :: DataStructures",
     "section": "",
-    "text": "👋 Welcome! 👋\nClass Sessions: MWF 9:00 AM to 9:50 AM, Alden 109\nLaboratory Session: Friday, 2:30 PM to 4 PM, Alden 109\nInstructor: Dr. Bonham-Carter, obonhamcarter@allegheny.edu\nOffice Location: Alden Hall 203\nInstructor Office Hours: Visit the below URL to find availability and schedule and appointment. https://www.oliverbonhamcarter.com/contactandabout/\nBook An Appointment: https://www.oliverbonhamcarter.com/contactandabout/\nNote: If the office hours times are not convenient, then please reach out to me and we can find an alternative time to meet."
+    "text": "CMPSC101 :: Data Structures :: Fall 2026\nClass Sessions: MWF 9:00 AM to 9:50 AM, Alden 109\nLaboratory Session: Friday, 2:30 PM to 4 PM, Alden 109\nInstructor: Dr. Bonham-Carter, obonhamcarter@allegheny.edu\nOffice Location: Alden Hall 203\nInstructor Office Hours: Visit the below URL to find availability and schedule and appointment. https://www.oliverbonhamcarter.com/contactandabout/\nBook An Appointment: https://www.oliverbonhamcarter.com/contactandabout/\nNote: If the office hours times are not convenient, then please reach out to me and we can find an alternative time to meet."
   },
   {
     "objectID": "syllabus/syllabus.html#quick-info",

@@ -6,8 +6,11 @@ title: "Materials"
     # - "lab-notes/*reports.qmd"
 ---
 
+
 <center>
-**CS101::Spring 2026**
+**CMPSC101 :: Data Structures :: Fall 2026**
+
+![](./graphics/cs101F2026_logo.png){width=20%}
 </center>
 
 Here you will find a listing of lesson materials for the course such as slides, assignments, and similar.

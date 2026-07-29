@@ -4,7 +4,13 @@ jupyter: python3
 ---
 
 <center>
-**CS101::Spring 2026**
+**CMPSC101 :: Data Structures :: Fall 2026**
+
+![](./graphics/cs101F2026_logo.png){width=20%}
+</center>
+
+<center>
+~~~
 </center>
 
 Use this page to download project files, starter code, and tutorial materials.
