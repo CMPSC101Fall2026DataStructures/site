@@ -2,11 +2,11 @@
   "LiteBuildConfig": {
     "apps": [
       "notebooks",
-      "edit", 
+      "edit",
       "lab",
       "repl"
     ],
-    "ignore_sys_prefix": true,
-    "contents": ["content"]
+    "ignore_sys_prefix": false,
+    "output_dir": "../docs/live"
   }
 }

@@ -1,12 +1,11 @@
 {
   "jupyter-lite-schema-version": 0,
   "jupyter-config-data": {
-    "appName": "CMPSC 301 JupyterLite",
+    "appName": "CMPSC 101 JupyterLite",
     "appVersion": "0.1.0",
-    "appUrl": "./lab",
     "collaborative": false,
     "disabledExtensions": [],
-    "enableMemoryStorage": true,
+    "federated_extensions": [],
     "settingsStorageDrivers": ["localStorage"]
   },
   "jupyter-lite": {

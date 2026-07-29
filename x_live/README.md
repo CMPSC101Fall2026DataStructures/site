@@ -1,6 +1,6 @@
-# JupyterLite Configuration for CMPSC 301
+# JupyterLite Configuration for CMPSC 101
 
-This directory contains the JupyterLite setup for the Data Science course, providing an in-browser Python environment with multiple kernel options.
+This directory contains the JupyterLite setup for the Data Science course, providing an in-browser Python and R environment.
 
 ## 🚀 What is JupyterLite?
 
@@ -9,16 +9,6 @@ JupyterLite is a Jupyter environment that runs entirely in the browser, requirin
 - Create notebooks with rich markdown
 - Use data science libraries (pandas, numpy, matplotlib, etc.)
 - Learn and experiment without installations
-
-## 🔧 Available Kernels
-
-### Python Kernel (Pyodide)
-
-**Pyodide Kernel** - WebAssembly-based Python
-- Full Python 3.11+ support in the browser
-- Access to many PyPI packages via micropip
-- Best for most data science tasks
-- No server required - runs entirely in your browser
 
 ## 📦 Installing Packages
 
@@ -51,17 +41,13 @@ To build and deploy JupyterLite:
 
 1. Install jupyterlite:
    ```bash
-   pip install jupyterlite-core jupyterlite-pyodide-kernel
+   pip install jupyterlite-core
+   pip install jupyterlite-pyodide-kernel
    ```
 
 2. Build the site:
    ```bash
-   python -m jupyterlite_core.app build --contents live/content --output-dir docs/live
-   ```
-
-   Or use the provided script:
-   ```bash
-   ./build_jupyterlite.sh
+   jupyter lite build --output-dir docs/live
    ```
 
 3. The built site will be in `docs/live/` and can be served via GitHub Pages.
@@ -79,15 +65,6 @@ Place `.ipynb` files in `live/content/` directory.
 - **jupyter_lite_config.json**: Build-time configuration
 - **jupyter-lite.json**: Runtime configuration for the JupyterLite app
 - **requirements.txt**: List of recommended packages (installed on-demand by users)
-
-## 🔬 R Programming Support
-
-R support in JupyterLite is currently experimental. For R programming:
-- **Option 1**: Use R locally with RStudio or Jupyter with IR kernel
-- **Option 2**: Use rpy2 bridge from Python (limited functionality)
-- **Future**: Native R kernel support via xeus-r (when available)
-
-For now, we recommend Python as the primary language with the ability to call R functions through rpy2 when needed.
 
 ### Custom Configuration
 Modify `jupyter_lite_config.json` for advanced settings.

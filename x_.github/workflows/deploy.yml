@@ -46,7 +46,8 @@ jobs:
 
       - name: Build JupyterLite
         run: |
-          python -m jupyterlite_core.app build --contents live/content --output-dir docs/live
+          cd live
+          jupyter lite build --output-dir ../docs/live --ignore-sys-prefix
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

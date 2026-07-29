@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Playground – CMPSC101 Fall 2026 :: DataStructures</title>
+<title>jupyterlite_fix_summary – CMPSC101 Fall 2026 :: DataStructures</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,28 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,67 +102,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -139,7 +114,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">CMPSC101 Fall 2026 :: DataStructures</span>
     </a>
   </div>
@@ -150,19 +125,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../utils/interactivePython.html"> 
+    <a class="nav-link" href="./utils/interactivePython.html"> 
 <span class="menu-text">Interactive</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../playground/00_playground.html" aria-current="page"> 
+    <a class="nav-link" href="./playground/00_playground.html"> 
 <span class="menu-text">Playground</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../materials/0_materials.html"> 
+    <a class="nav-link" href="./materials/0_materials.html"> 
 <span class="menu-text">Materials</span></a>
   </li>  
   <li class="nav-item">
@@ -180,232 +155,138 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#jupyterlite-fix-summary" id="toc-jupyterlite-fix-summary" class="nav-link active" data-scroll-target="#jupyterlite-fix-summary">JupyterLite Fix Summary</a>
+  <ul class="collapse">
+  <li><a href="#issues-resolved" id="toc-issues-resolved" class="nav-link" data-scroll-target="#issues-resolved">✅ Issues Resolved</a>
+  <ul class="collapse">
+  <li><a href="#loading-stuck-issue" id="toc-loading-stuck-issue" class="nav-link" data-scroll-target="#loading-stuck-issue">1. <strong>“Loading” Stuck Issue</strong></a></li>
+  <li><a href="#build-configuration" id="toc-build-configuration" class="nav-link" data-scroll-target="#build-configuration">2. <strong>Build Configuration</strong></a></li>
+  </ul></li>
+  <li><a href="#current-configuration" id="toc-current-configuration" class="nav-link" data-scroll-target="#current-configuration">📦 Current Configuration</a>
+  <ul class="collapse">
+  <li><a href="#python-support" id="toc-python-support" class="nav-link" data-scroll-target="#python-support">Python Support ✅</a></li>
+  <li><a href="#r-support-planned" id="toc-r-support-planned" class="nav-link" data-scroll-target="#r-support-planned">R Support ⏳ (Planned)</a></li>
+  </ul></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">🚀 Next Steps</a></li>
+  <li><a href="#files-modified" id="toc-files-modified" class="nav-link" data-scroll-target="#files-modified">📁 Files Modified</a></li>
+  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">📖 Documentation</a></li>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">🔍 Troubleshooting</a></li>
+  <li><a href="#future-enhancements" id="toc-future-enhancements" class="nav-link" data-scroll-target="#future-enhancements">💡 Future Enhancements</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Playground</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>Here you will find a listing of interactive curiosities from the course.</p>
-<p><img src="../graphics/levelup.png" class="img-fluid" style="width:10.0%"></p>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1755835200000" data-listing-file-modified-sort="1785359672488" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1575">
-<div class="thumbnail"><a href="../playground/01_fibonacci.html" class="no-external">
+<section id="jupyterlite-fix-summary" class="level1">
+<h1>JupyterLite Fix Summary</h1>
+<section id="issues-resolved" class="level2">
+<h2 class="anchored" data-anchor-id="issues-resolved">✅ Issues Resolved</h2>
+<section id="loading-stuck-issue" class="level3">
+<h3 class="anchored" data-anchor-id="loading-stuck-issue">1. <strong>“Loading” Stuck Issue</strong></h3>
+<p><strong>Problem:</strong> JupyterLite was showing “loading” indefinitely and never opening as a client.</p>
+<p><strong>Root Cause:</strong> Quarto was rendering the <code>live/</code> directory as Quarto content, converting notebooks to HTML and preventing JupyterLite from building its app files properly.</p>
+<p><strong>Fix:</strong> - Removed <code>live/**</code> from Quarto’s render list in <code>_quarto.yml</code> - Updated build process to build JupyterLite AFTER Quarto rendering - Fixed build command to use the correct paths</p>
+</section>
+<section id="build-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="build-configuration">2. <strong>Build Configuration</strong></h3>
+<p><strong>Problem:</strong> Build errors related to package fetching and configuration issues.</p>
+<p><strong>Fix:</strong> - Simplified configuration to use only Pyodide kernel (stable and well-supported) - Updated <code>jupyter_lite_config.json</code> to remove deprecated options - Fixed <code>jupyter-lite.json</code> runtime configuration - Updated GitHub Actions workflow to use correct build command</p>
+</section>
+</section>
+<section id="current-configuration" class="level2">
+<h2 class="anchored" data-anchor-id="current-configuration">📦 Current Configuration</h2>
+<section id="python-support" class="level3">
+<h3 class="anchored" data-anchor-id="python-support">Python Support ✅</h3>
+<ul>
+<li><strong>Kernel:</strong> Pyodide (Python 3.11+ in WebAssembly)</li>
+<li><strong>Package Installation:</strong> On-demand via micropip</li>
+<li><strong>Status:</strong> Fully functional</li>
+</ul>
+<p><strong>Recommended Packages (install on-demand):</strong> - numpy - pandas - matplotlib - seaborn - plotly - scikit-learn - scipy - statsmodels</p>
+</section>
+<section id="r-support-planned" class="level3">
+<h3 class="anchored" data-anchor-id="r-support-planned">R Support ⏳ (Planned)</h3>
+<p><strong>Current Status:</strong> Not yet implemented</p>
+<p><strong>Why R is challenging:</strong> 1. R support in JupyterLite requires xeus-r kernel compiled to WebAssembly 2. This is still experimental and requires complex setup 3. Not all R packages work in the browser environment</p>
+<p><strong>Current Options for R:</strong> 1. <strong>Use R locally</strong> with RStudio or Jupyter + IR kernel (Recommended) 2. <strong>Wait for maturity</strong> - xeus-r support is improving but not production-ready 3. <strong>Use rpy2</strong> - Limited R functionality callable from Python (experimental)</p>
+<p><strong>Future Implementation:</strong> When xeus-r becomes stable, we can add it by: - Installing <code>jupyterlite-xeus</code> packages - Creating an <code>environment.yml</code> file specifying R environment - Updating build configuration</p>
+</section>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">🚀 Next Steps</h2>
+<ol type="1">
+<li><p><strong>Test Locally (Optional):</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./build_jupyterlite.sh</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> docs/live <span class="kw">&amp;&amp;</span> <span class="ex">python3</span> <span class="at">-m</span> http.server 8000</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Open http://localhost:8000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Commit and Push:</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Fix JupyterLite loading issue and update configuration"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Access JupyterLite:</strong></p>
+<ul>
+<li>URL: <code>https://CMPSC301Fall2026DataScience.github.io/site/live/</code></li>
+<li>Navbar link updated to point to local JupyterLite</li>
+</ul></li>
+<li><p><strong>Usage:</strong></p>
+<ul>
+<li><p>Click “JupyterLite” in the navbar</p></li>
+<li><p>Create new notebook (File → New → Notebook)</p></li>
+<li><p>Install packages in first cell:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> micropip</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">await</span> micropip.install([<span class="st">'numpy'</span>, <span class="st">'pandas'</span>, <span class="st">'matplotlib'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Start coding!</p></li>
+</ul></li>
+</ol>
+</section>
+<section id="files-modified" class="level2">
+<h2 class="anchored" data-anchor-id="files-modified">📁 Files Modified</h2>
+<ol type="1">
+<li><code>_quarto.yml</code> - Excluded <code>live/</code> from rendering, updated navbar link</li>
+<li><code>.github/workflows/deploy.yml</code> - Fixed build command and dependencies</li>
+<li><code>live/jupyter_lite_config.json</code> - Simplified configuration</li>
+<li><code>live/jupyter-lite.json</code> - Updated runtime settings</li>
+<li><code>live/requirements.txt</code> - Created (for reference)</li>
+<li><code>live/README.md</code> - Updated documentation</li>
+<li><code>live/content/welcome.ipynb</code> - Added micropip installation demo</li>
+<li><code>build_jupyterlite.sh</code> - Created local build helper script</li>
+</ol>
+</section>
+<section id="documentation" class="level2">
+<h2 class="anchored" data-anchor-id="documentation">📖 Documentation</h2>
+<ul>
+<li><a href="live/README.md">live/README.md</a> - Complete JupyterLite documentation</li>
+<li><a href="./live/content/welcome.html">live/content/welcome.ipynb</a> - Interactive tutorial</li>
+</ul>
+</section>
+<section id="troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting">🔍 Troubleshooting</h2>
+<p>If JupyterLite still doesn’t load after deployment: 1. Clear browser cache and cookies 2. Check browser console for errors (F12) 3. Verify build completed successfully in GitHub Actions 4. Ensure <code>docs/live/</code> directory contains <code>index.html</code> and <code>lab/</code> folder 5. Test locally using the build script</p>
+</section>
+<section id="future-enhancements" class="level2">
+<h2 class="anchored" data-anchor-id="future-enhancements">💡 Future Enhancements</h2>
+<ul>
+<li><strong>R Kernel Support</strong> - When xeus-r becomes stable</li>
+<li><strong>Additional Kernels</strong> - JavaScript (via xeus-javascript)</li>
+<li><strong>Pre-installed Packages</strong> - Package caching for faster loading</li>
+<li><strong>Custom Extensions</strong> - JupyterLab extensions for specific workflows</li>
+</ul>
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../playground/01_fibonacci.html" class="no-external">Just For Fun 01: Fibonacci Sequence</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../playground/01_fibonacci.html" class="no-external">Three Approaches to Computing the Famous Sequence</a>
-</div>
-<div class="delink listing-description"><a href="../playground/01_fibonacci.html" class="no-external">
-By the end of this lesson, you will be able to:
-</a></div>
-</div>
-<div class="metadata">
-<a href="../playground/01_fibonacci.html" class="no-external">
-<div class="listing-date">
-Aug 22, 2025
-</div>
-<div class="listing-author">
-OBC
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1755835200000" data-listing-file-modified-sort="1785359672488" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="454">
-<div class="thumbnail"><a href="../playground/02_stringCheese.html" class="no-external">
+</section>
+</section>
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../playground/02_stringCheese.html" class="no-external">Just For Fun 02: String Cheese Demo</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../playground/02_stringCheese.html" class="no-external">Testing the simplified lesson template</a>
-</div>
-<div class="delink listing-description"><a href="../playground/02_stringCheese.html" class="no-external">
-By the end of this lesson, you will be able to:
-</a></div>
-</div>
-<div class="metadata">
-<a href="../playground/02_stringCheese.html" class="no-external">
-<div class="listing-date">
-Aug 22, 2025
-</div>
-<div class="listing-author">
-OBC
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1756180800000" data-listing-file-modified-sort="1785359672488" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="144">
-<div class="thumbnail"><a href="../playground/03_gettingToKnowYou.html" class="no-external">
-
-<p class="card-img-top"><img src="../graphics/talking400x400.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../playground/03_gettingToKnowYou.html" class="no-external">Just For Fun 03: Getting To Know You</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../playground/03_gettingToKnowYou.html" class="no-external"></a>
-</div>
-<div class="delink listing-description"><a href="../playground/03_gettingToKnowYou.html" class="no-external">
-Choose the person sitting right next to you. Have a conversation with the person to find out who they are. Ask them about;
-</a></div>
-</div>
-<div class="metadata">
-<a href="../playground/03_gettingToKnowYou.html" class="no-external">
-<div class="listing-date">
-Aug 26, 2025
-</div>
-<div class="listing-author">
-OBC
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1756526400000" data-listing-file-modified-sort="1785359672489" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="394">
-<div class="thumbnail"><a href="../playground/04_functionCalls_squareArea.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../playground/04_functionCalls_squareArea.html" class="no-external">Just For Fun 04: Area of a Square and Function Calls</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../playground/04_functionCalls_squareArea.html" class="no-external">Exploring Python Functions and Iteration</a>
-</div>
-<div class="delink listing-description"><a href="../playground/04_functionCalls_squareArea.html" class="no-external">
-<strong>What this code does:</strong> This code defines a function <code>squareArea(s)</code> that calculates the area of a square given its side length <code>s</code>. The <code>main()</code> function acts as a driver: it prints…<strong></strong><code></code><code></code><code></code><code></code><code></code>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../playground/04_functionCalls_squareArea.html" class="no-external">
-<div class="listing-date">
-Aug 30, 2025
-</div>
-<div class="listing-author">
-OBC
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1756526400000" data-listing-file-modified-sort="1785359672489" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="856">
-<div class="thumbnail"><a href="../playground/05_functionCalls_general.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../playground/05_functionCalls_general.html" class="no-external">Just For Fun 05: Function Calls in Code</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../playground/05_functionCalls_general.html" class="no-external">Understanding Functions, Flow, and Mathematical Reasoning</a>
-</div>
-<div class="delink listing-description"><a href="../playground/05_functionCalls_general.html" class="no-external">
-By the end of this lesson, you will be able to:
-</a></div>
-</div>
-<div class="metadata">
-<a href="../playground/05_functionCalls_general.html" class="no-external">
-<div class="listing-date">
-Aug 30, 2025
-</div>
-<div class="listing-author">
-OBC
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1758513600000" data-listing-file-modified-sort="1785359672489" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1963">
-<div class="thumbnail"><a href="../playground/06_listAndDictionaries.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../playground/06_listAndDictionaries.html" class="no-external">Just For Fun 06: Lists and Dictionaries</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../playground/06_listAndDictionaries.html" class="no-external">Organizing and Managing Data with Python Collections</a>
-</div>
-<div class="delink listing-description"><a href="../playground/06_listAndDictionaries.html" class="no-external">
-By the end of this lesson, you will be able to:
-</a></div>
-</div>
-<div class="metadata">
-<a href="../playground/06_listAndDictionaries.html" class="no-external">
-<div class="listing-date">
-Sep 22, 2025
-</div>
-<div class="listing-author">
-OBC
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-listing-file-modified-sort="1785359672490">
-<div class="thumbnail"><a href="../playground/squareArea.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../playground/squareArea.html" class="no-external"></a>
-</h3>
-<div class="listing-subtitle">
-<a href="../playground/squareArea.html" class="no-external"></a>
-</div>
-<div class="delink listing-description"><a href="../playground/squareArea.html" class="no-external">
-
-</a></div>
-</div>
-<div class="metadata">
-<a href="../playground/squareArea.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
