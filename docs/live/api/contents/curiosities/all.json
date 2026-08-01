@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-08-01T02:46:38.534682Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-07-31T17:44:24.394020Z",
+      "mimetype": null,
+      "name": "hammingCodes.ipynb",
+      "path": "curiosities/hammingCodes.ipynb",
+      "size": 8707,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-08-01T02:46:38.535887Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-07-31T17:44:24.394265Z",
+      "mimetype": null,
+      "name": "perform-timing-experiments.ipynb",
+      "path": "curiosities/perform-timing-experiments.ipynb",
+      "size": 2812,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-08-01T02:46:38.532240Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-07-31T17:44:24.393234Z",
+      "mimetype": null,
+      "name": "00-install-packages.ipynb",
+      "path": "curiosities/00-install-packages.ipynb",
+      "size": 1882,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-08-01T02:46:38.533444Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-07-31T17:44:24.393793Z",
+      "mimetype": null,
+      "name": "compute-average-with-file.ipynb",
+      "path": "curiosities/compute-average-with-file.ipynb",
+      "size": 2882,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-08-01T02:46:38.535228Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-08-01T02:46:38.535228Z",
+  "mimetype": null,
+  "name": "curiosities",
+  "path": "curiosities",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}
