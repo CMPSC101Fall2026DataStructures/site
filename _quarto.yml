@@ -1,6 +1,15 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "*.qmd"
+    - "*.md"
+    - "playground/*.qmd"
+    - "materials/*.qmd"
+  resources:
+    - materials/files/**
+    - logo.png
+    - graphics/**
 
 website:
   title: "CMPSC101 Fall 2026 :: DataStructures"
