@@ -42,12 +42,15 @@ Th 2:30 PM - 4:00 PM
 &#x200B;
 </center>
 
+### Quick Links
+
+- [Token Form ](https://docs.google.com/forms/d/e/1FAIpQLSeV9T-m43aq0Cf9IpZfFTwDte3wTx4kc5KPwW4i1rY6zDNYZQ/viewform?usp=publish-editor) for Automatic Extension
+
+- The website for this class is located at;
+<a href="https://dodatascience.com/" target="_blank">https://dodatastructures.com/</a>
 
 <!-- ![A vibrant digital tree with glowing branches and roots, surrounded by colorful flowers and butterflies in a nighttime setting. The tree canopy is filled with binary numbers such as 101011, 10104, 51, 10104, 101011, 12131, 0501, and 01, which are integrated into the leaves and branches. The environment features cascading streams of blue and teal data, creating a magical and energetic atmosphere that evokes curiosity and wonder.] -->
 
-## Quick Info
-
-+ [Token Form for Automatic Extension](https://docs.google.com/forms/d/e/1FAIpQLSeV9T-m43aq0Cf9IpZfFTwDte3wTx4kc5KPwW4i1rY6zDNYZQ/viewform?usp=publish-editor)
 
 + Technical Leaders Schedule
 
