@@ -1,0 +1,264 @@
+---
+title: "Just For Fun 07: Prime Numbers and Calculations"
+subtitle: "Finding Primes with Trial Division and the Sieve of Eratosthenes"
+date: "20 Aug 2026"
+author: "OBC"
+format: 
+  html:
+    toc: true
+    toc-depth: 2
+    code-fold: false
+    css: 
+      - ../shared/lesson-styles.css
+    include-in-header:
+      - text: |
+          <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    include-after-body:
+      - text: |
+          <script src="../shared/lesson-python.js"></script>
+---
+
+::: {.callout-note icon="🎯"}
+## Lesson Objectives
+By the end of this lesson, you will be able to:
+
+- [ ] Test whether a number is prime using trial division
+- [ ] Generate a list of primes using the Sieve of Eratosthenes
+- [ ] Calculate simple statistics (count, sum, average) about a set of numbers
+- [ ] Search for twin primes
+:::
+
+## Introduction
+
+Prime numbers -- whole numbers greater than 1 with no divisors other than 1 and themselves -- are a cornerstone of mathematics and computer science (they're even the basis for modern cryptography!). In this lesson we'll write two different algorithms to find primes, and use them to calculate some fun statistics.
+
+## Key Concepts
+
+::: {.lesson-concept}
+::: {.concept-title}
+💡 **Concept 1: Trial Division**
+:::
+The simplest way to test if `n` is prime is to check whether any number from 2 up to the square root of `n` divides it evenly.
+
+**Example:**
+```python
+# Is 17 prime? Check divisors 2..4 (sqrt(17) ≈ 4.1)
+# None of 2, 3, 4 divide 17 evenly, so 17 is prime
+```
+:::
+
+::: {.lesson-concept}
+::: {.concept-title}
+💡 **Concept 2: Sieve of Eratosthenes**
+:::
+Instead of testing each number one at a time, the sieve marks off multiples of each prime it finds, starting from 2. This is much faster when you need *many* primes at once.
+
+**Example:**
+```python
+# Start: 2 3 4 5 6 7 8 9 10
+# Mark multiples of 2: 4 6 8 10 are not prime
+# Mark multiples of 3: 6 9 are not prime
+# What's left (2 3 5 7) are all prime
+```
+:::
+
+## Interactive Examples
+
+### Example 1: Trial Division Primality Test
+
+::: {.code-explanation}
+**What this code does:** This defines `is_prime()`, which checks divisibility only up to the square root of `n` for efficiency, then uses it to list all primes below 50.
+:::
+
+**Example Code:**
+```python
+def is_prime(n):
+    """Return True if n is a prime number"""
+    if n < 2:
+        return False
+    for divisor in range(2, int(n ** 0.5) + 1):
+        if n % divisor == 0:
+            return False
+    return True
+
+primes_under_50 = [n for n in range(2, 50) if is_prime(n)]
+print("Primes under 50:")
+print(primes_under_50)
+```
+
+<div id="lesson-terminal-1" class="lesson-terminal">
+  <div class="python-prompt">&gt;&gt;&gt; </div>
+  <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
+</div>
+
+<textarea id="lesson-input-1" class="lesson-input" rows="10" placeholder="# Copy the code above or write your own...">def is_prime(n):
+    """Return True if n is a prime number"""
+    if n < 2:
+        return False
+    for divisor in range(2, int(n ** 0.5) + 1):
+        if n % divisor == 0:
+            return False
+    return True
+
+primes_under_50 = [n for n in range(2, 50) if is_prime(n)]
+print("Primes under 50:")
+print(primes_under_50)</textarea>
+
+<div class="lesson-buttons">
+  <button onclick="runLessonCode(1)" class="run-btn">▶ Run Code</button>
+  <button onclick="clearLessonTerminal(1)" class="clear-btn">🗑 Clear</button>
+  <button onclick="increaseFontSize()" class="example-btn">🔍+ Larger Font</button>
+  <button onclick="decreaseFontSize()" class="example-btn">🔍- Smaller Font</button>
+</div>
+
+### Example 2: Sieve of Eratosthenes
+
+::: {.code-explanation}
+**What this code does:** This builds a list of booleans marking each number as prime or not, then crosses off multiples of every prime it finds. It's a fast way to gather *all* primes up to a limit at once.
+:::
+
+**Example Code:**
+```python
+def sieve_of_eratosthenes(limit):
+    """Return a list of all primes up to (and including) limit"""
+    is_prime_flags = [True] * (limit + 1)
+    is_prime_flags[0] = is_prime_flags[1] = False
+
+    for number in range(2, int(limit ** 0.5) + 1):
+        if is_prime_flags[number]:
+            for multiple in range(number * number, limit + 1, number):
+                is_prime_flags[multiple] = False
+
+    return [n for n, flag in enumerate(is_prime_flags) if flag]
+
+primes = sieve_of_eratosthenes(100)
+print(f"Found {len(primes)} primes up to 100:")
+print(primes)
+```
+
+<div id="lesson-terminal-2" class="lesson-terminal">
+  <div class="python-prompt">&gt;&gt;&gt; </div>
+  <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
+</div>
+
+<textarea id="lesson-input-2" class="lesson-input" rows="14" placeholder="# Copy the code above or write your own...">def sieve_of_eratosthenes(limit):
+    """Return a list of all primes up to (and including) limit"""
+    is_prime_flags = [True] * (limit + 1)
+    is_prime_flags[0] = is_prime_flags[1] = False
+
+    for number in range(2, int(limit ** 0.5) + 1):
+        if is_prime_flags[number]:
+            for multiple in range(number * number, limit + 1, number):
+                is_prime_flags[multiple] = False
+
+    return [n for n, flag in enumerate(is_prime_flags) if flag]
+
+primes = sieve_of_eratosthenes(100)
+print(f"Found {len(primes)} primes up to 100:")
+print(primes)</textarea>
+
+<div class="lesson-buttons">
+  <button onclick="runLessonCode(2)" class="run-btn">▶ Run Code</button>
+  <button onclick="clearLessonTerminal(2)" class="clear-btn">🗑 Clear</button>
+</div>
+
+### Example 3: Prime Statistics and Twin Primes
+
+::: {.code-explanation}
+**What this code does:** Using the sieve from Example 2, this code calculates the count, sum, and average of primes below 100, then finds "twin primes" -- pairs of primes that differ by exactly 2 (like 11 and 13).
+:::
+
+**Example Code:**
+```python
+def sieve_of_eratosthenes(limit):
+    is_prime_flags = [True] * (limit + 1)
+    is_prime_flags[0] = is_prime_flags[1] = False
+    for number in range(2, int(limit ** 0.5) + 1):
+        if is_prime_flags[number]:
+            for multiple in range(number * number, limit + 1, number):
+                is_prime_flags[multiple] = False
+    return [n for n, flag in enumerate(is_prime_flags) if flag]
+
+primes = sieve_of_eratosthenes(100)
+
+count = len(primes)
+total = sum(primes)
+average = total / count
+
+print(f"Count: {count}")
+print(f"Sum: {total}")
+print(f"Average: {average:.2f}")
+
+twin_primes = [(p, p + 2) for p in primes if (p + 2) in primes]
+print("\nTwin primes below 100:")
+print(twin_primes)
+```
+
+<div id="lesson-terminal-3" class="lesson-terminal">
+  <div class="python-prompt">&gt;&gt;&gt; </div>
+  <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
+</div>
+
+<textarea id="lesson-input-3" class="lesson-input" rows="18" placeholder="# Copy the code above or write your own...">def sieve_of_eratosthenes(limit):
+    is_prime_flags = [True] * (limit + 1)
+    is_prime_flags[0] = is_prime_flags[1] = False
+    for number in range(2, int(limit ** 0.5) + 1):
+        if is_prime_flags[number]:
+            for multiple in range(number * number, limit + 1, number):
+                is_prime_flags[multiple] = False
+    return [n for n, flag in enumerate(is_prime_flags) if flag]
+
+primes = sieve_of_eratosthenes(100)
+
+count = len(primes)
+total = sum(primes)
+average = total / count
+
+print(f"Count: {count}")
+print(f"Sum: {total}")
+print(f"Average: {average:.2f}")
+
+twin_primes = [(p, p + 2) for p in primes if (p + 2) in primes]
+print("\nTwin primes below 100:")
+print(twin_primes)</textarea>
+
+<div class="lesson-buttons">
+  <button onclick="runLessonCode(3)" class="run-btn">▶ Run Code</button>
+  <button onclick="clearLessonTerminal(3)" class="clear-btn">🗑 Clear</button>
+</div>
+
+## Challenge Yourself
+
+::: {.challenge-box}
+**Challenge Tasks:**
+
+1. **Time both methods** (trial division vs. sieve) for finding all primes below 10,000 -- which is faster?
+2. **Write a function** that finds the *nth* prime number
+3. **Search for prime gaps**: find the largest gap between consecutive primes below 1000
+4. **Research question**: What is the Goldbach Conjecture, and how could you test it in code for small even numbers?
+
+Use any of the terminals above to experiment with these challenges!
+:::
+
+## Summary
+
+::: {.callout-tip icon="✅"}
+## What You Learned
+
+In this lesson, you explored two classic ways to find prime numbers:
+
+- **Trial Division**: Simple and intuitive, checks one number at a time
+- **Sieve of Eratosthenes**: Efficient for finding *many* primes at once
+- **Basic Statistics**: Counting, summing, and averaging a list of numbers
+- **Twin Primes**: A fun pattern-search using the primes you generated
+:::
+
+---
+
+::: {.callout-note icon="📖"}
+## Additional Resources
+
+- [Prime Numbers](https://www.mathsisfun.com/prime-composite-number.html)
+- [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
+- [Twin Prime Conjecture](https://en.wikipedia.org/wiki/Twin_prime)
+:::

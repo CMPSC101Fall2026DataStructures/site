@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,16 @@
 
 <title>Just For Fun 01: Fibonacci Sequence – CMPSC101 Fall 2026 :: DataStructures</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -73,10 +79,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-445b8638c3d06994fee0907d791121c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -167,6 +173,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts">Key Concepts</a></li>
   <li><a href="#interactive-examples" id="toc-interactive-examples" class="nav-link" data-scroll-target="#interactive-examples">Interactive Examples</a></li>
+  <li><a href="#challenge-yourself" id="toc-challenge-yourself" class="nav-link" data-scroll-target="#challenge-yourself">Challenge Yourself</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
   </ul>
 </nav>
     </div>
@@ -211,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Lesson Objectives
+<span class="screen-reader-only">Note</span>Lesson Objectives
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -239,10 +248,10 @@ Lesson Objectives
 - F(n) = F(n-1) + F(n-2) for n &gt; 1</p>
 <p>This recursive definition leads naturally to our first implementation approach.</p>
 <p><strong>Example:</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mathematical definition</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mathematical definition</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># F(5) = F(4) + F(3) = 5</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># F(4) = F(3) + F(2) = 3 </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># F(3) = F(2) + F(1) = 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># F(3) = F(2) + F(1) = 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="lesson-concept">
 <div class="concept-title">
@@ -250,21 +259,21 @@ Lesson Objectives
 </div>
 <p>Different algorithms have different time complexities: - <strong>Recursive</strong>: O(2^n) - exponential, very slow for large n - <strong>Iterative</strong>: O(n) - linear, efficient for reasonable n - <strong>Binet’s Formula</strong>: O(1) - constant time, but limited by floating-point precision</p>
 <p><strong>Example:</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Time comparison for F(40):</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Time comparison for F(40):</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Recursive: ~1.6 billion operations</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Iterative: ~40 operations  </span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Binet's: ~5 operations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Binet's: ~5 operations</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="interactive-examples" class="level2">
 <h2 class="anchored" data-anchor-id="interactive-examples">Interactive Examples</h2>
 <section id="example-1-recursive-fibonacci" class="level3">
-<h3 class="anchored">Example 1: Recursive Fibonacci</h3>
+<h3 class="anchored" data-anchor-id="example-1-recursive-fibonacci">Example 1: Recursive Fibonacci</h3>
 <div class="code-explanation">
 <p><strong>What this code does:</strong> This implements the mathematical definition directly using recursion. Each function call splits into two more calls, creating a tree-like computation structure. While elegant, it’s very inefficient for large numbers.</p>
 </div>
 <p><strong>Example Code:</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fibonacci_recursive(n):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fibonacci_recursive(n):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Calculate Fibonacci number using recursion"""</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">&lt;=</span> <span class="dv">1</span>:</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> n</span>
@@ -272,19 +281,14 @@ Lesson Objectives
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Test with small numbers (try 10, 15, 20)</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">11</span>):</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'F(</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">) = </span><span class="sc">{</span>fibonacci_recursive(i)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'F(</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">) = </span><span class="sc">{</span>fibonacci_recursive(i)<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="lesson-terminal-1" class="lesson-terminal">
 <div class="python-prompt">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-</blockquote></blockquote></blockquote></div>
+&gt;&gt;&gt;
+</div>
 <div style="color: var(--golden-yellow); font-style: italic;">
 Loading Python interpreter…
 </div>
-
-
-
 </div>
 <textarea id="lesson-input-1" class="lesson-input" rows="6" placeholder="# Copy the code above or write your own...">def fibonacci_recursive(n):
     """Calculate Fibonacci number using recursion"""
@@ -298,13 +302,14 @@ for i in range(11):
 <div class="lesson-buttons">
 <p><button onclick="runLessonCode(1)" class="run-btn">▶ Run Code</button> <button onclick="clearLessonTerminal(1)" class="clear-btn">🗑 Clear</button> <button onclick="increaseFontSize()" class="example-btn">🔍+ Larger Font</button> <button onclick="decreaseFontSize()" class="example-btn">🔍- Smaller Font</button></p>
 </div>
+</section>
 <section id="example-2-iterative-fibonacci" class="level3">
-<h3 class="anchored">Example 2: Iterative Fibonacci</h3>
+<h3 class="anchored" data-anchor-id="example-2-iterative-fibonacci">Example 2: Iterative Fibonacci</h3>
 <div class="code-explanation">
 <p><strong>What this code does:</strong> This approach builds up the sequence from the bottom, keeping track of only the last two numbers. It’s much more efficient than recursion, using O(n) time and O(1) space.</p>
 </div>
 <p><strong>Example Code:</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fibonacci_iterative(n):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fibonacci_iterative(n):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Calculate Fibonacci number using iteration"""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">&lt;=</span> <span class="dv">1</span>:</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> n</span>
@@ -321,19 +326,14 @@ for i in range(11):
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the sequence</span></span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">First 20 Fibonacci numbers:"</span>)</span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>fib_sequence <span class="op">=</span> [fibonacci_iterative(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">20</span>)]</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fib_sequence)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fib_sequence)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="lesson-terminal-2" class="lesson-terminal">
 <div class="python-prompt">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-</blockquote></blockquote></blockquote></div>
+&gt;&gt;&gt;
+</div>
 <div style="color: var(--golden-yellow); font-style: italic;">
 Loading Python interpreter…
 </div>
-
-
-
 </div>
 <textarea id="lesson-input-2" class="lesson-input" rows="8" placeholder="# Copy the code above or write your own...">def fibonacci_iterative(n):
     """Calculate Fibonacci number using iteration"""
@@ -356,13 +356,14 @@ print(fib_sequence)</textarea>
 <div class="lesson-buttons">
 <p><button onclick="runLessonCode(2)" class="run-btn">▶ Run Code</button> <button onclick="clearLessonTerminal(2)" class="clear-btn">🗑 Clear</button></p>
 </div>
+</section>
 <section id="example-3-binets-formula" class="level3">
-<h3 class="anchored">Example 3: Binet’s Formula</h3>
+<h3 class="anchored" data-anchor-id="example-3-binets-formula">Example 3: Binet’s Formula</h3>
 <div class="code-explanation">
 <p><strong>What this code does:</strong> This uses Binet’s closed-form formula to calculate Fibonacci numbers directly using the golden ratio. It’s mathematically elegant and theoretically O(1), but limited by floating-point precision for very large numbers.</p>
 </div>
 <p><strong>Example Code:</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fibonacci_binet(n):</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Calculate Fibonacci number using Binet's formula"""</span></span>
@@ -388,19 +389,14 @@ print(fib_sequence)</textarea>
 <span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    binet_result <span class="op">=</span> fibonacci_binet(i)</span>
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    iterative_result <span class="op">=</span> fibonacci_iterative(i)</span>
 <span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    match <span class="op">=</span> <span class="st">"✓"</span> <span class="cf">if</span> binet_result <span class="op">==</span> iterative_result <span class="cf">else</span> <span class="st">"✗"</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'F(</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">): Binet=</span><span class="sc">{</span>binet_result<span class="sc">}</span><span class="ss">, Iterative=</span><span class="sc">{</span>iterative_result<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>match<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'F(</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">): Binet=</span><span class="sc">{</span>binet_result<span class="sc">}</span><span class="ss">, Iterative=</span><span class="sc">{</span>iterative_result<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>match<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="lesson-terminal-3" class="lesson-terminal">
 <div class="python-prompt">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-</blockquote></blockquote></blockquote></div>
+&gt;&gt;&gt;
+</div>
 <div style="color: var(--golden-yellow); font-style: italic;">
 Loading Python interpreter…
 </div>
-
-
-
 </div>
 <textarea id="lesson-input-3" class="lesson-input" rows="10" placeholder="# Copy the code above or write your own...">import math
 
@@ -432,13 +428,15 @@ for i in [20, 30, 40, 50]:
 <div class="lesson-buttons">
 <p><button onclick="runLessonCode(3)" class="run-btn">▶ Run Code</button> <button onclick="clearLessonTerminal(3)" class="clear-btn">🗑 Clear</button></p>
 </div>
+</section>
+</section>
 <section id="challenge-yourself" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-yourself">Challenge Yourself</h2>
 <section id="performance-comparison-challenge" class="level3">
-<h3 class="anchored">Performance Comparison Challenge</h3>
+<h3 class="anchored" data-anchor-id="performance-comparison-challenge">Performance Comparison Challenge</h3>
 <p>Now that you’ve seen all three methods, let’s compare their performance! Try running this timing comparison to see the dramatic differences between approaches:</p>
 <p><strong>Challenge Code:</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Time comparison for different methods</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> time_function(func, n):</span>
@@ -466,19 +464,14 @@ for i in [20, 30, 40, 50]:
 <span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">🎯 Challenge: Try changing test_n to see how each method scales!"</span>)</span>
 <span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"   - Iterative &amp; Binet's can handle n=50+ easily"</span>)</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"   - Recursive becomes very slow after n=35"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"   - Recursive becomes very slow after n=35"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="lesson-terminal-4" class="lesson-terminal">
 <div class="python-prompt">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-</blockquote></blockquote></blockquote></div>
+&gt;&gt;&gt;
+</div>
 <div style="color: var(--golden-yellow); font-style: italic;">
 Loading Python interpreter…
 </div>
-
-
-
 </div>
 <textarea id="lesson-input-4" class="lesson-input" rows="12" placeholder="# Copy the code above or write your own...">import time
 
@@ -513,6 +506,7 @@ print("   - Recursive becomes very slow after n=35")</textarea>
 <div class="lesson-buttons">
 <p><button onclick="runLessonCode(4)" class="run-btn">▶ Run Code</button> <button onclick="clearLessonTerminal(4)" class="clear-btn">🗑 Clear</button></p>
 </div>
+</section>
 <section id="your-turn" class="level3">
 <h3 class="anchored" data-anchor-id="your-turn">Your Turn!</h3>
 <div class="challenge-box">
@@ -526,6 +520,7 @@ print("   - Recursive becomes very slow after n=35")</textarea>
 <p>Use any of the terminals above to experiment with these challenges!</p>
 </div>
 </section>
+</section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -534,7 +529,7 @@ print("   - Recursive becomes very slow after n=35")</textarea>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-What You Learned
+<span class="screen-reader-only">Tip</span>What You Learned
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -560,7 +555,7 @@ What You Learned
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Additional Resources
+<span class="screen-reader-only">Note</span>Additional Resources
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -574,18 +569,8 @@ Additional Resources
 
 
 </section>
-</section></section></section></section></section></section></main></div>
 
-
-
-
-
-
-
-
-
-
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -637,13 +622,14 @@ Additional Resources
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -985,7 +971,7 @@ Additional Resources
     }
   });
   </script>
- <!-- /content -->
+</div> <!-- /content -->
 <script src="../shared/lesson-python.js"></script>
 
 

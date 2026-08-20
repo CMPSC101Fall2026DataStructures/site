@@ -1,0 +1,293 @@
+---
+title: "Just For Fun 09: Text-Based Graphics"
+subtitle: "Drawing Patterns, Bar Charts, and Fractals with Loops"
+date: "20 Aug 2026"
+author: "OBC"
+format: 
+  html:
+    toc: true
+    toc-depth: 2
+    code-fold: false
+    css: 
+      - ../shared/lesson-styles.css
+    include-in-header:
+      - text: |
+          <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    include-after-body:
+      - text: |
+          <script src="../shared/lesson-python.js"></script>
+---
+
+::: {.callout-note icon="🎯"}
+## Lesson Objectives
+By the end of this lesson, you will be able to:
+
+- [ ] Use nested loops to draw simple patterns with characters
+- [ ] Build a text-based bar chart from a list of data
+- [ ] Draw a checkerboard pattern
+- [ ] Generate a fractal-like pattern with recursion
+:::
+
+## Introduction
+
+You don't need a graphics library to make interesting visuals -- plain text and loops can go a long way! This lesson explores "ASCII art": using characters like `*` and spaces, arranged carefully, to create pyramids, bar charts, checkerboards, and even a simple fractal.
+
+## Key Concepts
+
+::: {.lesson-concept}
+::: {.concept-title}
+💡 **Concept 1: Nested Loops for Patterns**
+:::
+Drawing a 2D pattern usually means an outer loop for rows and an inner loop for columns, deciding what character to print at each position.
+
+**Example:**
+```python
+# For a pyramid of height 3:
+#   *
+#  ***
+# *****
+```
+:::
+
+::: {.lesson-concept}
+::: {.concept-title}
+💡 **Concept 2: Data as Pictures**
+:::
+A list of numbers can be turned into a simple bar chart by printing a proportional number of characters for each value -- no plotting library required.
+
+**Example:**
+```python
+# [3, 7, 2] becomes:
+# ***
+# *******
+# **
+```
+:::
+
+## Interactive Examples
+
+### Example 1: A Pyramid of Stars
+
+::: {.code-explanation}
+**What this code does:** This code draws a centered pyramid using nested loops: the outer loop controls the row, and the inner loops print leading spaces followed by an odd number of stars.
+:::
+
+**Example Code:**
+```python
+def draw_pyramid(height):
+    """Print a centered pyramid of the given height"""
+    for row in range(1, height + 1):
+        spaces = " " * (height - row)
+        stars = "*" * (2 * row - 1)
+        print(spaces + stars)
+
+print("A pyramid with height 6:")
+draw_pyramid(6)
+```
+
+<div id="lesson-terminal-1" class="lesson-terminal">
+  <div class="python-prompt">&gt;&gt;&gt; </div>
+  <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
+</div>
+
+<textarea id="lesson-input-1" class="lesson-input" rows="10" placeholder="# Copy the code above or write your own...">def draw_pyramid(height):
+    """Print a centered pyramid of the given height"""
+    for row in range(1, height + 1):
+        spaces = " " * (height - row)
+        stars = "*" * (2 * row - 1)
+        print(spaces + stars)
+
+print("A pyramid with height 6:")
+draw_pyramid(6)</textarea>
+
+<div class="lesson-buttons">
+  <button onclick="runLessonCode(1)" class="run-btn">▶ Run Code</button>
+  <button onclick="clearLessonTerminal(1)" class="clear-btn">🗑 Clear</button>
+  <button onclick="increaseFontSize()" class="example-btn">🔍+ Larger Font</button>
+  <button onclick="decreaseFontSize()" class="example-btn">🔍- Smaller Font</button>
+</div>
+
+### Example 2: A Text-Based Bar Chart
+
+::: {.code-explanation}
+**What this code does:** This code turns a dictionary of labeled values into a simple horizontal bar chart, printing one row of asterisks per label with a length proportional to its value.
+:::
+
+**Example Code:**
+```python
+def draw_bar_chart(data):
+    """Print a simple horizontal bar chart from a dict of label -> value"""
+    max_label_length = max(len(label) for label in data)
+    for label, value in data.items():
+        bar = "*" * value
+        print(f"{label.rjust(max_label_length)} | {bar} ({value})")
+
+sales = {
+    "Mon": 3,
+    "Tue": 7,
+    "Wed": 2,
+    "Thu": 9,
+    "Fri": 5,
+}
+
+print("Sales this week:")
+draw_bar_chart(sales)
+```
+
+<div id="lesson-terminal-2" class="lesson-terminal">
+  <div class="python-prompt">&gt;&gt;&gt; </div>
+  <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
+</div>
+
+<textarea id="lesson-input-2" class="lesson-input" rows="16" placeholder="# Copy the code above or write your own...">def draw_bar_chart(data):
+    """Print a simple horizontal bar chart from a dict of label -> value"""
+    max_label_length = max(len(label) for label in data)
+    for label, value in data.items():
+        bar = "*" * value
+        print(f"{label.rjust(max_label_length)} | {bar} ({value})")
+
+sales = {
+    "Mon": 3,
+    "Tue": 7,
+    "Wed": 2,
+    "Thu": 9,
+    "Fri": 5,
+}
+
+print("Sales this week:")
+draw_bar_chart(sales)</textarea>
+
+<div class="lesson-buttons">
+  <button onclick="runLessonCode(2)" class="run-btn">▶ Run Code</button>
+  <button onclick="clearLessonTerminal(2)" class="clear-btn">🗑 Clear</button>
+</div>
+
+### Example 3: A Checkerboard Pattern
+
+::: {.code-explanation}
+**What this code does:** This alternates between two characters based on whether the sum of the row and column index is even or odd, producing a classic checkerboard look.
+:::
+
+**Example Code:**
+```python
+def draw_checkerboard(size):
+    """Print a size x size checkerboard pattern"""
+    for row in range(size):
+        line = ""
+        for col in range(size):
+            line += "#" if (row + col) % 2 == 0 else "."
+        print(line)
+
+print("An 8x8 checkerboard:")
+draw_checkerboard(8)
+```
+
+<div id="lesson-terminal-3" class="lesson-terminal">
+  <div class="python-prompt">&gt;&gt;&gt; </div>
+  <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
+</div>
+
+<textarea id="lesson-input-3" class="lesson-input" rows="10" placeholder="# Copy the code above or write your own...">def draw_checkerboard(size):
+    """Print a size x size checkerboard pattern"""
+    for row in range(size):
+        line = ""
+        for col in range(size):
+            line += "#" if (row + col) % 2 == 0 else "."
+        print(line)
+
+print("An 8x8 checkerboard:")
+draw_checkerboard(8)</textarea>
+
+<div class="lesson-buttons">
+  <button onclick="runLessonCode(3)" class="run-btn">▶ Run Code</button>
+  <button onclick="clearLessonTerminal(3)" class="clear-btn">🗑 Clear</button>
+</div>
+
+### Example 4: A Simple Fractal Pattern (Recursive Sierpinski Triangle)
+
+::: {.code-explanation}
+**What this code does:** This uses recursion to build a Sierpinski-like triangle out of text characters: a grid is repeatedly subdivided, and cells are shaded based on a bitwise pattern (Pascal's triangle mod 2), producing a fractal look.
+:::
+
+**Example Code:**
+```python
+def sierpinski_row(row, width):
+    """Build one row of a Sierpinski triangle using Pascal's triangle mod 2"""
+    line = ""
+    value = 1
+    for col in range(width):
+        line += "*" if value % 2 == 1 else " "
+        # Update value using Pascal's triangle relationship (approximate visual)
+        value = value * (row - col) // (col + 1) if col < row else 0
+    return line
+
+def draw_sierpinski(height):
+    for row in range(height):
+        print(sierpinski_row(row, height).center(height * 2))
+
+print("A Sierpinski-style triangle:")
+draw_sierpinski(16)
+```
+
+<div id="lesson-terminal-4" class="lesson-terminal">
+  <div class="python-prompt">&gt;&gt;&gt; </div>
+  <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
+</div>
+
+<textarea id="lesson-input-4" class="lesson-input" rows="16" placeholder="# Copy the code above or write your own...">def sierpinski_row(row, width):
+    """Build one row of a Sierpinski triangle using Pascal's triangle mod 2"""
+    line = ""
+    value = 1
+    for col in range(width):
+        line += "*" if value % 2 == 1 else " "
+        # Update value using Pascal's triangle relationship (approximate visual)
+        value = value * (row - col) // (col + 1) if col < row else 0
+    return line
+
+def draw_sierpinski(height):
+    for row in range(height):
+        print(sierpinski_row(row, height).center(height * 2))
+
+print("A Sierpinski-style triangle:")
+draw_sierpinski(16)</textarea>
+
+<div class="lesson-buttons">
+  <button onclick="runLessonCode(4)" class="run-btn">▶ Run Code</button>
+  <button onclick="clearLessonTerminal(4)" class="clear-btn">🗑 Clear</button>
+</div>
+
+## Challenge Yourself
+
+::: {.challenge-box}
+**Challenge Tasks:**
+
+1. **Modify `draw_pyramid()`** to draw an hourglass shape (pyramid + upside-down pyramid)
+2. **Add color-coded bars** to the bar chart by using different characters for values above/below the average
+3. **Make the checkerboard configurable** with two custom characters passed in as arguments
+4. **Research question**: What other famous fractals (like the Koch snowflake) could be approximated with text characters?
+
+Use any of the terminals above to experiment with these challenges!
+:::
+
+## Summary
+
+::: {.callout-tip icon="✅"}
+## What You Learned
+
+In this lesson, you created text-based graphics using only loops, strings, and a little recursion:
+
+- **Pyramids**: Nested loops with spaces and stars
+- **Bar Charts**: Turning numeric data into visual proportions
+- **Checkerboards**: Alternating patterns based on row/column parity
+- **Fractals**: Recursive structure revealing surprising visual complexity
+:::
+
+---
+
+::: {.callout-note icon="📖"}
+## Additional Resources
+
+- [ASCII Art Basics](https://en.wikipedia.org/wiki/ASCII_art)
+- [Sierpinski Triangle](https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle)
+- [Pascal's Triangle](https://www.mathsisfun.com/pascals-triangle.html)
+:::

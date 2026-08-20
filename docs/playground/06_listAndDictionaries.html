@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,16 @@
 
 <title>Just For Fun 06: Lists and Dictionaries – CMPSC101 Fall 2026 :: DataStructures</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -73,10 +79,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-445b8638c3d06994fee0907d791121c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -169,7 +175,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#interactive-examples" id="toc-interactive-examples" class="nav-link" data-scroll-target="#interactive-examples">Interactive Examples</a>
   <ul class="collapse">
   <li><a href="#example-1-working-with-lists" id="toc-example-1-working-with-lists" class="nav-link" data-scroll-target="#example-1-working-with-lists">Example 1: Working with Lists</a></li>
+  <li><a href="#example-2-dictionary-basics-and-key-value-storage" id="toc-example-2-dictionary-basics-and-key-value-storage" class="nav-link" data-scroll-target="#example-2-dictionary-basics-and-key-value-storage">Example 2: Dictionary Basics and Key-Value Storage</a></li>
+  <li><a href="#example-3-student-grade-management-system" id="toc-example-3-student-grade-management-system" class="nav-link" data-scroll-target="#example-3-student-grade-management-system">Example 3: Student Grade Management System</a></li>
   </ul></li>
+  <li><a href="#challenge-yourself" id="toc-challenge-yourself" class="nav-link" data-scroll-target="#challenge-yourself">Challenge Yourself</a>
+  <ul class="collapse">
+  <li><a href="#word-frequency-counter" id="toc-word-frequency-counter" class="nav-link" data-scroll-target="#word-frequency-counter">Word Frequency Counter</a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your Turn!</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
   </ul>
 </nav>
     </div>
@@ -214,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Lesson Objectives
+<span class="screen-reader-only">Note</span>Lesson Objectives
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -244,10 +259,10 @@ Lesson Objectives
 </div>
 <p>Lists are ordered, mutable collections that can store multiple items. Items in a list are accessed by their position (index), starting from 0.</p>
 <p><strong>Example:</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a list with three string elements</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a list with three string elements</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span>]</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Access the first element (index 0) and print it</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruits[<span class="dv">0</span>])  <span class="co"># Outputs: apple</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruits[<span class="dv">0</span>])  <span class="co"># Outputs: apple</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="lesson-concept">
 <div class="concept-title">
@@ -255,21 +270,21 @@ Lesson Objectives
 </div>
 <p>Dictionaries store data as key-value pairs. Instead of using numeric indices, you use meaningful keys to access values quickly.</p>
 <p><strong>Example:</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a dictionary with string keys and mixed value types</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a dictionary with string keys and mixed value types</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>student <span class="op">=</span> {<span class="st">"name"</span>: <span class="st">"Alice"</span>, <span class="st">"age"</span>: <span class="dv">20</span>, <span class="st">"grade"</span>: <span class="st">"A"</span>}</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Access the value associated with the "name" key</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(student[<span class="st">"name"</span>])  <span class="co"># Outputs: Alice</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(student[<span class="st">"name"</span>])  <span class="co"># Outputs: Alice</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="interactive-examples" class="level2">
 <h2 class="anchored" data-anchor-id="interactive-examples">Interactive Examples</h2>
 <section id="example-1-working-with-lists" class="level3">
-<h3 class="anchored">Example 1: Working with Lists</h3>
+<h3 class="anchored" data-anchor-id="example-1-working-with-lists">Example 1: Working with Lists</h3>
 <div class="code-explanation">
 <p><strong>What this code does:</strong> This example demonstrates how to create a list, add items to it, and access elements by their index position.</p>
 </div>
 <p><strong>Example Code:</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty list to store color names</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty list to store color names</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> []</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add individual items to the end of the list using append()</span></span>
@@ -284,19 +299,14 @@ Lesson Objectives
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Add multiple items at once using extend()</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>colors.extend([<span class="st">"yellow"</span>, <span class="st">"purple"</span>])</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Updated list:"</span>, colors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Updated list:"</span>, colors)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="lesson-terminal-1" class="lesson-terminal">
 <div class="python-prompt">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-</blockquote></blockquote></blockquote></div>
+&gt;&gt;&gt;
+</div>
 <div style="color: var(--golden-yellow); font-style: italic;">
 Loading Python interpreter…
 </div>
-
-
-
 </div>
 <textarea id="lesson-input-1" class="lesson-input" rows="12" placeholder="# Copy the code above or write your own..."># Create an empty list to store color names
 colors = []
@@ -317,13 +327,14 @@ print("Updated list:", colors)</textarea>
 <div class="lesson-buttons">
 <p><button onclick="runLessonCode(1)" class="run-btn">▶ Run Code</button> <button onclick="clearLessonTerminal(1)" class="clear-btn">🗑 Clear</button> <button onclick="increaseFontSize()" class="example-btn">🔍+ Larger Font</button> <button onclick="decreaseFontSize()" class="example-btn">🔍- Smaller Font</button></p>
 </div>
+</section>
 <section id="example-2-dictionary-basics-and-key-value-storage" class="level3">
-<h3 class="anchored">Example 2: Dictionary Basics and Key-Value Storage</h3>
+<h3 class="anchored" data-anchor-id="example-2-dictionary-basics-and-key-value-storage">Example 2: Dictionary Basics and Key-Value Storage</h3>
 <div class="code-explanation">
 <p><strong>What this code does:</strong> This example demonstrates creating a dictionary, populating it with key-value pairs using a loop, and then retrieving values using their keys.</p>
 </div>
 <p><strong>Example Code:</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Declare an empty dictionary to store number mappings</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Declare an empty dictionary to store number mappings</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>num_dict <span class="op">=</span> {} <span class="co"># define the dictionary here</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Populating the dictionary with key-value pairs</span></span>
@@ -338,19 +349,14 @@ print("Updated list:", colors)</textarea>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\t</span><span class="st"> Pulling values from the dictionary using their keys."</span>)</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):  <span class="co"># Loop through the same range</span></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Access the stored value using the key (i)</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>     <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\t</span><span class="ss"> num_dict: </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> --&gt; </span><span class="sc">{</span>num_dict[i]<span class="sc">}</span><span class="ss">"</span>) <span class="co"># pull values by their keys</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>     <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\t</span><span class="ss"> num_dict: </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> --&gt; </span><span class="sc">{</span>num_dict[i]<span class="sc">}</span><span class="ss">"</span>) <span class="co"># pull values by their keys</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="lesson-terminal-2" class="lesson-terminal">
 <div class="python-prompt">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-</blockquote></blockquote></blockquote></div>
+&gt;&gt;&gt;
+</div>
 <div style="color: var(--golden-yellow); font-style: italic;">
 Loading Python interpreter…
 </div>
-
-
-
 </div>
 <textarea id="lesson-input-2" class="lesson-input" rows="12" placeholder="# Copy the code above or write your own..."># Declare an empty dictionary to store number mappings
 num_dict = {} # define the dictionary here
@@ -371,13 +377,14 @@ for i in range(10):  # Loop through the same range
 <div class="lesson-buttons">
 <p><button onclick="runLessonCode(2)" class="run-btn">▶ Run Code</button> <button onclick="clearLessonTerminal(2)" class="clear-btn">🗑 Clear</button> <button onclick="increaseFontSize()" class="example-btn">🔍+ Larger Font</button> <button onclick="decreaseFontSize()" class="example-btn">🔍- Smaller Font</button></p>
 </div>
+</section>
 <section id="example-3-student-grade-management-system" class="level3">
-<h3 class="anchored">Example 3: Student Grade Management System</h3>
+<h3 class="anchored" data-anchor-id="example-3-student-grade-management-system">Example 3: Student Grade Management System</h3>
 <div class="code-explanation">
 <p><strong>What this code does:</strong> This example creates a practical grade management system using both lists and dictionaries to store student information and calculate statistics.</p>
 </div>
 <p><strong>Example Code:</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dictionary where keys are student names and values are lists of grades</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dictionary where keys are student names and values are lists of grades</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> {</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Alice"</span>: [<span class="dv">85</span>, <span class="dv">92</span>, <span class="dv">78</span>, <span class="dv">95</span>],    <span class="co"># Alice's test scores</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Bob"</span>: [<span class="dv">79</span>, <span class="dv">85</span>, <span class="dv">91</span>, <span class="dv">88</span>],      <span class="co"># Bob's test scores</span></span>
@@ -404,19 +411,14 @@ for i in range(10):  # Loop through the same range
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the maximum value in the list of averages</span></span>
 <span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>highest_avg <span class="op">=</span> <span class="bu">max</span>(all_averages)</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Highest class average: </span><span class="sc">{</span>highest_avg<span class="sc">:.1f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Highest class average: </span><span class="sc">{</span>highest_avg<span class="sc">:.1f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="lesson-terminal-3" class="lesson-terminal">
 <div class="python-prompt">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-</blockquote></blockquote></blockquote></div>
+&gt;&gt;&gt;
+</div>
 <div style="color: var(--golden-yellow); font-style: italic;">
 Loading Python interpreter…
 </div>
-
-
-
 </div>
 <textarea id="lesson-input-3" class="lesson-input" rows="18" placeholder="# Copy the code above or write your own..."># Create a dictionary where keys are student names and values are lists of grades
 students = {
@@ -449,13 +451,15 @@ print(f"Highest class average: {highest_avg:.1f}")</textarea>
 <div class="lesson-buttons">
 <p><button onclick="runLessonCode(3)" class="run-btn">▶ Run Code</button> <button onclick="clearLessonTerminal(3)" class="clear-btn">🗑 Clear</button> <button onclick="increaseFontSize()" class="example-btn">🔍+ Larger Font</button> <button onclick="decreaseFontSize()" class="example-btn">🔍- Smaller Font</button></p>
 </div>
+</section>
+</section>
 <section id="challenge-yourself" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-yourself">Challenge Yourself</h2>
 <section id="word-frequency-counter" class="level3">
-<h3 class="anchored">Word Frequency Counter</h3>
+<h3 class="anchored" data-anchor-id="word-frequency-counter">Word Frequency Counter</h3>
 <p>Create a program that counts how many times each word appears in a sentence using a dictionary.</p>
 <p><strong>Challenge Code:</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with this sentence to analyze</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with this sentence to analyze</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sentence <span class="op">=</span> <span class="st">"the quick brown fox jumps over the lazy dog the fox is quick"</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the sentence into individual words using spaces as separators</span></span>
@@ -476,19 +480,14 @@ print(f"Highest class average: {highest_avg:.1f}")</textarea>
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the results - show each word and how many times it appears</span></span>
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Word frequencies:"</span>)</span>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> word, count <span class="kw">in</span> word_count.items():</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"'</span><span class="sc">{</span>word<span class="sc">}</span><span class="ss">': </span><span class="sc">{</span>count<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"'</span><span class="sc">{</span>word<span class="sc">}</span><span class="ss">': </span><span class="sc">{</span>count<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="lesson-terminal-4" class="lesson-terminal">
 <div class="python-prompt">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-</blockquote></blockquote></blockquote></div>
+&gt;&gt;&gt;
+</div>
 <div style="color: var(--golden-yellow); font-style: italic;">
 Loading Python interpreter…
 </div>
-
-
-
 </div>
 <textarea id="lesson-input-4" class="lesson-input" rows="15" placeholder="# Copy the code above or write your own..."># Start with this sentence to analyze
 sentence = "the quick brown fox jumps over the lazy dog the fox is quick"
@@ -515,6 +514,7 @@ for word, count in word_count.items():
 <div class="lesson-buttons">
 <p><button onclick="runLessonCode(4)" class="run-btn">▶ Run Code</button> <button onclick="clearLessonTerminal(4)" class="clear-btn">🗑 Clear</button> <button onclick="increaseFontSize()" class="example-btn">🔍+ Larger Font</button> <button onclick="decreaseFontSize()" class="example-btn">🔍- Smaller Font</button></p>
 </div>
+</section>
 <section id="your-turn" class="level3">
 <h3 class="anchored" data-anchor-id="your-turn">Your Turn!</h3>
 <div class="challenge-box">
@@ -528,6 +528,7 @@ for word, count in word_count.items():
 <p>Use any of the terminals above to experiment with these challenges!</p>
 </div>
 </section>
+</section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -536,7 +537,7 @@ for word, count in word_count.items():
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-What You Learned
+<span class="screen-reader-only">Tip</span>What You Learned
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -560,7 +561,7 @@ What You Learned
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Additional Resources
+<span class="screen-reader-only">Note</span>Additional Resources
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -575,18 +576,8 @@ Additional Resources
 
 
 </section>
-</section></section></section></section></section></section></main></div>
 
-
-
-
-
-
-
-
-
-
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -638,13 +629,14 @@ Additional Resources
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -986,7 +978,7 @@ Additional Resources
     }
   });
   </script>
- <!-- /content -->
+</div> <!-- /content -->
 <script src="../shared/lesson-python.js"></script>
 
 

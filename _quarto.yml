@@ -24,7 +24,7 @@ website:
         text: Playground
       - href: materials/0_materials.qmd
         text: Materials
-      - href: https://www.oliverbonhamcarter.com/live/lab/index.html
+      - href: https://dodatastructures.com/live
         text: JupyterLite
         target: _blank
 

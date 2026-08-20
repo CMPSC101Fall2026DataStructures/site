@@ -1,0 +1,250 @@
+---
+title: "Just For Fun 08: Stacks and Queues"
+subtitle: "Exploring LIFO and FIFO Data Structures with Python Lists"
+date: "20 Aug 2026"
+author: "OBC"
+format: 
+  html:
+    toc: true
+    toc-depth: 2
+    code-fold: false
+    css: 
+      - ../shared/lesson-styles.css
+    include-in-header:
+      - text: |
+          <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    include-after-body:
+      - text: |
+          <script src="../shared/lesson-python.js"></script>
+---
+
+::: {.callout-note icon="🎯"}
+## Lesson Objectives
+By the end of this lesson, you will be able to:
+
+- [ ] Implement a stack (LIFO) using a Python list
+- [ ] Implement a queue (FIFO) using `collections.deque`
+- [ ] Use a stack to check whether parentheses are balanced
+- [ ] Simulate a simple "undo" feature and a print queue
+:::
+
+## Introduction
+
+**Stacks** and **queues** are two of the most fundamental data structures in computer science. A **stack** follows Last-In-First-Out (LIFO) order -- think of a stack of plates, where you add and remove from the top. A **queue** follows First-In-First-Out (FIFO) order -- think of a line at a coffee shop, where the first person in line is served first.
+
+## Key Concepts
+
+::: {.lesson-concept}
+::: {.concept-title}
+💡 **Concept 1: Stack (LIFO)**
+:::
+A stack supports two main operations: **push** (add to the top) and **pop** (remove from the top). Python lists make great stacks using `append()` and `pop()`.
+
+**Example:**
+```python
+# stack = []
+# stack.append(1)  -> [1]
+# stack.append(2)  -> [1, 2]
+# stack.pop()       -> returns 2, stack is now [1]
+```
+:::
+
+::: {.lesson-concept}
+::: {.concept-title}
+💡 **Concept 2: Queue (FIFO)**
+:::
+A queue supports **enqueue** (add to the back) and **dequeue** (remove from the front). While a list *can* act as a queue, `collections.deque` is much more efficient for removing from the front.
+
+**Example:**
+```python
+# from collections import deque
+# queue = deque()
+# queue.append("A")       -> A is in line
+# queue.append("B")       -> A, B are in line
+# queue.popleft()          -> returns "A", B remains
+```
+:::
+
+## Interactive Examples
+
+### Example 1: A Simple Stack
+
+::: {.code-explanation}
+**What this code does:** This code uses a plain Python list as a stack, pushing several values on and then popping them off one at a time, demonstrating the Last-In-First-Out order.
+:::
+
+**Example Code:**
+```python
+stack = []
+
+# Push some values
+for value in [10, 20, 30, 40]:
+    stack.append(value)
+    print(f"Pushed {value}, stack is now: {stack}")
+
+print("\nNow popping everything off:")
+while stack:
+    value = stack.pop()
+    print(f"Popped {value}, stack is now: {stack}")
+```
+
+<div id="lesson-terminal-1" class="lesson-terminal">
+  <div class="python-prompt">&gt;&gt;&gt; </div>
+  <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
+</div>
+
+<textarea id="lesson-input-1" class="lesson-input" rows="12" placeholder="# Copy the code above or write your own...">stack = []
+
+# Push some values
+for value in [10, 20, 30, 40]:
+    stack.append(value)
+    print(f"Pushed {value}, stack is now: {stack}")
+
+print("\nNow popping everything off:")
+while stack:
+    value = stack.pop()
+    print(f"Popped {value}, stack is now: {stack}")</textarea>
+
+<div class="lesson-buttons">
+  <button onclick="runLessonCode(1)" class="run-btn">▶ Run Code</button>
+  <button onclick="clearLessonTerminal(1)" class="clear-btn">🗑 Clear</button>
+  <button onclick="increaseFontSize()" class="example-btn">🔍+ Larger Font</button>
+  <button onclick="decreaseFontSize()" class="example-btn">🔍- Smaller Font</button>
+</div>
+
+### Example 2: Balanced Parentheses Checker
+
+::: {.code-explanation}
+**What this code does:** This is a classic use of a stack: to check whether parentheses are balanced, push every opening bracket onto a stack, and pop it off when you see the matching closing bracket. If the stack ends up empty, the brackets are balanced.
+:::
+
+**Example Code:**
+```python
+def is_balanced(expression):
+    """Return True if all brackets in expression are balanced"""
+    matching = {")": "(", "]": "[", "}": "{"}
+    stack = []
+
+    for char in expression:
+        if char in "([{":
+            stack.append(char)
+        elif char in ")]}":
+            if not stack or stack.pop() != matching[char]:
+                return False
+
+    return not stack
+
+tests = ["(a + b) * [c - d]", "([)]", "{[()]}", "(( )"]
+for test in tests:
+    print(f"{test!r} -> balanced: {is_balanced(test)}")
+```
+
+<div id="lesson-terminal-2" class="lesson-terminal">
+  <div class="python-prompt">&gt;&gt;&gt; </div>
+  <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
+</div>
+
+<textarea id="lesson-input-2" class="lesson-input" rows="14" placeholder="# Copy the code above or write your own...">def is_balanced(expression):
+    """Return True if all brackets in expression are balanced"""
+    matching = {")": "(", "]": "[", "}": "{"}
+    stack = []
+
+    for char in expression:
+        if char in "([{":
+            stack.append(char)
+        elif char in ")]}":
+            if not stack or stack.pop() != matching[char]:
+                return False
+
+    return not stack
+
+tests = ["(a + b) * [c - d]", "([)]", "{[()]}", "(( )"]
+for test in tests:
+    print(f"{test!r} -> balanced: {is_balanced(test)}")</textarea>
+
+<div class="lesson-buttons">
+  <button onclick="runLessonCode(2)" class="run-btn">▶ Run Code</button>
+  <button onclick="clearLessonTerminal(2)" class="clear-btn">🗑 Clear</button>
+</div>
+
+### Example 3: A Queue with `collections.deque`
+
+::: {.code-explanation}
+**What this code does:** This simulates a print queue: documents are added to the back of the line and printed (removed) from the front, one at a time, showing the First-In-First-Out order.
+:::
+
+**Example Code:**
+```python
+from collections import deque
+
+print_queue = deque()
+
+# Enqueue some print jobs
+for document in ["essay.docx", "photo.png", "resume.pdf", "notes.txt"]:
+    print_queue.append(document)
+    print(f"Added to queue: {document}")
+
+print("\nNow printing documents in order:")
+while print_queue:
+    document = print_queue.popleft()
+    print(f"Printing: {document}")
+```
+
+<div id="lesson-terminal-3" class="lesson-terminal">
+  <div class="python-prompt">&gt;&gt;&gt; </div>
+  <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
+</div>
+
+<textarea id="lesson-input-3" class="lesson-input" rows="14" placeholder="# Copy the code above or write your own...">from collections import deque
+
+print_queue = deque()
+
+# Enqueue some print jobs
+for document in ["essay.docx", "photo.png", "resume.pdf", "notes.txt"]:
+    print_queue.append(document)
+    print(f"Added to queue: {document}")
+
+print("\nNow printing documents in order:")
+while print_queue:
+    document = print_queue.popleft()
+    print(f"Printing: {document}")</textarea>
+
+<div class="lesson-buttons">
+  <button onclick="runLessonCode(3)" class="run-btn">▶ Run Code</button>
+  <button onclick="clearLessonTerminal(3)" class="clear-btn">🗑 Clear</button>
+</div>
+
+## Challenge Yourself
+
+::: {.challenge-box}
+**Challenge Tasks:**
+
+1. **Build a browser history simulator**: use a stack to track pages visited, supporting a "back" operation
+2. **Combine a stack and a queue** to check if a word is a palindrome (reverse with a stack, compare with a queue)
+3. **Add a "peek" function** to look at the top of a stack (or front of a queue) without removing it
+4. **Research question**: Why is `collections.deque` faster than a plain list for queue operations?
+
+Use any of the terminals above to experiment with these challenges!
+:::
+
+## Summary
+
+::: {.callout-tip icon="✅"}
+## What You Learned
+
+In this lesson, you explored two essential data structures:
+
+- **Stacks (LIFO)**: Built with Python lists using `append()`/`pop()`, used to check balanced parentheses
+- **Queues (FIFO)**: Built with `collections.deque` using `append()`/`popleft()`, used to simulate a print queue
+- **Real-world uses**: Undo features, browser history, task scheduling, and more all rely on stacks and queues
+:::
+
+---
+
+::: {.callout-note icon="📖"}
+## Additional Resources
+
+- [Stacks and Queues Overview](https://www.khanacademy.org/computing/computer-science/algorithms)
+- [Python `collections.deque` Docs](https://docs.python.org/3/library/collections.html#collections.deque)
+- [Balanced Brackets Problem](https://en.wikipedia.org/wiki/Balanced_brackets)
+:::

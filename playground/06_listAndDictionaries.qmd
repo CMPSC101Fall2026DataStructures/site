@@ -98,7 +98,7 @@ print("Updated list:", colors)
 ```
 
 <div id="lesson-terminal-1" class="lesson-terminal">
-  <div class="python-prompt">>>> </div>
+  <div class="python-prompt">&gt;&gt;&gt; </div>
   <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
 </div>
 
@@ -153,7 +153,7 @@ for i in range(10):  # Loop through the same range
 ```
 
 <div id="lesson-terminal-2" class="lesson-terminal">
-  <div class="python-prompt">>>> </div>
+  <div class="python-prompt">&gt;&gt;&gt; </div>
   <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
 </div>
 
@@ -220,7 +220,7 @@ print(f"Highest class average: {highest_avg:.1f}")
 ```
 
 <div id="lesson-terminal-3" class="lesson-terminal">
-  <div class="python-prompt">>>> </div>
+  <div class="python-prompt">&gt;&gt;&gt; </div>
   <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
 </div>
 
@@ -293,7 +293,7 @@ for word, count in word_count.items():
 ```
 
 <div id="lesson-terminal-4" class="lesson-terminal">
-  <div class="python-prompt">>>> </div>
+  <div class="python-prompt">&gt;&gt;&gt; </div>
   <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
 </div>
 

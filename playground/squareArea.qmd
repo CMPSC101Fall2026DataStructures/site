@@ -1,0 +1,302 @@
+---
+title: "Just For Fun: Squares, Areas, and Patterns"
+subtitle: "Interactive Explorations of Square Numbers and Geometry"
+date: "20 Aug 2026"
+author: "OBC"
+format: 
+  html:
+    toc: true
+    toc-depth: 2
+    code-fold: false
+    css: 
+      - ../shared/lesson-styles.css
+    include-in-header:
+      - text: |
+          <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    include-after-body:
+      - text: |
+          <script src="../shared/lesson-python.js"></script>
+---
+
+::: {.callout-note icon="🎯"}
+## Lesson Objectives
+By the end of this lesson, you will be able to:
+
+- [ ] Calculate the area and perimeter of a square given its side length
+- [ ] Identify perfect squares and understand their relationship to square roots
+- [ ] Draw simple text-based ("ASCII") shapes using loops
+- [ ] Approximate square roots using Newton's method
+:::
+
+## Introduction
+
+Squares are one of the simplest shapes in geometry, but they hide a surprising amount of interesting mathematics: perfect squares, square roots, and even iterative numerical methods. In this lesson we'll calculate square properties, hunt for perfect squares, draw squares with text characters, and approximate square roots by hand (in code!).
+
+## Key Concepts
+
+::: {.lesson-concept}
+::: {.concept-title}
+💡 **Concept 1: Area and Perimeter**
+:::
+For a square with side length `s`:
+- **Area** = s × s (or s²)
+- **Perimeter** = 4 × s
+
+**Example:**
+```python
+# A square with side length 4
+# Area = 4 * 4 = 16
+# Perimeter = 4 * 4 = 16
+```
+:::
+
+::: {.lesson-concept}
+::: {.concept-title}
+💡 **Concept 2: Perfect Squares and Square Roots**
+:::
+A **perfect square** is a number that is the product of an integer with itself (1, 4, 9, 16, 25, ...). The **square root** of a number `n` is the value `r` such that `r * r == n`.
+
+**Example:**
+```python
+# 16 is a perfect square because 4 * 4 == 16
+# The square root of 16 is 4
+```
+:::
+
+## Interactive Examples
+
+### Example 1: Area and Perimeter Calculator
+
+::: {.code-explanation}
+**What this code does:** This code defines two small functions, `square_area()` and `square_perimeter()`, then loops over a list of side lengths to print a small report for each one.
+:::
+
+**Example Code:**
+```python
+def square_area(side):
+    """Return the area of a square with the given side length"""
+    return side * side
+
+def square_perimeter(side):
+    """Return the perimeter of a square with the given side length"""
+    return 4 * side
+
+# Try a few different side lengths
+for side in [1, 2, 5, 7.5, 10]:
+    area = square_area(side)
+    perimeter = square_perimeter(side)
+    print(f"side={side}: area={area}, perimeter={perimeter}")
+```
+
+<div id="lesson-terminal-1" class="lesson-terminal">
+  <div class="python-prompt">&gt;&gt;&gt; </div>
+  <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
+</div>
+
+<textarea id="lesson-input-1" class="lesson-input" rows="8" placeholder="# Copy the code above or write your own...">def square_area(side):
+    """Return the area of a square with the given side length"""
+    return side * side
+
+def square_perimeter(side):
+    """Return the perimeter of a square with the given side length"""
+    return 4 * side
+
+# Try a few different side lengths
+for side in [1, 2, 5, 7.5, 10]:
+    area = square_area(side)
+    perimeter = square_perimeter(side)
+    print(f"side={side}: area={area}, perimeter={perimeter}")</textarea>
+
+<div class="lesson-buttons">
+  <button onclick="runLessonCode(1)" class="run-btn">▶ Run Code</button>
+  <button onclick="clearLessonTerminal(1)" class="clear-btn">🗑 Clear</button>
+  <button onclick="increaseFontSize()" class="example-btn">🔍+ Larger Font</button>
+  <button onclick="decreaseFontSize()" class="example-btn">🔍- Smaller Font</button>
+</div>
+
+### Example 2: Perfect Square Checker
+
+::: {.code-explanation}
+**What this code does:** This code checks every number from 1 to 50 to see if it is a perfect square, by testing whether the integer square root, when squared again, gives back the original number.
+:::
+
+**Example Code:**
+```python
+def is_perfect_square(n):
+    """Return True if n is a perfect square"""
+    if n < 0:
+        return False
+    root = int(n ** 0.5)
+    # Check a small window around the estimate to avoid rounding errors
+    for candidate in (root - 1, root, root + 1):
+        if candidate >= 0 and candidate * candidate == n:
+            return True
+    return False
+
+perfect_squares = [n for n in range(1, 51) if is_perfect_square(n)]
+print("Perfect squares from 1 to 50:")
+print(perfect_squares)
+```
+
+<div id="lesson-terminal-2" class="lesson-terminal">
+  <div class="python-prompt">&gt;&gt;&gt; </div>
+  <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
+</div>
+
+<textarea id="lesson-input-2" class="lesson-input" rows="10" placeholder="# Copy the code above or write your own...">def is_perfect_square(n):
+    """Return True if n is a perfect square"""
+    if n < 0:
+        return False
+    root = int(n ** 0.5)
+    # Check a small window around the estimate to avoid rounding errors
+    for candidate in (root - 1, root, root + 1):
+        if candidate >= 0 and candidate * candidate == n:
+            return True
+    return False
+
+perfect_squares = [n for n in range(1, 51) if is_perfect_square(n)]
+print("Perfect squares from 1 to 50:")
+print(perfect_squares)</textarea>
+
+<div class="lesson-buttons">
+  <button onclick="runLessonCode(2)" class="run-btn">▶ Run Code</button>
+  <button onclick="clearLessonTerminal(2)" class="clear-btn">🗑 Clear</button>
+</div>
+
+### Example 3: Drawing a Square with Text
+
+::: {.code-explanation}
+**What this code does:** This code uses nested loops to "draw" a hollow square out of asterisk characters, giving a simple text-based ("ASCII art") picture of the shape whose area we've been calculating.
+:::
+
+**Example Code:**
+```python
+def draw_square(side):
+    """Print a hollow square of the given side length using asterisks"""
+    for row in range(side):
+        line = ""
+        for col in range(side):
+            if row in (0, side - 1) or col in (0, side - 1):
+                line += "*"
+            else:
+                line += " "
+        print(line)
+
+print("A square with side length 8:")
+draw_square(8)
+```
+
+<div id="lesson-terminal-3" class="lesson-terminal">
+  <div class="python-prompt">&gt;&gt;&gt; </div>
+  <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
+</div>
+
+<textarea id="lesson-input-3" class="lesson-input" rows="12" placeholder="# Copy the code above or write your own...">def draw_square(side):
+    """Print a hollow square of the given side length using asterisks"""
+    for row in range(side):
+        line = ""
+        for col in range(side):
+            if row in (0, side - 1) or col in (0, side - 1):
+                line += "*"
+            else:
+                line += " "
+        print(line)
+
+print("A square with side length 8:")
+draw_square(8)</textarea>
+
+<div class="lesson-buttons">
+  <button onclick="runLessonCode(3)" class="run-btn">▶ Run Code</button>
+  <button onclick="clearLessonTerminal(3)" class="clear-btn">🗑 Clear</button>
+</div>
+
+### Example 4: Approximating Square Roots with Newton's Method
+
+::: {.code-explanation}
+**What this code does:** Instead of relying on `math.sqrt()`, this code approximates a square root by repeatedly refining a guess using Newton's method, a classic numerical technique. Each iteration gets closer to the true square root.
+:::
+
+**Example Code:**
+```python
+def newton_sqrt(n, iterations=10):
+    """Approximate the square root of n using Newton's method"""
+    if n < 0:
+        raise ValueError("Cannot take the square root of a negative number")
+    guess = n / 2 if n > 0 else 0
+    for _ in range(iterations):
+        if guess == 0:
+            break
+        guess = (guess + n / guess) / 2
+    return guess
+
+for n in [2, 9, 16, 50, 100]:
+    approx = newton_sqrt(n)
+    print(f"sqrt({n}) ≈ {approx:.6f}")
+```
+
+<div id="lesson-terminal-4" class="lesson-terminal">
+  <div class="python-prompt">&gt;&gt;&gt; </div>
+  <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
+</div>
+
+<textarea id="lesson-input-4" class="lesson-input" rows="12" placeholder="# Copy the code above or write your own...">def newton_sqrt(n, iterations=10):
+    """Approximate the square root of n using Newton's method"""
+    if n < 0:
+        raise ValueError("Cannot take the square root of a negative number")
+    guess = n / 2 if n > 0 else 0
+    for _ in range(iterations):
+        if guess == 0:
+            break
+        guess = (guess + n / guess) / 2
+    return guess
+
+for n in [2, 9, 16, 50, 100]:
+    approx = newton_sqrt(n)
+    print(f"sqrt({n}) ≈ {approx:.6f}")</textarea>
+
+<div class="lesson-buttons">
+  <button onclick="runLessonCode(4)" class="run-btn">▶ Run Code</button>
+  <button onclick="clearLessonTerminal(4)" class="clear-btn">🗑 Clear</button>
+</div>
+
+## Challenge Yourself
+
+::: {.challenge-box}
+**Challenge Tasks:**
+
+1. **Modify `draw_square()`** to draw a filled square instead of a hollow one
+2. **Write a function** that finds the *next* perfect square greater than a given number
+3. **Combine ideas**: draw a square whose side length is the largest perfect square less than 100
+4. **Research question**: How many iterations does Newton's method need before the guess stops changing for `n = 2`?
+
+Use any of the terminals above to experiment with these challenges!
+:::
+
+## Summary
+
+::: {.callout-tip icon="✅"}
+## What You Learned
+
+In this lesson, you explored squares from several angles:
+
+- **Area and Perimeter**: Simple formulas built into reusable functions
+- **Perfect Squares**: Searching for numbers whose square roots are whole numbers
+- **Text-Based Graphics**: Using nested loops to draw shapes with characters
+- **Numerical Methods**: Approximating square roots with Newton's iterative method
+:::
+
+## Key Takeaways
+
+- **Functions** make it easy to reuse simple geometric formulas
+- **Loops and conditionals** can generate both data (perfect squares) and pictures (ASCII art)
+- **Iterative approximation** (like Newton's method) is a powerful alternative to built-in math functions
+
+---
+
+::: {.callout-note icon="📖"}
+## Additional Resources
+
+- [Square Numbers](https://www.mathsisfun.com/square-root.html)
+- [Newton's Method](https://en.wikipedia.org/wiki/Newton%27s_method)
+- [ASCII Art Basics](https://en.wikipedia.org/wiki/ASCII_art)
+:::

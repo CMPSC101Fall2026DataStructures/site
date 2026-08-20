@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,10 +10,16 @@
 
 <title>CMPSC101 Fall 2026 :: DataStructures</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -37,10 +43,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-445b8638c3d06994fee0907d791121c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -137,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
   <li><a href="#final-deliverable" id="toc-final-deliverable" class="nav-link" data-scroll-target="#final-deliverable">Final Deliverable</a></li>
   </ul></li>
-  <li><a href="#assignment-policies" id="toc-assignment-policies" class="nav-link" data-scroll-target="#assignment-policies">Assignment Policies</a>
+  <li><a href="#policies" id="toc-policies" class="nav-link" data-scroll-target="#policies">Policies</a>
   <ul class="collapse">
   <li><a href="#assignment-submission" id="toc-assignment-submission" class="nav-link" data-scroll-target="#assignment-submission"><em>Assignment Submission</em></a></li>
   </ul></li>
@@ -194,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
 
 <center>
 <p><strong>CMPSC101 :: Data Structures :: Fall 2026</strong></p>
-<img src="./graphics/cs101F2026_logo.png" class="img-fluid" style="width:20.0%">
+<img src="../graphics/cs101F2026_logo.png" class="img-fluid" style="width:20.0%">
 </center>
 <p><strong>Class Sessions</strong>: MWF 9:00 AM to 9:50 AM, Alden 109<br>
 <strong>Laboratory Session</strong>: Friday, 2:30 PM to 4 PM, Alden 109<br>
@@ -220,14 +226,9 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Logan Greer</td>
-<td style="text-align: left;">Mon 11:00 AM - 12:00 PM</td>
-<td style="text-align: left;">Alden 113</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Hemani Alaparthy</td>
-<td style="text-align: left;">Tue 1:00 PM - 2:00 PM</td>
-<td style="text-align: left;">Alden 113</td>
+<td style="text-align: left;">TBA</td>
+<td style="text-align: left;">TBA</td>
+<td style="text-align: left;">TBA</td>
 </tr>
 </tbody>
 </table>
@@ -262,14 +263,14 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="textbook">Textbook</h3>
 <p><a href="https://mitpress.mit.edu/books/introduction-computation-and-programming-using-python-third-edition">Introduction to Computation and Programming Using Python</a> by <a href="https://people.csail.mit.edu/guttag/">John V. Guttag</a></p>
 <center>
-<img src="graphics/book_logo.png" class="img-fluid" width="200">
+<img src="../graphics/book_logo.png" class="img-fluid" width="200">
 </center>
 </section>
 <section id="online-resources-and-course-materials" class="level3">
 <h3 class="anchored" data-anchor-id="online-resources-and-course-materials">Online Resources and Course Materials</h3>
 <ul>
-<li><a href="https://www.w3schools.com/python/numpy/" target="_blank">W3schools</a> <!-- - <a href="[url](https://github.com/CMPSC101Fall2025DataStructures)" target="_blank">Course GitHub Organization</a>
-- <a href="[url](https://github.com/allegheny-college-cmpsc-101-spring-2025/site/tree/main/code)" target="_blank">Jupyter Notebooks Directory</a> --></li>
+<li><a href="https://www.w3schools.com/python/numpy/" target="_blank">W3schools</a> &lt;!– - <a href="[url](https://github.com/CMPSC101Fall2025DataStructures)" target="_blank">Course GitHub Organization</a></li>
+<li><a href="[url](https://github.com/allegheny-college-cmpsc-101-spring-2025/site/tree/main/code)" target="_blank">Jupyter Notebooks Directory</a> –&gt;</li>
 <li><a href="[url](https://mitpress.ublish.com/ebook/itcapup3-preview/12609/1)" target="_blank">Guttag Textbook Publisher Preview</a></li>
 <li><a href="[url](https://books.google.com/books?id=f57uDwAAQBAJ&amp;source=gbs_book_other_versions)" target="_blank">Guttag Textbook Google Previews</a></li>
 <li><a href="[url](https://www.google.com/search?q=Introduction+to+Computation+and+Programming+Using+Python+.pdf)" target="_blank">Additional Guttag Textbook Availability</a></li>
@@ -409,21 +410,24 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <hr>
 <center>
-<img src="graphics/levelup.png" class="img-fluid">
+<img src="../graphics/levelup.png" class="img-fluid">
 </center>
 </section>
 </section>
 <section id="final-deliverable" class="level3">
 <h3 class="anchored" data-anchor-id="final-deliverable">Final Deliverable</h3>
 <ul>
-<li>Thursday, 30 April, 2025 at 9:00 AM (<a href="https://sites.allegheny.edu/registrar/spring-2026-final-exam-schedule/">Complete Final Exam Schedule</a>)</li>
+<li>Monday 7th December 2026 at 9:00 AM <a href="https://sites.allegheny.edu/registrar/fall-2026-final-exam-schedule/">Complete Final Exam Schedule</a></li>
 <li><em>Exam Code: A</em></li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="assignment-policies" class="level2">
-<h2 class="anchored" data-anchor-id="assignment-policies">Assignment Policies</h2>
+<section id="policies" class="level2">
+<h2 class="anchored" data-anchor-id="policies">Policies</h2>
+<center>
+<p><img src="../graphics/values.png" class="img-fluid"> </p>
+<p>This class is governed by the <a href="https://www.allegheny.edu/academics/honor-code/">Allegheny College Honor Code</a> and the policies of the <a href="https://www.cis.allegheny.edu/teaching/policies/">Department of Computer and Information Science Policies</a>. All students are expected to adhere to these policies.</p>
 <section id="assignment-submission" class="level3">
 <h3 class="anchored" data-anchor-id="assignment-submission"><em>Assignment Submission</em></h3>
 <p>All graded components of the course are expected to be turned in on time. Due dates are provided on each assignment. Electronic versions of the Engineering and Specification Labs must be submitted to through a student’s GitHub repository created by GitHub Classroom. No credit will be awarded for any course work that you submit to the incorrect GitHub repository.</p>
@@ -432,7 +436,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Activities</strong> Nearly weekly, we will have an activity for which points in the course may be earned. Please be sure to turn in activities by the due date as they cannot be made up at a later time.</p>
 <hr>
 </section>
-</section>
+</center></section>
 <section id="discord" class="level2">
 <h2 class="anchored" data-anchor-id="discord">Discord</h2>
 <p>The instructor will be using Discord to pass important information along to the class, such as code, news and other details. Please actively check your Discord each day to ensure that you are up-to-date with course events.</p>
@@ -446,7 +450,13 @@ ul.task-list li input[type="checkbox"] {
 <section id="attendance" class="level3">
 <h3 class="anchored" data-anchor-id="attendance"><em>Attendance</em></h3>
 <p>Students are expected to come to class <strong>prepared, on time, and to stay engaged</strong> for the duration of the class period. This includes both class and lab sessions. This behavior is core to our <a href="https://www.cis.allegheny.edu/teaching/policies/">shared departmental values</a> and is in addition to the college’s attendance policy.</p>
-<p>Each day of class, please complete the attendance <a href="https://forms.gle/PQRJH3PoZwbNgC3y8">form</a>.</p>
+<section id="lateness" class="level4">
+<h4 class="anchored" data-anchor-id="lateness"><em>Lateness</em></h4>
+<p>One missed class or lab session counts as one absence. Coming to class/lab late, leaving early, or missing a large portion of a class/lab session will result in your being marked as “late” to class. Coming to class/lab unprepared may also result in being marked “late”. Being marked “late” to class three times during the course of a semester is equal to one absence.</p>
+<p>Excluding the first week of the semester, students can have <strong>eight</strong> absences without any impact to their grade. These accommodations are meant to cover illness and emergency, so you should always come to class if you are able to do so.</p>
+<p>As a general guideline, students cannot miss more than two weeks of class in total throughout the academic semester without receiving a letter grade reduction.</p>
+<p>For this course, excluding the first week and eight excused absences, overall course grade will go down by 1/3 of a letter grade for each additional absence or absence equivalence regardless of base grade.</p>
+</section>
 <section id="preparedness" class="level4">
 <h4 class="anchored" data-anchor-id="preparedness"><em>Preparedness</em></h4>
 <p>Coming to class prepared means coming with everything you need to engage in a class session. To satisfy basic expectations of CIS courses, this means, at minimum, that students must;</p>
@@ -456,13 +466,6 @@ ul.task-list li input[type="checkbox"] {
 <li>Complete any pre-session work such as readings and preparatory assignments.</li>
 <li>Complete homework on-time</li>
 </ul>
-</section>
-<section id="attendance-and-lateness" class="level4">
-<h4 class="anchored" data-anchor-id="attendance-and-lateness"><em>Attendance and Lateness</em></h4>
-<p>One missed class or lab session counts as one absence. Coming to class/lab late, leaving early, or missing a large portion of a class/lab session will result in your being marked as “late” to class. Coming to class/lab unprepared may also result in being marked “late”. Being marked “late” to class three times during the course of a semester is equal to one absence.</p>
-<p>Excluding the first week of the semester, students can have <strong>eight</strong> absences without any impact to their grade. These accommodations are meant to cover illness and emergency, so you should always come to class if you are able to do so.</p>
-<p>As a general guideline, students cannot miss more than two weeks of class in total throughout the academic semester without receiving a letter grade reduction.</p>
-<p>For this course, excluding the first week and eight excused absences, overall course grade will go down by 1/3 of a letter grade for each additional absence or absence equivalence regardless of base grade.</p>
 </section>
 <section id="engagement" class="level4">
 <h4 class="anchored" data-anchor-id="engagement"><em>Engagement</em></h4>
@@ -483,13 +486,13 @@ ul.task-list li input[type="checkbox"] {
 <p>All students in the CIS department are expected to turn in assignments on time. “On time” means on or before the assignment’s due date. This means that an assignment cannot be turned in for credit after a due date, unless the student applies a token.</p>
 <section id="tokens" class="level4">
 <h4 class="anchored" data-anchor-id="tokens"><em>Tokens</em></h4>
-<p>Students in 101 are allotted four tokens to receive extensions on any assignment except the final with no questions asked by the course instructor except either in the rare cases of documented severe and/or extenuating circumstances or in cases that violate the CIS policy document or any College-approved policy.</p>
+<p>Students are allotted four (4) tokens to receive extensions on any assignment except the final with no questions asked by the course instructor except either in the rare cases of documented severe and/or extenuating circumstances or in cases that violate the CIS policy document or any College-approved policy.</p>
 <ul>
 <li><p>A token may be applied via a Google Form up to the assignment deadline, with exceptions granted only for severe and/or extenuating circumstances.</p></li>
 <li><p>Tokens grant an automatic extension of <strong>one week</strong> to anything except the project or final exam.</p></li>
 <li><p>Tokens will not be accepted after the due date of the last lab. This means that token usage will end after the labs are complete and will no longer be accepted. This roughly implies that they will stop three or four weeks from the end of class.</p></li>
 </ul>
-<p><a href="https://forms.gle/hjrJLnpHrauFmJqH8">Token Form for Automatic Extension</a></p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSeBd0_nyJhIwlgQ4-doGfYIj_iTTMI47ffGefnYohwbEkA1lA/viewform?usp=publish-editor">Token Form for Automatic Extension</a></p>
 </section>
 </section>
 <section id="extenuating-circumstances" class="level3">
@@ -554,6 +557,8 @@ ul.task-list li input[type="checkbox"] {
 <section id="syllabus-changes" class="level2">
 <h2 class="anchored" data-anchor-id="syllabus-changes">Syllabus Changes</h2>
 <p>The instructor may make updates or changes to this document at any time as needed until term grades are due. Changes will be announced to the class.</p>
+<hr>
+<p><em>This syllabus is subject to change. Updates will be announced in class and on the course website.</em></p>
 
 
 </section>
@@ -610,13 +615,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -96,7 +96,7 @@ for i in range(11):
 ```
 
 <div id="lesson-terminal-1" class="lesson-terminal">
-  <div class="python-prompt">>>> </div>
+  <div class="python-prompt">&gt;&gt;&gt; </div>
   <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
 </div>
 
@@ -146,7 +146,7 @@ print(fib_sequence)
 ```
 
 <div id="lesson-terminal-2" class="lesson-terminal">
-  <div class="python-prompt">>>> </div>
+  <div class="python-prompt">&gt;&gt;&gt; </div>
   <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
 </div>
 
@@ -212,7 +212,7 @@ for i in [20, 30, 40, 50]:
 ```
 
 <div id="lesson-terminal-3" class="lesson-terminal">
-  <div class="python-prompt">>>> </div>
+  <div class="python-prompt">&gt;&gt;&gt; </div>
   <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
 </div>
 
@@ -290,7 +290,7 @@ print("   - Recursive becomes very slow after n=35")
 ```
 
 <div id="lesson-terminal-4" class="lesson-terminal">
-  <div class="python-prompt">>>> </div>
+  <div class="python-prompt">&gt;&gt;&gt; </div>
   <div style="color: var(--golden-yellow); font-style: italic;">Loading Python interpreter...</div>
 </div>
 
