@@ -9,8 +9,6 @@ author: "Oliver Bonham-Carter"
 ![](../graphics/logo.png){width=20%}
 </center>
 
-**Class Sessions**: MWF 9:00 AM to 9:50 AM, Alden 109  
-**Laboratory Session**: Friday, 2:30 PM to 4 PM, Alden 109  
 **Instructor**: Dr. Bonham-Carter, [obonhamcarter@allegheny.edu](obonhamcarter@allegheny.edu)  
 **Office Location**: Alden Hall 203
 
@@ -20,12 +18,36 @@ author: "Oliver Bonham-Carter"
 **Book An Appointment**: [https://www.oliverbonhamcarter.com/contactandabout/](https://www.oliverbonhamcarter.com/contactandabout/)
 
 *Note*: If the office hours times are not convenient, then please reach out to me and we can find an alternative time to meet.
- 
+
+### Meeting Times
+
+<!-- add a line drop -->
+<center>
+&#x200B;
+</center>
+
+- **Lecture:** 
+M/W/F 9:00 AM - 9:50 AM
+25 August 2026 - 10 December 2026
+  - **Location:** Alden Hall 109
+
+- **Lab:**
+Friday, 2:30 PM - 4:00 PM
+Th 2:30 PM - 4:00 PM
+25 August 2026 - 10 December 2026
+  - **Location:** Alden Hall 207
+
+<!-- add a line drop -->
+<center>
+&#x200B;
+</center>
+
+
 <!-- ![A vibrant digital tree with glowing branches and roots, surrounded by colorful flowers and butterflies in a nighttime setting. The tree canopy is filled with binary numbers such as 101011, 10104, 51, 10104, 101011, 12131, 0501, and 01, which are integrated into the leaves and branches. The environment features cascading streams of blue and teal data, creating a magical and energetic atmosphere that evokes curiosity and wonder.] -->
 
 ## Quick Info
 
-+ [Token Form for Automatic Extension](https://docs.google.com/forms/d/e/1FAIpQLSdPLsKNw7rXTECajC6TqLhdLtUppAXRdiWFVKmyYRAjtHcOgg/viewform?usp=dialog)
++ [Token Form for Automatic Extension](https://docs.google.com/forms/d/e/1FAIpQLSeV9T-m43aq0Cf9IpZfFTwDte3wTx4kc5KPwW4i1rY6zDNYZQ/viewform?usp=publish-editor)
 
 + Technical Leaders Schedule
 
@@ -250,7 +272,7 @@ Students are allotted four (4) tokens to receive extensions on any assignment ex
 
 * Tokens will not be accepted after the due date of the last lab. This means that token usage will end after the labs are complete and will no longer be accepted. This roughly implies that they will stop three or four weeks from the end of class.
 
-[Token Form for Automatic Extension](https://docs.google.com/forms/d/e/1FAIpQLSeBd0_nyJhIwlgQ4-doGfYIj_iTTMI47ffGefnYohwbEkA1lA/viewform?usp=publish-editor)
+[Token Form for Automatic Extension](https://docs.google.com/forms/d/e/1FAIpQLSeV9T-m43aq0Cf9IpZfFTwDte3wTx4kc5KPwW4i1rY6zDNYZQ/viewform?usp=publish-editor)
 
 ### _Extenuating Circumstances_
 
