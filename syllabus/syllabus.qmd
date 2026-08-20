@@ -6,7 +6,7 @@ author: "Oliver Bonham-Carter"
 <center>
 **CMPSC101 :: Data Structures :: Fall 2026**
 
-![](../graphics/cs101F2026_logo.png){width=20%}
+![](../graphics/logo.png){width=20%}
 </center>
 
 **Class Sessions**: MWF 9:00 AM to 9:50 AM, Alden 109  
