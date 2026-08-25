@@ -135,7 +135,7 @@ We will be using the following technologies in class.
 - [Gatorgrade](https://pypi.org/project/gatorgrade/)
 - [Git](https://github.com/git-guides/install-git)
 - Free GitHub Account
-- Free Discord Account
+- Free Discord Account (Be sure that you are in the Discord channel for the course. Also, please use your *real name* in the channel (otherwise  I will not be able to identify you).
 - Allegheny College Email
 
 ### Grading
