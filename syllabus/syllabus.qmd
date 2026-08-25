@@ -27,14 +27,13 @@ author: "Oliver Bonham-Carter"
 </center>
 
 - **Lecture:** 
-M/W/F 9:00 AM - 9:50 AM
-25 August 2026 - 10 December 2026
+  - Mondays, Wednesdays, and Fridays 9:00 AM - 9:50 AM
+  - 25 August 2026 - 10 December 2026
   - **Location:** Alden Hall 109
 
 - **Lab:**
-Friday, 2:30 PM - 4:00 PM
-Th 2:30 PM - 4:00 PM
-25 August 2026 - 10 December 2026
+  - Fridays 2:30 PM - 4:00 PM
+  - 25 August 2026 - 10 December 2026
   - **Location:** Alden Hall 207
 
 <!-- add a line drop -->
