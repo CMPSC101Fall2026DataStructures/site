@@ -46,7 +46,7 @@ Here you will find a listing of lesson materials for the course such as slides, 
   - [Pipx](https://pipx.pypa.io/stable/installation/)
   - [Discord](https://discord.com/download)
 
-- Shared values activity.
+- Shared values activity
   - The Department's [Shared Values](https://www.cis.allegheny.edu/teaching/policies/)
 
 <!-- ## W2. Reviewing Python -->
