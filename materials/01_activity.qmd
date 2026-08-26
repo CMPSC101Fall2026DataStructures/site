@@ -1,15 +1,15 @@
 ---
 title: "Programming a Robot to get Through Through a Maze"
-description: "An unplugged-to-plugged activity where students write literal, step-by-step instructions (UP/DOWN/LEFT/RIGHT) to guide a robot through a seeded maze, then test and debug their own instruction sets."
+# description: "An unplugged-to-plugged activity where students write literal, step-by-step instructions (UP/DOWN/LEFT/RIGHT) to guide a robot through a seeded maze, then test and debug their own instruction sets."
 date: 2026-08-26
-categories: [activity, computational-thinking, javascript, debugging]
+categories: [activity, computational-thinking, instruction coding, debugging]
 format:
   html:
     page-layout: full
 ---
 
-**CS concepts:** 
-algorithms, abstraction, precision, debugging, efficiency, instruction sets.
+<!-- **CS concepts:** 
+algorithms, abstraction, precision, debugging, efficiency, instruction sets. -->
 
 ## Overview
 
