@@ -207,7 +207,196 @@ Try these programming challenges to practice your Python skills!
 </center>
 
 
-## Challenge 1: Literal Mix-Up
+
+# Interactive Challenges
+
+Test your understanding before checking the solutions! Click an answer to see if you're right.
+
+<center>
+![](graphics/challenge_i_540x247.png){width=60%}
+</center>
+
+## Challenge Q1: Literal Detective 🚀
+
+```{=html}
+<div class="quiz-box">
+  <div class="quiz-question">A rocket launch script has <code>fuel_level = 87.5</code>. What type of literal is <code>87.5</code>?</div>
+
+  <div class="quiz-options">
+    <div class="quiz-option" onclick="checkChallengeQ1(this, false)">Integer literal</div>
+    <div class="quiz-option" onclick="checkChallengeQ1(this, true)">Float literal</div>
+    <div class="quiz-option" onclick="checkChallengeQ1(this, false)">String literal</div>
+    <div class="quiz-option" onclick="checkChallengeQ1(this, false)">Boolean literal</div>
+  </div>
+
+  <div id="challengeQ1-feedback" style="display: none;"></div>
+</div>
+
+<script>
+function checkChallengeQ1(element, isCorrect) {
+  element.parentElement.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('correct', 'incorrect'));
+  element.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+  const feedback = document.getElementById('challengeQ1-feedback');
+  feedback.style.display = 'block';
+  feedback.className = 'quiz-feedback ' + (isCorrect ? 'correct' : 'incorrect');
+
+  if (isCorrect) {
+    feedback.textContent = '✅ Correct! Any number written with a decimal point, like 87.5, is a float literal.';
+  } else {
+    feedback.textContent = '❌ Try again! Look for the decimal point — numbers with one are float literals, not integers.';
+  }
+}
+</script>
+```
+
+---
+
+## Challenge Q2: Space Mission Math 🛰️
+
+```{=html}
+<div class="quiz-box">
+  <div class="quiz-question">A satellite has <code>fuel = 20</code> and burns <code>used = 3</code> per orbit. What does <code>fuel - used * 4</code> equal?</div>
+
+  <div class="quiz-options">
+    <div class="quiz-option" onclick="checkChallengeQ2(this, false)">68</div>
+    <div class="quiz-option" onclick="checkChallengeQ2(this, true)">8</div>
+    <div class="quiz-option" onclick="checkChallengeQ2(this, false)">17</div>
+    <div class="quiz-option" onclick="checkChallengeQ2(this, false)">Error: cannot mix operators</div>
+  </div>
+
+  <div id="challengeQ2-feedback" style="display: none;"></div>
+</div>
+
+<script>
+function checkChallengeQ2(element, isCorrect) {
+  element.parentElement.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('correct', 'incorrect'));
+  element.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+  const feedback = document.getElementById('challengeQ2-feedback');
+  feedback.style.display = 'block';
+  feedback.className = 'quiz-feedback ' + (isCorrect ? 'correct' : 'incorrect');
+
+  if (isCorrect) {
+    feedback.textContent = '✅ Correct! Python follows order of operations: multiplication happens first (3 * 4 = 12), then 20 - 12 = 8.';
+  } else {
+    feedback.textContent = '❌ Not quite! Remember order of operations: * happens before -, so it is 20 - (3 * 4) = 8.';
+  }
+}
+</script>
+```
+
+---
+
+## Challenge Q3: Even Alien Invasion 👽
+
+```{=html}
+<div class="quiz-box">
+  <div class="quiz-question">A game loop runs <code>for wave in range(1, 5):</code> and prints "Here I AM!" only when <code>wave % 2 == 0</code>. On which waves does it print "Here I AM!"?</div>
+
+  <div class="quiz-options">
+    <div class="quiz-option" onclick="checkChallengeQ3(this, false)">1 and 3</div>
+    <div class="quiz-option" onclick="checkChallengeQ3(this, true)">2 and 4</div>
+    <div class="quiz-option" onclick="checkChallengeQ3(this, false)">1, 2, 3, and 4</div>
+    <div class="quiz-option" onclick="checkChallengeQ3(this, false)">Only wave 4</div>
+  </div>
+
+  <div id="challengeQ3-feedback" style="display: none;"></div>
+</div>
+
+<script>
+function checkChallengeQ3(element, isCorrect) {
+  element.parentElement.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('correct', 'incorrect'));
+  element.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+  const feedback = document.getElementById('challengeQ3-feedback');
+  feedback.style.display = 'block';
+  feedback.className = 'quiz-feedback ' + (isCorrect ? 'correct' : 'incorrect');
+
+  if (isCorrect) {
+    feedback.textContent = '✅ Correct! range(1, 5) gives 1, 2, 3, 4. The modulo check wave % 2 == 0 is True for 2 and 4.';
+  } else {
+    feedback.textContent = '❌ Try again! range(1, 5) produces 1, 2, 3, 4. Check which of those are evenly divisible by 2.';
+  }
+}
+</script>
+```
+
+---
+
+## Challenge Q4: Negative Squares Surprise ⚡
+
+```{=html}
+<div class="quiz-box">
+  <div class="quiz-question">In a physics simulation, <code>velocity = -6</code>. What does <code>velocity ** 2</code> produce?</div>
+
+  <div class="quiz-options">
+    <div class="quiz-option" onclick="checkChallengeQ4(this, false)">-36</div>
+    <div class="quiz-option" onclick="checkChallengeQ4(this, true)">36</div>
+    <div class="quiz-option" onclick="checkChallengeQ4(this, false)">-12</div>
+    <div class="quiz-option" onclick="checkChallengeQ4(this, false)">Error: cannot square a negative number</div>
+  </div>
+
+  <div id="challengeQ4-feedback" style="display: none;"></div>
+</div>
+
+<script>
+function checkChallengeQ4(element, isCorrect) {
+  element.parentElement.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('correct', 'incorrect'));
+  element.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+  const feedback = document.getElementById('challengeQ4-feedback');
+  feedback.style.display = 'block';
+  feedback.className = 'quiz-feedback ' + (isCorrect ? 'correct' : 'incorrect');
+
+  if (isCorrect) {
+    feedback.textContent = '✅ Correct! A negative number times itself is always positive: -6 * -6 = 36.';
+  } else {
+    feedback.textContent = '❌ Not quite! Squaring multiplies a number by itself: (-6) * (-6) = 36, always positive.';
+  }
+}
+</script>
+```
+
+---
+
+## Challenge Q5: Secret Code Slice 🕵️
+
+```{=html}
+<div class="quiz-box">
+  <div class="quiz-question">Given <code>secret = "PYTHONROCKS"</code>, what does <code>secret[2:6]</code> return?</div>
+
+  <div class="quiz-options">
+    <div class="quiz-option" onclick="checkChallengeQ5(this, false)">"PY"</div>
+    <div class="quiz-option" onclick="checkChallengeQ5(this, true)">"THON"</div>
+    <div class="quiz-option" onclick="checkChallengeQ5(this, false)">"THONR"</div>
+    <div class="quiz-option" onclick="checkChallengeQ5(this, false)">"ROCKS"</div>
+  </div>
+
+  <div id="challengeQ5-feedback" style="display: none;"></div>
+</div>
+
+<script>
+function checkChallengeQ5(element, isCorrect) {
+  element.parentElement.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('correct', 'incorrect'));
+  element.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+  const feedback = document.getElementById('challengeQ5-feedback');
+  feedback.style.display = 'block';
+  feedback.className = 'quiz-feedback ' + (isCorrect ? 'correct' : 'incorrect');
+
+  if (isCorrect) {
+    feedback.textContent = '✅ Correct! Slicing is start-inclusive, end-exclusive: indexes 2, 3, 4, 5 spell out "THON".';
+  } else {
+    feedback.textContent = '❌ Try again! secret[2:6] starts at index 2 and stops before index 6 — count the letters (T-H-O-N).';
+  }
+}
+</script>
+```
+
+
+
+## Challenge Q6: Literal Mix-Up
 
 Write code that uses at least three different types of literals (integer, float, string, boolean) and prints them in a single sentence.
 
@@ -221,7 +410,7 @@ Write code that uses at least three different types of literals (integer, float,
 ![](graphics/join.png){width=100%}
 </center>
 
-## Challenge 2: Variable Math
+## Challenge Q7: Variable Math
 
 Create two variables, perform addition, subtraction, multiplication, and division, and print the results with clear labels.
 
@@ -236,7 +425,8 @@ Create two variables, perform addition, subtraction, multiplication, and divisio
 </center>
 
 
-## Challenge 3: Loop & Conditional Fun
+
+## Challenge Q8: Loop & Conditional Fun
 
 Write a loop that prints numbers from 1 to 10. For each number, print whether it is a multiple of 3 or not.
 
@@ -250,7 +440,7 @@ Write a loop that prints numbers from 1 to 10. For each number, print whether it
 ![](graphics/loop.png){width=50%}
 </center>
 
-## Challenge 4: Squaring Game using Functions
+## Challenge Q9: Squaring Game using Functions
 
 Write a function that takes a number and returns both its square and its cube. Print the results for the number 5.
 
@@ -266,7 +456,8 @@ Write a function that takes a number and returns both its square and its cube. P
 </center>
 
 
-## Challenge 5: String Slicing Mystery
+
+## Challenge Q10: String Slicing Mystery
 
 Given the string `mystery = "QuartoPythonRocks!"`, print:
 
@@ -285,12 +476,9 @@ Given the string `mystery = "QuartoPythonRocks!"`, print:
 </center>
 
 
-
 # Solutions to Challenge Exercises
 
-
-
-## Solution 1: Literal Mix-Up
+## Solution, Challenge Q6: Literal Mix-Up
 
 ::: {.example}
 ```python
@@ -308,7 +496,8 @@ This code uses integer, float, string, and boolean literals in a sentence.
 </center>
 
 
-## Solution 2: Variable Math
+
+## Solution, Challenge Q7: Variable Math
 
 ::: {.example}
 ```python
@@ -326,7 +515,7 @@ This code performs math operations and prints results with labels.
 ![](graphics/with_op.png){width=70%}
 </center>
 
-## Solution 3: Loop & Conditional Fun
+## Solution, Challenge Q8: Loop & Conditional Fun
 
 ::: {.example}
 ```python
@@ -343,7 +532,7 @@ This code loops through numbers and checks for multiples of 3.
 ![](graphics/loop.png){width=40%}
 </center>
 
-## Solution 4: Squaring Game
+## Solution, Challenge Q9: Squaring Game using Functions
 
 ::: {.example}
 ```python
@@ -361,7 +550,7 @@ This function returns both the square and cube of a number.
 ![](graphics/function.png){width=30%}
 </center>
 
-## Solution 5: String Slicing Mystery
+## Solution, Challenge Q10: String Slicing Mystery
 
 ::: {.example}
 ```python
