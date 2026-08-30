@@ -1,6 +1,6 @@
 ---
 title: "Chapter 2: Python Programming: Concepts II"
-subtitle: "Loops, Dictionaries and Lists
+subtitle: "Loops, Dictionaries and Lists"
 author: "Oliver Bonham-Carter"
 format:
   revealjs:
