@@ -1,0 +1,408 @@
+---
+title: "Media Coverage"
+subtitle: "In the News"
+author: "Data Science 101"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    css: custom.css
+    code-copy: true
+    scrollable: true
+---
+
+```{r setup, include=FALSE}
+# Enable TikZ graphics in HTML output
+knitr::opts_chunk$set(
+  dev = "png",
+  dev.args = list(bg = "transparent")
+)
+```
+
+## TikZ Code (original)
+
+Here's the code to create our media box:
+
+```{tikz}
+#| echo: true
+#| eval: false
+
+\begin{tikzpicture}
+  % Draw the orange box with rounded corners and dark blue outline
+  \draw[fill=orange!80, draw=blue!60!black, line width=2pt, rounded corners=10pt] 
+    (0,0) rectangle (10,3);
+  
+  % Add the text "In the Media" with yellow color and purple highlight
+  \node[text=yellow, fill=purple!70, inner sep=8pt, rounded corners=4pt, font=\Large\bfseries] 
+    at (5, 1.5) {In the Media};
+\end{tikzpicture}
+```
+
+---
+
+## In the Media Original Visualization 1
+
+```{tikz}
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3
+
+\begin{tikzpicture}
+  % Draw the orange box with rounded corners and dark blue outline
+  \draw[fill=orange!80, draw=blue!60!black, line width=2pt, rounded corners=10pt] 
+    (0,0) rectangle (10,3);
+  
+  % Add the text "In the Media" with yellow color and purple highlight
+  \node[text=yellow, fill=purple!70, inner sep=8pt, rounded corners=4pt, font=\Large\bfseries] 
+    at (5, 1.5) {In the Media};
+\end{tikzpicture}
+```
+
+## In the Media Original Visualization 2
+
+```{tikz}
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3
+
+\begin{tikzpicture}
+  % Draw the orange box with rounded corners and dark blue outline
+  \draw[fill=orange!80, draw=blue!60!black, line width=2pt, rounded corners=10pt] 
+    (0,0) rectangle (10,3);
+  
+  % Add the text "In the Media" with yellow color and purple highlight
+  \node[text=yellow, fill=purple!80, inner sep=8pt, rounded corners=4pt, font=\Huge\bfseries, scale=1.5] 
+    at (5, 1.5) {In the Media};
+
+\end{tikzpicture}
+```
+
+
+---
+
+
+
+## Size Example 1: Small (Default)
+
+```{tikz}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 2
+
+\begin{tikzpicture}
+  \draw[fill=orange!80, draw=blue!60!black, line width=2pt, rounded corners=10pt] 
+    (0,0) rectangle (10,3);
+  \node[text=yellow, fill=purple!70, inner sep=8pt, rounded corners=4pt, font=\Large\bfseries] 
+    at (5, 1.5) {In the Media};
+\end{tikzpicture}
+```
+
+**Settings:**
+```markdown
+#| fig-width: 4
+#| fig-height: 2
+font=\Large\bfseries
+(no scale parameter)
+```
+
+---
+
+## Size Example 2: Medium (Standard)
+
+```{tikz}
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3
+
+\begin{tikzpicture}
+  \draw[fill=orange!80, draw=blue!60!black, line width=2pt, rounded corners=10pt] 
+    (0,0) rectangle (10,3);
+  \node[text=yellow, fill=purple!70, inner sep=8pt, rounded corners=4pt, font=\Large\bfseries] 
+    at (5, 1.5) {In the Media};
+\end{tikzpicture}
+```
+
+**Settings:**
+```markdown
+#| fig-width: 6
+#| fig-height: 3
+font=\Large\bfseries
+(no scale parameter)
+```
+
+---
+
+## Size Example 3: Large Canvas
+
+```{tikz}
+#| echo: false
+#| fig-width: 9
+#| fig-height: 4.5
+
+\begin{tikzpicture}
+  \draw[fill=orange!80, draw=blue!60!black, line width=2pt, rounded corners=10pt] 
+    (0,0) rectangle (10,3);
+  \node[text=yellow, fill=purple!70, inner sep=8pt, rounded corners=4pt, font=\Large\bfseries] 
+    at (5, 1.5) {In the Media};
+\end{tikzpicture}
+```
+
+**Settings:**
+```markdown
+#| fig-width: 9
+#| fig-height: 4.5
+font=\Large\bfseries
+(no scale parameter)
+```
+
+---
+
+## Size Example 4: Scaled TikZ Picture
+
+```{tikz}
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3
+
+\begin{tikzpicture}[scale=1.5]
+  \draw[fill=orange!80, draw=blue!60!black, line width=2pt, rounded corners=10pt] 
+    (0,0) rectangle (10,3);
+  \node[text=yellow, fill=purple!70, inner sep=8pt, rounded corners=4pt, font=\Large\bfseries] 
+    at (5, 1.5) {In the Media};
+\end{tikzpicture}
+```
+
+**Settings:**
+```markdown
+#| fig-width: 6
+#| fig-height: 3
+\begin{tikzpicture}[scale=1.5]
+font=\Large\bfseries
+```
+
+---
+
+## Size Example 5: Large Text Only
+
+```{tikz}
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3
+
+\begin{tikzpicture}
+  \draw[fill=orange!80, draw=blue!60!black, line width=2pt, rounded corners=10pt] 
+    (0,0) rectangle (10,3);
+  \node[text=yellow, fill=purple!70, inner sep=8pt, rounded corners=4pt, font=\Huge\bfseries, scale=1.5] 
+    at (5, 1.5) {In the Media};
+\end{tikzpicture}
+```
+
+**Settings:**
+```markdown
+#| fig-width: 6
+#| fig-height: 3
+font=\Huge\bfseries
+scale=1.5 (on node)
+```
+
+---
+
+## Size Example 6: Maximum Size
+
+```{tikz}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 5
+
+\begin{tikzpicture}[scale=1.3]
+  \draw[fill=orange!80, draw=blue!60!black, line width=2pt, rounded corners=10pt] 
+    (0,0) rectangle (10,3);
+  \node[text=yellow, fill=purple!80, inner sep=10pt, rounded corners=4pt, font=\Huge\bfseries, scale=2.0] 
+    at (5, 1.5) {In the Media};
+\end{tikzpicture}
+```
+
+**Settings:**
+```markdown
+#| fig-width: 10
+#| fig-height: 5
+\begin{tikzpicture}[scale=1.3]
+font=\Huge\bfseries
+scale=2.0 (on node)
+```
+
+---
+
+
+## About This Visualization
+
+This slide demonstrates the use of TikZ graphics in Quarto presentations.
+
+**Features:**
+- Orange box with 80% opacity
+- Dark blue outline (2pt width)
+- Rounded corners (10pt radius)
+- Yellow text on purple background
+- Centered positioning
+
+---
+
+## Customize Your Own
+
+You can modify the TikZ code to create different effects:
+
+- Change colors: `fill=orange!80` → `fill=red!80`
+- Adjust outline: `line width=2pt` → `line width=4pt`
+- Modify corners: `rounded corners=10pt` → `rounded corners=20pt`
+- Text styling: `font=\Large\bfseries` → `font=\Huge`
+
+**Tip:** TikZ is a powerful graphics package for creating precise diagrams!
+
+---
+
+## Setup Requirements 📋
+
+To use TikZ graphics in your Quarto slides, you need:
+
+**1. LaTeX Distribution**
+
+- macOS: Install MacTeX or BasicTeX
+- Windows: Install MiKTeX or TinyTeX
+- Linux: Install TeX Live
+
+**Quick install with Quarto:**
+```bash
+quarto install tinytex
+```
+
+**2. R Packages**
+
+Two packages are required for HTML output:
+- `magick` - Image processing
+- `pdftools` - PDF manipulation
+
+---
+
+## Installation Instructions 🔧
+
+**Step 1: Install R Packages**
+
+Open R or RStudio and run:
+
+```r
+install.packages("magick")
+install.packages("pdftools")
+```
+
+**Step 2: Verify Installation**
+
+Check that packages are installed:
+
+```r
+library(magick)
+library(pdftools)
+```
+
+**Step 3: Check LaTeX**
+
+Verify LaTeX is available:
+
+```bash
+quarto check
+```
+
+Look for "LaTeX" in the output showing it's installed.
+
+---
+
+## Adding TikZ to Your Slides 🎨
+
+**1. Add to any `.qmd` file:**
+
+```markdown
+```{tikz}
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3
+
+\begin{tikzpicture}
+  % Your TikZ code here
+  \draw[fill=blue!50] (0,0) rectangle (5,2);
+  \node at (2.5,1) {Hello TikZ!};
+\end{tikzpicture}
+```
+```
+
+**2. Show code without rendering:**
+
+Use `#| eval: false` to display code only
+
+**3. Render your slides:**
+
+```bash
+quarto render your_slides.qmd
+```
+
+---
+
+## Troubleshooting 🔍
+
+**Problem: "there is no package called 'magick'"**
+
+Solution: Install the R package
+```r
+install.packages("magick")
+```
+
+**Problem: "LaTeX Error: File 'tikz.sty' not found"**
+
+Solution: Install or update your LaTeX distribution
+```bash
+quarto install tinytex
+```
+
+**Problem: Image not showing in HTML**
+
+Solution: Check that both `magick` and `pdftools` are installed
+
+**Problem: Slow rendering**
+
+TikZ converts to PNG for HTML - this is normal! First render takes longer.
+
+---
+
+## Quick Reference 📚
+
+**Basic TikZ chunk options:**
+
+- `#| echo: false` - Hide code, show graphic
+- `#| echo: true` - Show code, show graphic  
+- `#| eval: false` - Show code only, no graphic
+- `#| fig-width: 6` - Set figure width
+- `#| fig-height: 3` - Set figure height
+
+**Common TikZ commands:**
+
+- `\draw` - Draw lines and shapes
+- `\fill` - Fill shapes with color
+- `\node` - Add text
+- `rectangle`, `circle`, `ellipse` - Shapes
+- `[rounded corners=10pt]` - Rounded corners
+
+---
+
+## Resources 📖
+
+**TikZ Documentation:**
+- [TikZ Manual](https://tikz.dev/) - Complete reference
+- [TikZ Examples](https://texample.net/tikz/) - Gallery of examples
+- [Overleaf TikZ Guide](https://www.overleaf.com/learn/latex/TikZ_package) - Tutorials
+
+**Quarto + TikZ:**
+- [Quarto Diagrams Guide](https://quarto.org/docs/authoring/diagrams.html)
+- Search "Quarto TikZ" for more examples
+
+**Color Reference:**
+- Use `red`, `blue`, `green`, etc.
+- Opacity: `red!50` (50% red)
+- Mix: `red!75!blue` (75% red, 25% blue)

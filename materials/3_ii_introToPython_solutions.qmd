@@ -18,9 +18,6 @@ format:
     margin: 0.05
 ---
 
-<!-- Find your available themes: ls /Applications/quarto/share/formats/revealjs/themes -->
-<!-- ::: {style="color: #2E86C1; font-size: 0.9em; text-align: center; margin-top: 0.5em;"} -->
-
 # Welcome to MORE Python Programming!
 
 ::: {.callout-tip}
@@ -122,31 +119,32 @@ Loops repeat actions. Use `for` and `while` loops.
 
 ## Conditionals
 
-Conditionals let your code make decisions using `if`, `elif`, and `else`.
+Every now and then, your code will need to make decisions. Use `if`, `elif`, and `else` statements. Here is an example.
 
-::: {.callout-medium}
-**Examples:**
+
 ```python
-for i in range(5):
-	print(i)
+print("Welcome to the Secret Door Game!")
+print("There are three doors: Red, Blue, and Green.")
 
-count = 0
-while count < 3:
-	print("Counting:", count)
-	count += 1 
-	# Do not forget to increment 
-	# the counter, or you will create an infinite loop!
+# input() does not work with Quarto slides or Jupyter.
+# Saved for later
+# door = input("Which door do you choose? ").lower()
 
-	if x > y:    # What changes to print statements if x < y ? 
-		print("x is greater!")
-	elif x == y:
-		print("x equals y!")
-	else:
-		print("x is less!")
+door = "red" ## Change this line to see what happens next!
+
+if door == "red":
+    print("🔥 You found a treasure chest!")
+elif door == "blue":
+    print("🌊 You discovered a hidden underwater tunnel!")
+elif door == "green":
+    print("🌲 You entered a magical forest!")
+else:
+    print("❌ That door doesn't exist!")
+
 ```
-:::
 
 **Try out this code! Now, make a change and see what happens!**
+
 
 ## Sort of Interesting Application
 
@@ -166,10 +164,63 @@ else:
 :::
 
 ::: {.callout-output}
-Output:
-
-Positive
+Output: Positive
 :::
+
+**Try out this code! Now, make a change and see what happens!**
+
+## A More Complicated Example of a Conditional
+We find out if a number is positive, negative, or zero.
+
+::: {.callout-medium}
+**Examples:**
+```python
+x = 10
+y = 20
+if x > 5 and y > 15:
+    print("Both conditions are true")
+if x > 5 or y < 15:
+    print("At least one condition is true")
+if not x < 5:
+    print("x is not less than 5")
+```
+:::
+
+**Try out this code! Now, make a change and see what happens!**
+
+
+## Example to check if a number is prime
+
+Here we use conditionals to decide whether a number is prime or not
+
+```python
+
+# input() does not work with Quarto slides or Jupyter.
+# Saved for later
+# number = int(input("Enter a number: ")) #Get user input. 
+
+number = 11
+
+if number < 2:
+    print("❌ This is not a prime number.")
+elif number == 2:
+    print("⭐ 2 is a prime number!")
+elif number % 2 == 0:
+    print("❌ This is not a prime number because it is divisible by 2.")
+else:
+    print(f"Testing {number} for primality ... ")
+
+    # Check if the number has any divisor
+    for i in range(3, number, 2):
+        if number % i == 0:
+            print(f"❌ {number} is not a prime number.")
+            break
+    else:
+        print(f"GOOD NEWS! {number} is a prime number!")
+```
+
+**Try out this code! Now, make a change and see what happens!**
+
 
 
 
@@ -192,10 +243,11 @@ else:
 :::
 
 ::: {.callout-output}
-Output:
-
-Positive
+Output: Positive
 :::
+
+**Try out this code! Now, make a change and see what happens!**
+
 
 ## Logical Operator
 Logical operators use `True` and `False` to determine outcomes.
@@ -217,11 +269,12 @@ if not a < 5:
 ::: {.callout-output}
 Output:
 
-Both conditions are true
-At least one condition is true
-a is not less than 5
+-  Both conditions are true
+-  At least one condition is true
+- a is not less than 5
 :::
 
+**Try out this code! Now, make a change and see what happens!**
 
 ## String Manipulation
 We now look at how we can manipulate strings
@@ -244,6 +297,9 @@ Output:
 
 ## Lists
 
+
+::: {.callout-important}
+
 - A list is a fundamental data structure in Python used to store an ordered collection of items.
 
 - Lists maintain the order of elements, with each item accessible by its index (starting from 0).
@@ -254,6 +310,18 @@ Output:
 
 - Lists are created using square brackets, with elements separated by commas.
 
+:::
+
+<center></center>
+<center></center>
+<center></center>
+<center></center>
+<center></center>
+<center></center>
+
+<center>
+![](graphics/myList.png){width=50%}
+</center>
 
 ## Demo of Lists
 
@@ -285,6 +353,10 @@ Output:
 
 
 ## Dictionaries
+
+
+::: {.callout-important}
+
 A dictionary is a built-in data structure in Python used to store key-value pairs.
 
 Dictionaries are unordered collections (as of Python 3.6+, they maintain insertion order), where each value is accessed using its unique key.
@@ -294,6 +366,19 @@ Dictionaries are mutable, so their contents can be changed after creation (items
 Keys in a dictionary must be unique and immutable (such as strings, numbers, or tuples), while values can be of any data type.
 
 Dictionaries are created using curly braces {}, with key-value pairs separated by commas and a colon between each key and value.
+
+:::
+
+<center></center>
+<center></center>
+<center></center>
+<center></center>
+<center></center>
+<center></center>
+
+<center>
+![](graphics/myDict.png){width=50%}
+</center>
 
 ## Demo of Dictionaries
 
@@ -323,113 +408,6 @@ Alice
 3
 :::
 
-:::
-
----
-
-## Coding Challenges
-
-<center>
-![](graphics/challenge.png){width=90%}
-</center>
-
-### 1. Variables and Operators
-**Challenge:**  
-Create two variables, `a` and `b`, assign them integer values, and print their sum, difference, product, and quotient.
-
-<!-- <center>
-![](graphics/cheesy_smile.png){width=30%}
-</center> -->
-
-::: {.callout-tip}
-**Method Suggestions:**
-
-- Declare two variables and assign integer values to them
-- Use arithmetic operators: `+`, `-`, `*`, `/`
-- Use `print()` function with labels for clarity
-- Consider using f-strings for formatted output
-- Remember: division `/` gives a float result
-:::
-
----
-
-### 2. Working with Lists
-**Challenge:**  
-Create a list of five numbers. Print the largest number in the list.
-
-<!-- <center>
-![](graphics/literals.png){width=30%}
-</center> -->
-
-::: {.callout-tip}
-**Method Suggestions:**
-
-- Create a list using square brackets `[]`
-- Use the built-in `max()` function
-- Alternative: Sort the list and access the last element
-- Another option: Loop through and compare each element
-- Consider using `print()` with a descriptive message
-:::
-
----
-
-### 3. Dictionaries
-**Challenge:**  
-Create a dictionary with three key-value pairs representing a person's name, age, and city. Print each key and its value.
-
-<!-- <center>
-![](graphics/more.png){width=30%}
-</center> -->
-
-::: {.callout-tip}
-**Method Suggestions:**
-
-- Use curly braces `{}` to create a dictionary
-- Use the `.items()` method to access key-value pairs
-- Loop through the dictionary with `for key, value in dict.items()`
-- Alternative: Access keys with `.keys()` and values with `.values()`
-- You can also print individual items by accessing keys directly
-:::
-
----
-
-### 4. For Loops
-**Challenge:**  
-Use a for loop to print all even numbers from 1 to 10.
-
-<!-- <center>
-![](graphics/loop.png){width=35%}
-</center> -->
-
-::: {.callout-tip}
-**Method Suggestions:**
-
-- Use `range(1, 11)` to iterate from 1 to 10
-- Check if a number is even using the modulo operator `%`
-- Alternative: Use `range()` with a step parameter
-- Another option: Use list comprehension
-- Remember: `i % 2 == 0` tests for even numbers
-:::
-
----
-
-### 5. While Loops and Conditionals
-**Challenge:**  
-Use a while loop to keep asking the user to enter a number until they enter a negative number.
-
-<!-- <center>
-![](graphics/challenge.png){width=35%}
-</center> -->
-
-::: {.callout-tip}
-**Method Suggestions:**
-
-- Use `while True:` for a continuous loop
-- Get user input with `input()` function
-- Convert input to integer using `int()`
-- Use `break` statement to exit the loop
-- Alternative: Use a condition in the while loop itself
-- Check if number is negative with `< 0` comparison
 :::
 
 ---
@@ -476,6 +454,10 @@ function checkChallengeR1(element, isCorrect) {
 </script>
 ```
 
+<center>
+![](graphics/think.png){width=40%}
+</center>
+
 ---
 
 ## Challenge Q2: Score Booster 🎮
@@ -511,6 +493,11 @@ function checkChallengeR2(element, isCorrect) {
 }
 </script>
 ```
+
+<center>
+![](graphics/think.png){width=40%}
+</center>
+
 
 ---
 
@@ -548,6 +535,10 @@ function checkChallengeR3(element, isCorrect) {
 </script>
 ```
 
+<center>
+![](graphics/think.png){width=40%}
+</center>
+
 ---
 
 ## Challenge Q4: Movie Title Makeover 🎬
@@ -583,6 +574,10 @@ function checkChallengeR4(element, isCorrect) {
 }
 </script>
 ```
+
+<center>
+![](graphics/think.png){width=40%}
+</center>
 
 ---
 
@@ -620,6 +615,135 @@ function checkChallengeR5(element, isCorrect) {
 </script>
 ```
 
+
+<center>
+![](graphics/think.png){width=40%}
+</center>
+
+---
+
+### 1. Variables and Operators
+**Challenge:**  
+Create two variables, `a` and `b`, assign them integer values, and print their sum, difference, product, and quotient.
+
+<!-- <center>
+![](graphics/cheesy_smile.png){width=30%}
+</center> -->
+
+::: {.callout-tip}
+**Method Suggestions:**
+
+- Declare two variables and assign integer values to them
+- Use arithmetic operators: `+`, `-`, `*`, `/`
+- Use `print()` function with labels for clarity
+- Consider using f-strings for formatted output
+- Remember: division `/` gives a float result
+:::
+
+
+<center>
+![](graphics/think.png){width=40%}
+</center>
+
+---
+
+### 2. Working with Lists
+**Challenge:**  
+Create a list of five numbers. Print the largest number in the list.
+
+<!-- <center>
+![](graphics/literals.png){width=30%}
+</center> -->
+
+::: {.callout-tip}
+**Method Suggestions:**
+
+- Create a list using square brackets `[]`
+- Use the built-in `max()` function
+- Alternative: Sort the list and access the last element
+- Another option: Loop through and compare each element
+- Consider using `print()` with a descriptive message
+:::
+
+
+<center>
+![](graphics/think.png){width=40%}
+</center>
+
+---
+
+### 3. Dictionaries
+**Challenge:**  
+Create a dictionary with three key-value pairs representing a person's name, age, and city. Print each key and its value.
+
+<!-- <center>
+![](graphics/more.png){width=30%}
+</center> -->
+
+::: {.callout-tip}
+**Method Suggestions:**
+
+- Use curly braces `{}` to create a dictionary
+- Use the `.items()` method to access key-value pairs
+- Loop through the dictionary with `for key, value in dict.items()`
+- Alternative: Access keys with `.keys()` and values with `.values()`
+- You can also print individual items by accessing keys directly
+:::
+
+<center>
+![](graphics/think.png){width=40%}
+</center>
+
+---
+
+### 4. For Loops
+**Challenge:**  
+Use a for loop to print all even numbers from 1 to 10.
+
+<!-- <center>
+![](graphics/loop.png){width=35%}
+</center> -->
+
+::: {.callout-tip}
+**Method Suggestions:**
+
+- Use `range(1, 11)` to iterate from 1 to 10
+- Check if a number is even using the modulo operator `%`
+- Alternative: Use `range()` with a step parameter
+- Another option: Use list comprehension
+- Remember: `i % 2 == 0` tests for even numbers
+:::
+
+<center>
+![](graphics/think.png){width=40%}
+</center>
+
+---
+
+### 5. While Loops and Conditionals
+**Challenge:**  
+Use a while loop to keep asking the user to enter a number until they enter a negative number.
+
+<!-- <center>
+![](graphics/challenge.png){width=35%}
+</center> -->
+
+::: {.callout-tip}
+**Method Suggestions:**
+
+- Use `while True:` for a continuous loop
+- Get user input with `input()` function
+- Convert input to integer using `int()`
+- Use `break` statement to exit the loop
+- Alternative: Use a condition in the while loop itself
+- Check if number is negative with `< 0` comparison
+:::
+
+<center>
+![](graphics/think.png){width=40%}
+</center>
+
+---
 
 
 # Solutions
@@ -918,6 +1042,3 @@ You now able to use ...
 :::
 
 ---
-
-
-

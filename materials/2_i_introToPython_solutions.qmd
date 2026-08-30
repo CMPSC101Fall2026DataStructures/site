@@ -28,13 +28,13 @@ format:
 :::
 
 
-
 ## What are literals?
 
 Literals are fixed values in your code. They can be numbers, strings, booleans, etc.
 
 ::: {.callout-note}
 **Examples:**
+
 - `42` (integer)
 - `3.14` (float)
 - `'hello'` (string)
@@ -94,6 +94,25 @@ print(integer_literal, float_literal, string_literal, boolean_literal)
 :::
 This code demonstrates how to use different types of literals in Python.
 
+
+## Literals: Sometimes Unexpected Outputs!
+
+```python
+x = 0.3333333 # a third as a float literal
+y = 1/3 # a third as a float literal using division
+print(x == y) # Output: False
+# a third is not exactly representable in binary floating-point, so these two values are not equal.
+```
+
+Let's try adding some more precision to see if we can get a better comparison.
+
+```python
+x = 0.3333333333333333 # a third as a float literal
+y = 1/3 # a third as a float literal using division
+print(x == y) # Output: True
+```
+
+This code shows that using literals can sometimes lead to unexpected results due to precision issues with floating-point numbers. It's often better to use variables or functions to handle calculations instead of relying solely on literals.
 
 
 # Variables and Operators
@@ -195,18 +214,6 @@ print(every_other)   # Output: Pto saeo!
 ```
 :::
 This code shows how to slice strings to get different parts or patterns.
-
-
-
-# Python Challenge Exercises
-
-Try these programming challenges to practice your Python skills!
-
-<center>
-![](graphics/challenge_i_540x247.png){width=100%}
-</center>
-
-
 
 # Interactive Challenges
 
