@@ -1,6 +1,6 @@
 ---
 title: "Chapter 2: Python Programming: Concepts I"
-subtitle: "Basics, Solutions"
+subtitle: "BLiterals, Variables, Conditionals, Strings, etc."
 author: "Oliver Bonham-Carter"
 format:
   revealjs:
