@@ -45,8 +45,10 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Shared values activity**
   - The Department's [Shared Values](https://www.cis.allegheny.edu/teaching/policies/)
 
-- **Activity 01** (in-class activity)
-  - [Robot Maze](01_activity.html) 
+- **Activity 01**: Programming a Robot to get Through Through a Maze
+  -  <a href="01_activity.html" target="_blank">webpage</a>
+
+
 
 ---
 
@@ -56,8 +58,7 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - Be sure to check that you are in the Discord Channel of the course: `#data-structures`. If your name is not in the channel, please let me know. Also, please use your real names in the channel (otherwise  I will not be able to identify you).
 
 - **Literals, Variables, Conditionals, Strings, etc. ** 
-  - [HTML](2_i_introToPython_solutions.html) Slides
-
+  - <a href="2_i_introToPython_solutions.html" target="_blank">Slides</a>
 
 - **Activity 01**: Getting Started with UV Package Manager
   - Classroom50 link: <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity01/accept" target="_blank">Activity01</a>
@@ -67,16 +68,10 @@ Here you will find a listing of lesson materials for the course such as slides, 
   - Classroom50 link: <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/lab01/accept" target="_blank">Lab01</a>
  -->
 
-
-
 ## W3 Reviewing Python II
 
 - **Loops, Dictionaries and Lists ** 
-  - [HTML](3_ii_introToPython_solutions.html) Slides
-  
-<!-- - **Lab 01**: Mastering Python Loops
-  - [GitHub Classroom Link](https://classroom.github.com/a/AnsmidnZ) -->
-
+  -  <a href="3_ii_introToPython_solutions.html" target="_blank">Slides</a>
 
 
 <!-- ## Special Notes
