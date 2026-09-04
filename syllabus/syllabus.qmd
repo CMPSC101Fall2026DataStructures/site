@@ -268,7 +268,7 @@ All students in the CIS department are expected to turn in assignments on time. 
 
 #### _Tokens_
 
-Students are allotted four (4) tokens for **all courses at the 100 and 200 levels**, otherwise, they are granted two (2) tokens **for all 300-level courses and above**. Tokens are used to receive extensions on any assignment except the final with no questions asked by the course instructor except either in the rare cases of documented severe and/or extenuating circumstances or in cases that violate the CIS policy document or any College-approved policy.
+Students are allotted four (4) tokens for **courses at the 100 and 200 levels**, otherwise, they are granted two (2) tokens **for all 300-level courses and above**. Tokens are used to receive extensions on any assignment except the final with no questions asked by the course instructor except either in the rare cases of documented severe and/or extenuating circumstances or in cases that violate the CIS policy document or any College-approved policy.
 
 * A token may be applied via a Google Form up to the assignment deadline, with exceptions granted only for severe and/or extenuating circumstances.
 
