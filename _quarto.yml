@@ -13,6 +13,7 @@ project:
 
 website:
   title: "CMPSC101 Fall 2026 :: DataStructures"
+  favicon: graphics/logo.png
   navbar:
     left:
       - href: index.qmd

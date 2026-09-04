@@ -48,8 +48,6 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Activity 01**: Programming a Robot to get Through Through a Maze
   -  <a href="01_activity.html" target="_blank">webpage</a>
 
-
-
 ---
 
 ## W2. Reviewing Python I 
@@ -63,10 +61,10 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Activity 01**: Getting Started with UV Package Manager
   - Classroom50 link: <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity01/accept" target="_blank">Activity01</a>
 
-<!--   
+   
 - **Lab 01**: Mastering Python Loops
   - Classroom50 link: <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/lab01/accept" target="_blank">Lab01</a>
- -->
+
 
 ## W3 Reviewing Python II
 
