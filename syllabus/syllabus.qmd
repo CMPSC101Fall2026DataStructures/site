@@ -211,6 +211,8 @@ In each lab, there is a "Summary of Deliverables" to explains the distribution o
 **Activities**
 Nearly weekly, we will have an activity for which points in the course may be earned. Please be sure to turn in activities by the due date as they cannot be made up at a later time.
 
+**Expiration Dates**: All assignments have a hard deadline. If you are unable to submit an assignment on time, you may use a token to extend the deadline by one week. Tokens must be applied before the original due date of the assignment. After the original due date, no extensions will be granted except in cases of documented severe and/or extenuating circumstances.
+
 ---
 
 ## Discord
