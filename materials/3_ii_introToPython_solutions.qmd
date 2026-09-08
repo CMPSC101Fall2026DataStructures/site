@@ -1032,13 +1032,14 @@ while continue_input:
 </center>
 
 ::: {.callout-tip icon="true"}
-You now able to use ...
+You are now able to use ...
 
 * Literals
 * Print statements
 * Loops driven by `for` and `while`
 * Lists and Dictionaries
-* Much more!
+
+Cool, Right?!
 :::
 
 ---
