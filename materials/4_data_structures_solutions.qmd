@@ -83,7 +83,7 @@ Lists are ordered, mutable collections that can hold items of any type.
 ![](graphics/join.png){width=70%}
 </center> -->
 
-### Creating and Accessing Lists
+## Creating and Accessing Lists
 
 ::: {.example}
 ```python
@@ -106,7 +106,7 @@ print(numbers[1:4])   # Output: [2, 3, 4] (slicing)
 
 This code demonstrates creating different types of lists and accessing their elements.
 
-### Modifying Lists
+## Modifying Lists
 
 ::: {.example}
 ```python
@@ -134,7 +134,7 @@ print(colors)
 
 Lists are flexible - you can add, remove, and change items easily!
 
-### List Operations
+## List Operations
 
 ::: {.example}
 ```python
