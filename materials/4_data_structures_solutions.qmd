@@ -66,7 +66,35 @@ Data structures are containers that help you organize, store, and access your da
 ![](graphics/lists.png){width=100%}
 </center>
 
-## What are Lists?
+
+::: {.callout-important}
+
+- Each item is accessible by its index, starting from 0 and going up to the length of the list minus one (i.e., `len(myList) - 1`).
+
+:::
+
+
+Example: 
+
+
+::: {.example}
+```python
+"""
+This example shows how to access first and last items in lists.
+"""
+my_list = ["a","b","c","d","e","h","i"]
+print(f" First item: {my_list[0]}") # First item: a
+print(f" Last item: {my_list[len(my_list) - 1]}") # Last item: i
+
+
+```
+:::
+
+
+
+
+
+## More on Lists
 
 Lists are ordered, mutable collections that can hold items of any type.
 
