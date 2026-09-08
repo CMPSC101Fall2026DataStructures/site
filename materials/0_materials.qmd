@@ -71,6 +71,12 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Loops, Dictionaries and Lists ** 
   -  <a href="3_ii_introToPython_solutions.html" target="_blank">Slides</a>
 
+- **Data Structures**: More On Lists, Dictionaries; Comprehensions, and Sets
+  -  <a href="4_data_structures_solutions.html" target="_blank">Slides</a>
+
+
+---
+
 
 <!-- ## Special Notes
 ::: {.callout-note}

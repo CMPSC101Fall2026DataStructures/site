@@ -1,5 +1,5 @@
 ---
-title: "Chapter 2: Python Programming: Concepts I"
+title: "Python Programming: Concepts I"
 subtitle: "Literals, Variables, Conditionals, Strings, etc."
 author: "Oliver Bonham-Carter"
 format:
@@ -17,7 +17,7 @@ format:
     height: 800
     margin: 0.05
 ---
-
+<!-- chapter 2 -->
 <!-- Find your available themes: ls /Applications/quarto/share/formats/revealjs/themes -->
 <!-- ::: {style="color: #2E86C1; font-size: 0.9em; text-align: center; margin-top: 0.5em;"} -->
 
