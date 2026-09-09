@@ -15,7 +15,12 @@ title: "Materials"
 
 Here you will find a listing of lesson materials for the course such as slides, assignments, and similar.
 
+
+::: {.callout-note}
+
 - **Project Downloads**: [Starter files, tutorials, and other downloadable project materials](1_project_files.html)
+
+:::
 
 <!-- ![](../graphics/levelup.png){width=10%} -->
 
