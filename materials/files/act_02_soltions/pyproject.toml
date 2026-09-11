@@ -1,0 +1,41 @@
+# CS101: Introduction to Computer Science
+# Activity 02: Firefly Collector
+#
+# This file tells the "uv" project manager everything it needs to know in
+# order to build a virtual environment for this activity and to install the
+# Pygame library inside of it.  You should not need to change this file.
+
+[project]
+name = "firefly-collector"
+version = "1.0.0"
+description = "A Pygame activity about Python lists, dictionaries, and literals."
+readme = "README.md"
+requires-python = ">=3.10"
+
+# The one and only library this game needs in order to run.
+dependencies = [
+    "pygame>=2.6.0",
+]
+
+# This entry lets you start the game by typing "uv run firefly-collector".
+[project.scripts]
+firefly-collector = "firefly_collector.game:main"
+
+# These extra tools are used for testing your work, not for playing the game.
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# Tell the build system that the Python package lives in the src/ directory.
+[tool.hatch.build.targets.wheel]
+packages = ["src/firefly_collector"]
+
+# Tell pytest where the tests live and where to find the game package.
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
