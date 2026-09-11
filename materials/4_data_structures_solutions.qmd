@@ -21,12 +21,25 @@ format:
 <!-- Find your available themes: ls /Applications/quarto/share/formats/revealjs/themes -->
 <!-- ::: {style="color: #2E86C1; font-size: 0.9em; text-align: center; margin-top: 0.5em;"} -->
 
-# Welcome to Python Data Structures!
+<!-- ::: {style="color: #2E86C1; font-size: 0.9em; text-align: center; margin-top: 0.5em;"} 
+::: {.callout} my blue text :::
+::: -->
+
+# On for today ... 
+
 
 <!-- ::: {.callout-tip} -->
 ::: {.callout-blue}
-**Master these powerful tools to organize and manipulate data efficiently!**
+
+- List and dictionary data structures 
+  - Kinda a review by now!
+- List and dictionary comprehensions
+    - New way to create these structures in half the code. Neat-O!
+- Set data structures and operations
+    - Unordered collections of unique items and why is this important?!
+
 :::
+
 
 <center></center>
 <center></center>
@@ -771,7 +784,7 @@ Write code that uses sets to find:
 :::
 
 <center>
-![](graphics/think.png){width=40%}
+![](graphics/think.png){width=20%}
 </center>
 
 
