@@ -80,6 +80,11 @@ Here you will find a listing of lesson materials for the course such as slides, 
   -  <a href="4_data_structures_solutions.html" target="_blank">Slides</a>
 
 
+
+- **Activity 02**: Firefly Collector - Debugging Lists, Dictionaries, and Literals
+  - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity02/accept" target="_blank">Activity02</a>
+
+
 ---
 
 
