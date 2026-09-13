@@ -281,14 +281,13 @@ print(greet("Alice"))      # Output: Hello, Alice!
 ## 🤝 Quick Challenge #1 (2 minutes)
 
 ::: {.callout-warning icon="false"}
-## Your Turn: Basic Lambda Practice
 
 **Challenge:** Create lambda functions for these operations:
 
 1. A lambda that calculates the area of a circle: `π * r²`
 2. A lambda that converts Fahrenheit to Celsius: `(f - 32) * 5/9`
 3. A lambda that finds the maximum `max()` of three numbers
-3. A lambda that finds the minimum `min()` of three numbers
+4. A lambda that finds the minimum `min()` of three numbers
 
 :::
 
@@ -309,7 +308,9 @@ print(max_three(10, 20, 15))
 print(min_three(10, 20, 15))
 ```
 
-
+<center>
+![](graphics/think.png){width=10%}
+</center>
 
 
 ## Challenge #1 Solutions
@@ -377,7 +378,6 @@ Converts any iterable (map/filter results) into a list
 :::
 
 
-
 :::: {.columns}
 
 ::: {.column width="50%"}
@@ -405,6 +405,9 @@ Converts any iterable (map/filter results) into a list
 
 ::::
 
+<center>
+![](graphics/tools_i.png){width=30%}
+</center>
 
 
 ## Simple `sorted()` Example
@@ -421,6 +424,7 @@ sorted_students = sorted(students, key=lambda x: x[1])
 # Output: [('Tobias', 22), ('Emil', 25), ('Linus', 28)]
 print(sorted_students)
 ```
+
 
 
 ## A Complicated Example of Lambda with `sorted()`
@@ -656,7 +660,7 @@ Lambda functions really shine when used with Python's built-in functions like `m
 :::
 :::
 ::: {.column width="30%"}
-🔥⚡🎯
+
 :::
 ::::
 
@@ -687,6 +691,9 @@ products = [
 :::
 
 
+<center>
+![](graphics/think.png){width=40%}
+</center>
 
 ## Challenge #2 Solutions
 
@@ -766,7 +773,7 @@ Creates a collection with only unique items
 ::::
  -->
 
-## More Helpful Functions! 🎯
+## More Handy Functions! 🎯
 
 ::: {.callout-tip icon="false"}
 ## Additional Built-in Functions
@@ -804,6 +811,10 @@ Creates a collection with only unique items
 
 :::
 ::::
+
+<center>
+![](graphics/tools_i.png){width=30%}
+</center>
 
 
 ## Simple `sum()` Example
@@ -931,8 +942,11 @@ high_value = list(filter(
 print(f"High-value sales: {len(high_value)}")
 ```
 
+<center>
+![](graphics/think.png){width=40%}
+</center>
 
-Output:
+## Real-World Example 1 Output:
 
 ```{python}
 # Sales data from a CSV or database
@@ -957,8 +971,6 @@ high_value = list(filter(
 ))
 print(f"High-value sales: {len(high_value)}")
 ```
-
-
 
 ## Real-World Example 2
 
@@ -993,7 +1005,11 @@ by_age = sorted(users, key=lambda user: user["age"])
 print("Youngest user:", by_age[0]["email"])
 ```
 
-Output:
+<center>
+![](graphics/think.png){width=40%}
+</center>
+
+## Real-World Example 2 Output:
 
 ```{python}
 # User registration data
@@ -1063,7 +1079,11 @@ by_significance = sorted(
 print("Most significant point:", by_significance[0])
 ```
 
-Output:
+<center>
+![](graphics/think.png){width=40%}
+</center>
+
+## Real-World Example 3 Output:
 
 ```{python}
 import math
@@ -1144,8 +1164,6 @@ complex_func = lambda x: x**2 if x > 0 else abs(x) if x < 0 else "zero"
 # This won't work:
 # bad_lambda = lambda x: print(x); return x**2
 ```
-
-
 
 
 ## Lambda Limitations and Alternatives
@@ -1297,6 +1315,9 @@ print(initials("Ada", "Lovelace"))
 ```
 :::
 
+<center>
+![](graphics/think.png){width=40%}
+</center>
 
 ## Challenge 2: `map()` + `filter()` Practice
 
@@ -1314,6 +1335,10 @@ scores = [62, 71, 88, 95, 54, 77, 83]
 ```
 :::
 
+
+<center>
+![](graphics/think.png){width=40%}
+</center>
 
 ## Challenge 3: Sorting with Lambda
 
@@ -1336,6 +1361,10 @@ cities = [
 :::
 
 
+<center>
+![](graphics/think.png){width=40%}
+</center>
+
 ## Challenge 4: Chaining Functions
 
 ::: {.callout-warning icon="false"}
@@ -1352,6 +1381,10 @@ words = ["apple", "kiwi", "orange", "fig", "grape", "apricot"]
 ```
 :::
 
+
+<center>
+![](graphics/think.png){width=40%}
+</center>
 
 ## Challenge 5: Mini Data Task
 
@@ -1374,6 +1407,9 @@ trips = [
 ```
 :::
 
+<center>
+![](graphics/think.png){width=40%}
+</center>
 
 # Challenge Solutions
 
