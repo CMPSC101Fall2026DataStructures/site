@@ -85,6 +85,12 @@ Here you will find a listing of lesson materials for the course such as slides, 
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity02/accept" target="_blank">Activity02</a>
 
 
+
+## W4 Functions
+
+- **Functions and Lambda Functions**
+  -  <a href="5_lambdaFunctions.html" target="_blank">Slides</a>
+
 ---
 
 
