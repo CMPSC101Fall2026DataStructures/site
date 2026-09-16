@@ -587,13 +587,13 @@ def my_decorator(func):
     return wrapper
 
 def say_hello():
-    print("Hello!")
+    print("say_hello() :: Hello!!")
 
 say_hello = my_decorator(say_hello)  # manually decorate
 say_hello()
 ```
 
-**Output:** `Something happens BEFORE the function.` / `Hello!` / `Something happens AFTER the function.`
+**Output:** `Something happens BEFORE the function.` / `say_hello() :: Hello!!` / `Something happens AFTER the function.`
 :::
 
 ::: {.callout-important icon="false"}
@@ -616,17 +616,92 @@ def my_decorator(func):
 
 @my_decorator
 def say_goodbye():
-    print("Goodbye!")
+    print("say_goodbye() :: Goodbye!")
 
 say_goodbye()
 ```
 
-**Output:** `Before the function runs.` / `Goodbye!` / `After the function runs.`
+**Output:** `Before the function runs.` / `say_goodbye() :: Goodbye!` / `After the function runs.`
 :::
 
 ::: {.callout-important icon="false"}
 **Key Point:** `@my_decorator` above a function is exactly the same as writing `say_goodbye = my_decorator(say_goodbye)`. The `@` symbol is syntactic sugar — it looks cleaner and is the Pythonic way.
 :::
+
+## Decorator with Arguments -- Making a Call ()
+
+::: {.callout-important icon="false"}
+```python
+def my_decorator(func):
+    def wrapper(x,y):
+        print("Before the function runs.")
+        func(x,y)
+        print("After the function runs.")
+    return wrapper
+
+@my_decorator
+def give_numbers(num1, num2):
+    print("give_numbers() :: I will give you my numbers!")
+    print(f"My nums are :: {num1} and {num2}")
+    
+give_numbers(1,2)
+```
+**Output:** `Before the function runs.` / `give_numbers() :: I will give you my numbers!` / `My nums are :: 1 and 2` / `After the function runs.`
+:::
+
+## Decorator with Arguments -- Making a Call (II)
+
+::: {.callout-important icon="false"}
+## Passing Arguments to the Decorator
+```python
+def repeat(times):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            for _ in range(times):
+                func(*args, **kwargs)
+        return wrapper
+    return decorator
+
+@repeat(3)
+def say_hello():
+    print("Hello, World!")
+
+say_hello()
+```
+
+**Output:** `Hello, World!` / `Hello, World!` / `Hello, World!`
+:::
+
+
+
+
+
+## Decorator with Arguments — Making a Call (III)
+
+To write a decorator that can handle **any function signature**, we use `*args` and `**kwargs` in the wrapper. This allows the decorator to accept any number of positional and keyword arguments, making it flexible and reusable.
+
+::: {.callout-important icon="false"}
+## Handling Any Signature with `*args` and `**kwargs`
+```python
+def log_call(func):
+    def wrapper(*args, **kwargs):
+        print(f"Calling <<{func.__name__}>> with args= <<{args}>>, kwargs = <<{kwargs}>>")
+        result = func(*args, **kwargs)
+        print(f"{func.__name__} returned {result}")
+        return result
+    return wrapper
+
+@log_call
+def multiply(a, b):
+    return a * b
+
+print(multiply(4, 5))
+# Calling multiply with args=(4, 5), kwargs={}
+# multiply returned 20
+# 20
+```
+:::
+
 
 ## Decorator with Arguments — Simple
 
@@ -666,6 +741,7 @@ def print_details(**details): # **details is acting like kwargs that captures al
     print("Type:", type(details))
     for key, value in details.items():
         print(f"{key}: {value}")
+        print("") # add a space
 
 print_details(name="Alice", age=30, city="New York") #proces a dictionary of keyword arguments
 print_details(a="Alice", b=30, c="New York") # process another dictionary

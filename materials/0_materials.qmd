@@ -91,6 +91,9 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Functions and Lambda Functions**
   -  <a href="5_lambdaFunctions.html" target="_blank">Slides</a>
 
+- **Higher-Order Functions, Decorators, and Classes**
+  -  <a href="6_higherOrderFunctions_decorators_classes.html" target="_blank">Slides</a>
+  
 ---
 
 
