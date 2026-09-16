@@ -765,8 +765,6 @@ print_details(a="Alice", b=30, c="New York") # process another dictionary
 
 :::
 
-
-
 ## A Practical Decorator — Timing a Function
 
 ::: {.callout-important icon="false"}
