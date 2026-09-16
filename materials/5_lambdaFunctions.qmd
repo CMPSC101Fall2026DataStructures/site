@@ -912,11 +912,7 @@ Creates a collection with only unique items
 
 ## Real-World Example 1
 
-::: {.callout-note}
-
 Sales Data Processing
-
-:::
 
 ```python
 # Sales data from a CSV or database
@@ -974,12 +970,7 @@ print(f"High-value sales: {len(high_value)}")
 
 ## Real-World Example 2
 
-
-::: {.callout-note}
-
 Web Development
-
-:::
 
 ```python
 # User registration data
@@ -1040,12 +1031,7 @@ print("Youngest user:", by_age[0]["email"])
 
 ## Real-World Example 3
 
-
-::: {.callout-note}
-
 Analytic Computing
-
-:::
 
 ```python
 import math
@@ -1131,7 +1117,7 @@ Follow these guidelines to write maintainable and readable lambda expressions.
 :::
 :::
 ::: {.column width="30%"}
-📝✨🎯
+
 :::
 ::::
 
