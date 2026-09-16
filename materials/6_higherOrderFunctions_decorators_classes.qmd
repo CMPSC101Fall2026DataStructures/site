@@ -673,9 +673,6 @@ say_hello()
 :::
 
 
-
-
-
 ## Decorator with Arguments — Making a Call (III)
 
 To write a decorator that can handle **any function signature**, we use `*args` and `**kwargs` in the wrapper. This allows the decorator to accept any number of positional and keyword arguments, making it flexible and reusable.
@@ -702,8 +699,7 @@ print(multiply(4, 5))
 ```
 :::
 
-
-## Decorator with Arguments — Simple
+## Decorator with Arguments — Making a Call (IV)
 
 ::: {.callout-important icon="false"}
 ## Handling Any Signature with `*args` and `**kwargs`
