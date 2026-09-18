@@ -6,7 +6,6 @@ title: "Materials"
     # - "lab-notes/*reports.qmd"
 ---
 
-
 <center>
 **CMPSC101 :: Data Structures :: Fall 2026**
 
@@ -14,7 +13,6 @@ title: "Materials"
 </center>
 
 Here you will find a listing of lesson materials for the course such as slides, assignments, and similar.
-
 
 ::: {.callout-note}
 
@@ -66,10 +64,8 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Activity 01**: Getting Started with UV Package Manager
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity01/accept" target="_blank">Activity01</a>
 
-   
 - **Lab 01**: Mastering Python Loops
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/lab01/accept" target="_blank">Lab01</a>
-
 
 ## W3 Reviewing Python II
 
@@ -79,12 +75,8 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Data Structures**: More On Lists, Dictionaries; Comprehensions, and Sets
   -  <a href="4_data_structures_solutions.html" target="_blank">Slides</a>
 
-
-
 - **Activity 02**: Firefly Collector - Debugging Lists, Dictionaries, and Literals
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity02/accept" target="_blank">Activity02</a>
-
-
 
 ## W4 Functions
 
@@ -94,6 +86,9 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Higher-Order Functions, Decorators, and Classes**
   -  <a href="6_higherOrderFunctions_decorators_classes.html" target="_blank">Slides</a>
   
+- **Activity 03**: Loops, Conditionals, Lists, Dictionaries and Sets
+  - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity03/accept" target="_blank">Activity03</a>
+
 ---
 
 
@@ -105,4 +100,3 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - These are hard deadlines and no late submissions can be accepted.
 ::: -->
 
----
