@@ -82,12 +82,16 @@ Here you will find a listing of lesson materials for the course such as slides, 
 
 - **Functions and Lambda Functions**
   -  <a href="5_lambdaFunctions.html" target="_blank">Slides</a>
-
-- **Higher-Order Functions, Decorators, and Classes**
-  -  <a href="6_higherOrderFunctions_decorators_classes.html" target="_blank">Slides</a>
   
 - **Activity 03**: Loops, Conditionals, Lists, Dictionaries and Sets
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity03/accept" target="_blank">Activity03</a>
+
+## W5 Higher-Order Functions, Decorators, and Classes
+
+- **Higher-Order Functions, Decorators, and Classes**
+  -  <a href="6_higherOrderFunctions_decorators_classes.html" target="_blank">Slides</a>
+
+
 
 ---
 
