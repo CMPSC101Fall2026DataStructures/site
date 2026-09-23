@@ -10,7 +10,7 @@ jupyter: python3
 </center>
 
 <center>
-~~~
+
 </center>
 
 Use this page to download project files, starter code, and tutorial materials.
