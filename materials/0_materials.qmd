@@ -94,6 +94,9 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Activity 04**: Working with Files and Data
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity04/accept" target="_blank">Activity04</a>
 
+<!-- - **Lab 02**: Mastering Python Data Structures
+  - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/lab02/accept" target="_blank">Lab02</a> -->
+
 
 
 ---
