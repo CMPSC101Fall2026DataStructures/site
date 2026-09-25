@@ -91,6 +91,9 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Higher-Order Functions, Decorators, and Classes**
   -  <a href="6_higherOrderFunctions_decorators_classes.html" target="_blank">Slides</a>
 
+- **Activity 04**: Working with Files and Data
+  - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity04/accept" target="_blank">Activity04</a>
+
 
 
 ---
