@@ -97,6 +97,17 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Lab 02**: Mastering Python Data Structures
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/lab02/accept" target="_blank">Lab02</a>
 
+
+## W6 Numerical Methods and Algorithms
+
+- **Object Oriented Programming**
+  -  <a href="7_objectOrientedProgramming_exceptions.html" target="_blank">Slides</a>
+
+
+<!-- - **Numerical Programs**
+  -  <a href="8_numerical_programs_solutions.html" target="_blank">Slides</a> -->
+
+
 ---
 
 

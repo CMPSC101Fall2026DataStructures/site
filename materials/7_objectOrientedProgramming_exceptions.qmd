@@ -92,6 +92,7 @@ print(b2.title)
 
 ::: {.callout-important icon="false"}
 **How it works:** `Book(...)` calls `__init__` automatically. Each created object stores its own `title`, `author`, and `pages`.
+
 :::
 
 ## Instance State with `self`
@@ -112,15 +113,36 @@ class Counter:
 c1 = Counter()
 c2 = Counter()
 
-c1.increment(); c1.increment()
+#combine two statements into one line
+c1.increment(); c1.increment() 
+
 c2.increment()
 
-print(c1.value)  # 2
-print(c2.value)  # 1
+print(f"c1.value is {c1.value}")  # 2
+print(f"c2.value is {c2.value}")  # 1
 ```
 
 `self` refers to the current object, so `c1` and `c2` do not overwrite each other.
 :::
+
+## Challenge: Independent Object State
+
+```{=html}
+<div class="quiz-box" data-correct="Correct! Each Counter instance has its own value. c1 was incremented twice, so c1.value is 2." >
+    <div class="quiz-question">After creating <code>c1</code> and <code>c2</code> as separate <code>Counter</code> objects, the program calls <code>c1.increment()</code> twice and <code>c2.increment()</code> once. What is <code>c1.value</code>?</div>
+    <div class="quiz-options">
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="That is c2.value. Each object keeps its own instance state.">1</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, true)" data-hint="">2</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="The values are not added together; c1 only tracks calls made on c1.">3</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="The constructor initializes value to 0, but c1.increment() changes it each time.">0</div>
+    </div>
+    <div class="quiz-feedback" style="display: none;" aria-live="polite"></div>
+</div>
+```
+
+<center>
+![](graphics/think.png){width=30%}
+</center>
 
 ## Encapsulation and Validation
 
@@ -150,6 +172,26 @@ print(room.to_fahrenheit())
 ::: {.callout-note icon="false"}
 The attribute `_celsius` is a convention for “internal use.” Public methods (`set_celsius`, `get_celsius`) enforce valid state.
 :::
+
+## Challenge: Validation During Construction
+
+```{=html}
+<div class="quiz-box" data-correct="Correct! Temperature.__init__ calls set_celsius, which raises ValueError for a value below -273.15. No invalid Temperature object is created.">
+    <div class="quiz-question">What happens when the temperature conversion program evaluates <code>room = Temperature(-300)</code> using the previous code?</div>
+    <div class="quiz-options">
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="The setter does not clamp or repair the value; it rejects values below absolute zero.">A Temperature object is created with -273.15 degrees.</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, true)" data-hint="">A ValueError is raised before a valid object is created.</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="The comparison works for numbers. Check which exception the setter explicitly raises.">A TypeError is raised because negative numbers are not allowed.</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="The constructor routes the initial value through set_celsius, so validation runs immediately.">The object is created and the invalid value is stored.</div>
+    </div>
+    <div class="quiz-feedback" style="display: none;" aria-live="polite"></div>
+</div>
+```
+
+<center>
+![](graphics/think.png){width=30%}
+</center>
+
 
 ## `__str__` for Readable Objects
 
@@ -203,6 +245,25 @@ for pet in pets:
 This is **polymorphism**: same method call (`speak`) produces behavior based on object type.
 :::
 
+## Challenge: Polymorphic Method Calls
+
+```{=html}
+<div class="quiz-box" data-correct="Correct! The loop calls speak() on each object. Python uses the method implementation belonging to that object's class.">
+    <div class="quiz-question">Given <code>pets = [Dog("Buddy"), Cat("Luna")]</code>, what does <code>pet.speak()</code> produce for each pet in a loop?</div>
+    <div class="quiz-options">
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="Dog and Cat each override speak(), so both objects do not use the base class implementation.">Buddy says ... then Luna says ...</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="The method call is the same, but the implementation depends on each object's type.">Buddy says meow then Luna says woof</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, true)" data-hint="">Buddy says woof then Luna says meow</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="Both classes define speak(), so the objects can respond differently without an explicit type check.">The loop raises an error because Dog and Cat have different classes</div>
+    </div>
+    <div class="quiz-feedback" style="display: none;" aria-live="polite"></div>
+</div>
+```
+
+<center>
+![](graphics/think.png){width=30%}
+</center>
+
 ## Composition: Objects Inside Objects
 
 ::: {.callout-important icon="false"}
@@ -225,6 +286,375 @@ print(car.info())
 ```
 
 **Design point:** Composition often models “has-a” relationships cleanly (`Car` has an `Engine`).
+:::
+
+
+## Lets Build a Class Together
+
+<center>
+![](graphics/goblin.png){width=50%}
+</center>
+
+## Class Forge: Build a D&D Character
+
+
+
+::: {.callout icon="false"}
+
+Choose a class name and starting stats, then add your own instance attributes and methods. The Python source updates as you build; the comments point out where class syntax and `self` appear.
+
+:::
+
+```{=html}
+<div id="class-forge" class="class-forge">
+    <div class="forge-layout">
+        <div class="forge-controls" aria-label="Character class settings">
+            <div class="forge-fields">
+                <label>Class name
+                    <input id="forge-class-name" type="text" value="Adventurer" autocomplete="off">
+                </label>
+                <label>Character name
+                    <input id="forge-character-name" type="text" value="Mira" autocomplete="off">
+                </label>
+                <label>Starting hit points
+                    <input id="forge-hit-points" type="number" value="24" min="1" max="999">
+                </label>
+                <label>Strength
+                    <input id="forge-strength" type="number" value="6" min="1" max="99">
+                </label>
+            </div>
+
+            <div class="forge-subsection">
+                <h3>Instance attributes</h3>
+                <p>Each added attribute becomes a constructor parameter and a <code>self.attribute</code> assignment.</p>
+                <div id="forge-attributes" class="forge-attributes"></div>
+                <button id="forge-add-attribute" class="forge-button forge-secondary" type="button">+ Add attribute</button>
+            </div>
+
+            <fieldset class="forge-subsection forge-methods">
+                <legend>Methods to include</legend>
+                <label><input id="forge-method-attack" type="checkbox" checked> <code>attack(target)</code></label>
+                <label><input id="forge-method-damage" type="checkbox" checked> <code>take_damage(amount)</code></label>
+                <label><input id="forge-method-heal" type="checkbox"> <code>heal(amount=5)</code></label>
+            </fieldset>
+
+            <div class="forge-actions">
+                <button id="forge-copy" class="forge-button forge-primary" type="button">Copy Python code</button>
+                <button id="forge-reset" class="forge-button forge-secondary" type="button">Reset</button>
+            </div>
+            <div id="forge-status" class="forge-status" role="status" aria-live="polite"></div>
+        </div>
+
+        <div class="forge-output" aria-label="Generated Python code">
+            <h3>Generated Python</h3>
+            <pre class="forge-code"><code id="forge-code"></code></pre>
+        </div>
+    </div>
+
+    <div class="forge-playtest" aria-label="Character combat preview">
+        <div class="forge-playtest-heading">
+            <div>
+                <h3>Combat preview</h3>
+                <p>This small browser preview mirrors the class settings; it does not execute Python.</p>
+            </div>
+            <div class="forge-actions">
+                <button id="forge-hero-attack" class="forge-button forge-primary" type="button">Attack goblin</button>
+                <button id="forge-goblin-attack" class="forge-button forge-secondary" type="button">Goblin attacks</button>
+                <button id="forge-heal" class="forge-button forge-secondary" type="button">Heal character</button>
+            </div>
+        </div>
+        <div class="forge-health" aria-live="polite">
+            <span id="forge-hero-health"></span>
+            <span id="forge-goblin-health"></span>
+        </div>
+        <div id="forge-combat-log" class="forge-combat-log" role="status" aria-live="polite">Choose a method and start the encounter.</div>
+    </div>
+</div>
+
+<script>
+(() => {
+    const root = document.getElementById('class-forge');
+    if (!root) return;
+
+    // Tune every builder button in custom_big_o.css with --forge-button-font-size.
+    const reservedNames = new Set([
+        'False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break',
+        'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally',
+        'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal',
+        'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield'
+    ]);
+    const protectedAttributes = new Set([
+        'name', 'hit_points', 'max_hit_points', 'strength', 'attack', 'take_damage', 'heal'
+    ]);
+
+    let heroHealth = 0;
+    let goblinHealth = 0;
+
+    function addAttribute(name = 'quest_item', value = 'moonstone', type = 'text') {
+        const row = document.createElement('div');
+        row.className = 'forge-attribute-row';
+
+        const nameLabel = document.createElement('label');
+        nameLabel.textContent = 'Name';
+        const nameInput = document.createElement('input');
+        nameInput.className = 'forge-attribute-name';
+        nameInput.type = 'text';
+        nameInput.value = name;
+        nameInput.autocomplete = 'off';
+        nameInput.setAttribute('aria-label', 'New attribute name');
+        nameLabel.append(nameInput);
+
+        const valueLabel = document.createElement('label');
+        valueLabel.textContent = 'Default value';
+        const valueInput = document.createElement('input');
+        valueInput.className = 'forge-attribute-value';
+        valueInput.type = 'text';
+        valueInput.value = value;
+        valueInput.setAttribute('aria-label', 'New attribute default value');
+        valueLabel.append(valueInput);
+
+        const typeLabel = document.createElement('label');
+        typeLabel.textContent = 'Type';
+        const typeSelect = document.createElement('select');
+        typeSelect.className = 'forge-attribute-type';
+        typeSelect.setAttribute('aria-label', 'New attribute value type');
+        [['text', 'Text'], ['number', 'Number'], ['boolean', 'Boolean']].forEach(([optionValue, label]) => {
+            const option = document.createElement('option');
+            option.value = optionValue;
+            option.textContent = label;
+            typeSelect.append(option);
+        });
+        typeSelect.value = type;
+        typeLabel.append(typeSelect);
+
+        const removeButton = document.createElement('button');
+        removeButton.className = 'forge-button forge-remove-attribute';
+        removeButton.type = 'button';
+        removeButton.textContent = 'Remove';
+        removeButton.setAttribute('aria-label', 'Remove this attribute');
+
+        row.append(nameLabel, valueLabel, typeLabel, removeButton);
+        root.querySelector('#forge-attributes').append(row);
+    }
+
+    function pythonString(value) {
+        return JSON.stringify(value);
+    }
+
+    function readSettings() {
+        const className = root.querySelector('#forge-class-name').value.trim();
+        const characterName = root.querySelector('#forge-character-name').value.trim() || 'Hero';
+        const hitPoints = Number(root.querySelector('#forge-hit-points').value);
+        const strength = Number(root.querySelector('#forge-strength').value);
+        const methodAttack = root.querySelector('#forge-method-attack').checked;
+        const methodDamage = root.querySelector('#forge-method-damage').checked;
+        const methodHeal = root.querySelector('#forge-method-heal').checked;
+        const attributes = [];
+        const names = new Set(protectedAttributes);
+
+        if (!/^[A-Za-z_][A-Za-z0-9_]*$/.test(className) || reservedNames.has(className)) {
+            return { error: 'Use a valid Python class name (letters, numbers, and underscores; do not start with a number).', className };
+        }
+        if (!Number.isInteger(hitPoints) || hitPoints < 1 || !Number.isInteger(strength) || strength < 1) {
+            return { error: 'Hit points and strength must be positive whole numbers.', className };
+        }
+
+        for (const row of root.querySelectorAll('.forge-attribute-row')) {
+            const name = row.querySelector('.forge-attribute-name').value.trim();
+            const rawValue = row.querySelector('.forge-attribute-value').value;
+            const type = row.querySelector('.forge-attribute-type').value;
+            if (!/^[A-Za-z_][A-Za-z0-9_]*$/.test(name) || reservedNames.has(name)) {
+                return { error: 'Attribute names must be valid Python identifiers.', className };
+            }
+            if (names.has(name)) {
+                return { error: 'Attribute names must be unique and cannot replace a built-in character field or method.', className };
+            }
+            names.add(name);
+
+            let value;
+            if (type === 'number') {
+                value = Number(rawValue);
+                if (rawValue.trim() === '' || !Number.isFinite(value)) {
+                    return { error: `Enter a number for the ${name} attribute.`, className };
+                }
+            } else if (type === 'boolean') {
+                if (rawValue !== 'True' && rawValue !== 'False') {
+                    return { error: `Use True or False for the ${name} attribute.`, className };
+                }
+                value = rawValue;
+            } else {
+                value = pythonString(rawValue);
+            }
+            attributes.push({ name, value });
+        }
+
+        return { className, characterName, hitPoints, strength, methodAttack, methodDamage, methodHeal, attributes };
+    }
+
+    function generatePython(settings) {
+        const parameters = settings.attributes.map(attribute => `${attribute.name}=${attribute.value}`);
+        const constructorParameters = ['name', 'hit_points=24', 'strength=6', ...parameters].join(', ');
+        const heroArguments = [pythonString(settings.characterName), `hit_points=${settings.hitPoints}`, `strength=${settings.strength}`, ...parameters].join(', ');
+        const enemyHitPoints = Math.min(12, settings.hitPoints);
+        const enemyStrength = Math.max(1, Math.floor(settings.strength / 2));
+        const enemyArguments = ["'Goblin'", `hit_points=${enemyHitPoints}`, `strength=${enemyStrength}`, ...parameters].join(', ');
+        const lines = [
+            `class ${settings.className}:`,
+            '    """A character blueprint: each instance has its own state."""',
+            `    def __init__(self, ${constructorParameters}):`,
+            '        # self refers to the particular character being initialized.',
+            '        self.name = name',
+            '        self.max_hit_points = hit_points',
+            '        self.hit_points = hit_points',
+            '        self.strength = strength',
+            ...settings.attributes.map(attribute => `        self.${attribute.name} = ${attribute.name}`)
+        ];
+
+        if (settings.methodAttack) {
+            lines.push('', '    def attack(self, target):', '        """Use this character\'s strength against another object."""', '        target.take_damage(self.strength)', '        return f"{self.name} attacks {target.name}!"');
+        }
+        if (settings.methodDamage) {
+            lines.push('', '    def take_damage(self, amount):', '        # Clamp health at zero so hit points never become negative.', '        self.hit_points = max(0, self.hit_points - amount)');
+        }
+        if (settings.methodHeal) {
+            lines.push('', '    def heal(self, amount=5):', '        # Do not heal past the starting maximum.', '        self.hit_points = min(self.max_hit_points, self.hit_points + amount)');
+        }
+
+        lines.push('', '# Make two separate objects from the same class.', `hero = ${settings.className}(${heroArguments})`, `goblin = ${settings.className}(${enemyArguments})`);
+        if (settings.methodAttack && settings.methodDamage) {
+            lines.push('', '# Calling the same method on different objects uses their own state.', 'print(hero.attack(goblin))', 'print(f"{goblin.name} has {goblin.hit_points} HP left.")');
+        } else {
+            lines.push('', '# Add both attack() and take_damage() to enable the combat example.', 'print(f"{hero.name} has {hero.hit_points} HP.")');
+        }
+        return lines.join('\n');
+    }
+
+    function renderGame(settings) {
+        const enemyHitPoints = Math.min(12, settings.hitPoints);
+        const canFight = settings.methodAttack && settings.methodDamage;
+        const heroLabel = root.querySelector('#forge-hero-health');
+        const goblinLabel = root.querySelector('#forge-goblin-health');
+        const heroButton = root.querySelector('#forge-hero-attack');
+        const goblinButton = root.querySelector('#forge-goblin-attack');
+        const healButton = root.querySelector('#forge-heal');
+        const log = root.querySelector('#forge-combat-log');
+        const stateKey = JSON.stringify([settings.characterName, settings.hitPoints, settings.strength, settings.methodAttack, settings.methodDamage, settings.methodHeal]);
+
+        if (root.dataset.gameKey !== stateKey) {
+            root.dataset.gameKey = stateKey;
+            heroHealth = settings.hitPoints;
+            goblinHealth = enemyHitPoints;
+            log.textContent = canFight ? 'Both objects are ready. Choose who attacks first.' : 'Enable both attack() and take_damage() to run combat.';
+        }
+
+        heroLabel.textContent = `${settings.characterName}: ${heroHealth} / ${settings.hitPoints} HP`;
+        goblinLabel.textContent = `Goblin: ${goblinHealth} / ${enemyHitPoints} HP`;
+        heroButton.disabled = !canFight || goblinHealth === 0;
+        goblinButton.disabled = !canFight || heroHealth === 0;
+        healButton.disabled = !settings.methodHeal || heroHealth === settings.hitPoints;
+    }
+
+    function updateBuilder() {
+        const settings = readSettings();
+        const status = root.querySelector('#forge-status');
+        const code = root.querySelector('#forge-code');
+        if (settings.error) {
+            status.textContent = settings.error;
+            status.classList.add('forge-error');
+            code.textContent = '# Fix the highlighted class settings to generate Python.';
+            root.querySelector('#forge-copy').disabled = true;
+            root.querySelector('#forge-hero-attack').disabled = true;
+            root.querySelector('#forge-goblin-attack').disabled = true;
+            root.querySelector('#forge-heal').disabled = true;
+            return;
+        }
+
+        status.textContent = 'Class syntax looks good.';
+        status.classList.remove('forge-error');
+        root.querySelector('#forge-copy').disabled = false;
+        code.textContent = generatePython(settings);
+        renderGame(settings);
+    }
+
+    root.addEventListener('input', updateBuilder);
+    root.addEventListener('change', updateBuilder);
+    root.querySelector('#forge-add-attribute').addEventListener('click', () => {
+        addAttribute();
+        updateBuilder();
+    });
+    root.querySelector('#forge-attributes').addEventListener('click', event => {
+        if (event.target.closest('.forge-remove-attribute')) {
+            event.target.closest('.forge-attribute-row').remove();
+            updateBuilder();
+        }
+    });
+    root.querySelector('#forge-copy').addEventListener('click', async () => {
+        const status = root.querySelector('#forge-status');
+        try {
+            await navigator.clipboard.writeText(root.querySelector('#forge-code').textContent);
+            status.textContent = 'Python code copied. Paste it into a Python notebook to run it.';
+        } catch {
+            status.textContent = 'Clipboard access is unavailable here. Select the generated code and copy it.';
+        }
+    });
+    root.querySelector('#forge-reset').addEventListener('click', () => {
+        root.querySelector('#forge-class-name').value = 'Adventurer';
+        root.querySelector('#forge-character-name').value = 'Mira';
+        root.querySelector('#forge-hit-points').value = '24';
+        root.querySelector('#forge-strength').value = '6';
+        root.querySelector('#forge-method-attack').checked = true;
+        root.querySelector('#forge-method-damage').checked = true;
+        root.querySelector('#forge-method-heal').checked = false;
+        root.querySelector('#forge-attributes').replaceChildren();
+        root.dataset.gameKey = '';
+        updateBuilder();
+    });
+    root.querySelector('#forge-hero-attack').addEventListener('click', () => {
+        const settings = readSettings();
+        if (!settings.error) {
+            goblinHealth = Math.max(0, goblinHealth - settings.strength);
+            root.querySelector('#forge-combat-log').textContent = `${settings.characterName} attacks Goblin for ${settings.strength}. Goblin has ${goblinHealth} HP left.`;
+            renderGame(settings);
+        }
+    });
+    root.querySelector('#forge-goblin-attack').addEventListener('click', () => {
+        const settings = readSettings();
+        if (!settings.error) {
+            const goblinStrength = Math.max(1, Math.floor(settings.strength / 2));
+            heroHealth = Math.max(0, heroHealth - goblinStrength);
+            root.querySelector('#forge-combat-log').textContent = `Goblin attacks ${settings.characterName} for ${goblinStrength}. ${settings.characterName} has ${heroHealth} HP left.`;
+            renderGame(settings);
+        }
+    });
+    root.querySelector('#forge-heal').addEventListener('click', () => {
+        const settings = readSettings();
+        if (!settings.error && settings.methodHeal) {
+            heroHealth = Math.min(settings.hitPoints, heroHealth + 5);
+            root.querySelector('#forge-combat-log').textContent = `${settings.characterName} heals 5 HP and now has ${heroHealth} HP.`;
+            renderGame(settings);
+        }
+    });
+
+    updateBuilder();
+})();
+</script>
+```
+
+## Reading and Using Your Class
+
+::: {.callout-important icon="false"}
+
+1. Change the class name, character name, hit points, or strength; the Python source updates immediately.
+2. Select **Add attribute** to define another piece of instance state. Choose whether its default value is text, a number, or a Boolean; each field becomes a constructor parameter and a `self.name = name` assignment.
+3. Toggle methods to add or remove their `def` blocks. Combat is available when both `attack()` and `take_damage()` are included.
+4. Play a turn in the combat preview, then select **Copy Python code** and paste it into a Python notebook to run the generated class.
+
+:::
+
+::: {.callout-note}
+
+The combat preview is JavaScript that mirrors the selected stats and methods; the generated Python itself runs in a Python environment. Notice how `hero` and `goblin` are two independent instances made from the same class.
+
 :::
 
 ---
@@ -378,6 +808,25 @@ print(item)
 **Mechanism:** The class centralizes inventory rules, so updates happen through methods that preserve valid stock counts.
 :::
 
+## Challenge: Exceptions Preserve Valid State
+
+```{=html}
+<div class="quiz-box" data-correct="Correct! sell() checks whether the requested amount exceeds quantity before subtracting. The exception interrupts the method, leaving quantity at 3.">
+    <div class="quiz-question">An inventory item has quantity <code>3</code>. Its <code>sell(5)</code> method raises <code>OutOfStockError</code> before subtracting stock. What is its quantity after the error is caught?</div>
+    <div class="quiz-options">
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="The requested amount is not subtracted when the validation raises an exception.">-2</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, true)" data-hint="">3</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="Catching the exception lets the program continue, but it does not automatically reset the item's quantity.">0</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="The method raises OutOfStockError before changing quantity, rather than removing the item.">The item no longer exists</div>
+    </div>
+    <div class="quiz-feedback" style="display: none;" aria-live="polite"></div>
+</div>
+```
+
+<center>
+![](graphics/think.png){width=30%}
+</center>
+
 ---
 
 # Part 2: Exceptions
@@ -436,8 +885,45 @@ print(divide_from_text("ten", "2"))
 ```
 :::
 
+## Challenge: `else` and `finally`
+
+```{=html}
+<div class="quiz-box" data-correct="Correct! int(&quot;7&quot;) succeeds, so the else block runs. The finally block always runs afterward.">
+    <div class="quiz-question">In a <code>try/except/else/finally</code> statement, converting <code>&quot;7&quot;</code> with <code>int()</code> succeeds. Which blocks run, in order?</div>
+    <div class="quiz-options">
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="The except block only runs if the try block raises a matching exception.">except, then finally</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, true)" data-hint="">else, then finally</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="The try block always runs first; finally is not a replacement for it.">finally only</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="The else block runs after a successful try block, and finally runs whether or not an exception occurred.">else only</div>
+    </div>
+    <div class="quiz-feedback" style="display: none;" aria-live="polite"></div>
+</div>
+```
+
+<center>
+![](graphics/think.png){width=30%}
+</center>
 
 
+
+## Challenge: Matching an Exception Type
+
+```{=html}
+<div class="quiz-box" data-correct="Correct! Both strings convert successfully, then dividing by 0.0 raises ZeroDivisionError, which is caught by its matching except clause.">
+    <div class="quiz-question">In <code>divide_from_text(a, b)</code>, what does <code>divide_from_text("10", "0")</code> return?</div>
+    <div class="quiz-options">
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="The strings are converted to floats before division, so this is not a string-concatenation result.">"100"</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="Division by zero raises an exception; it does not return infinity here.">infinity</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, false)" data-hint="The conversion succeeds for both inputs. The failing operation is division by zero.">"Inputs must be numbers."</div>
+        <div class="quiz-option" onclick="checkOopExceptionsQuiz(this, true)" data-hint="">"Cannot divide by zero."</div>
+    </div>
+    <div class="quiz-feedback" style="display: none;" aria-live="polite"></div>
+</div>
+```
+
+<center>
+![](graphics/think.png){width=30%}
+</center>
 
 ## Opening files without an exception handler
 
@@ -495,8 +981,6 @@ print(read_first_line("notes.txt"))
 - `else` runs only if no exception occurs.
 - `finally` runs no matter what.
 :::
-
-
 
 ## Raising Exceptions Yourself
 
@@ -563,6 +1047,23 @@ acct.deposit(25)
 print(acct.balance)
 ```
 :::
+
+```{=html}
+<script>
+function checkOopExceptionsQuiz(element, isCorrect) {
+    const quiz = element.closest('.quiz-box');
+    quiz.querySelectorAll('.quiz-option').forEach(option => {
+        option.classList.remove('correct', 'incorrect');
+    });
+    element.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+    const feedback = quiz.querySelector('.quiz-feedback');
+    feedback.style.display = 'block';
+    feedback.className = 'quiz-feedback ' + (isCorrect ? 'correct' : 'incorrect');
+    feedback.textContent = isCorrect ? quiz.dataset.correct : element.dataset.hint;
+}
+</script>
+```
 
 ---
 
@@ -635,12 +1136,6 @@ class InventoryItem:
         """
         # TODO: Implement this method
 ```
-
-
-
-
-
-
 
 ## Solution E — Custom Exception in a Class
 

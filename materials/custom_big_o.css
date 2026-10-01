@@ -274,6 +274,243 @@
     border-left: 5px solid #f44336;
 }
 
+/* Interactive class builder */
+.class-forge {
+    --forge-button-font-size: 0.8em;
+    max-height: 520px;
+    overflow-y: auto;
+    color: #25333b;
+    font-size: 0.68em;
+    line-height: 1.25;
+}
+
+.forge-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 0.75em;
+    align-items: stretch;
+}
+
+.forge-controls,
+.forge-output {
+    min-width: 0;
+    padding: 0.65em;
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    background: #f8fafb;
+}
+
+.forge-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45em;
+}
+
+.forge-fields label,
+.forge-attribute-row label {
+    display: grid;
+    gap: 0.2em;
+    min-width: 0;
+    font-weight: 600;
+}
+
+.class-forge input[type="text"],
+.class-forge input[type="number"],
+.class-forge select {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    border: 1px solid #9aaab2;
+    border-radius: 4px;
+    padding: 0.35em 0.45em;
+    background: #fff;
+    color: #25333b;
+    font: inherit;
+}
+
+.forge-subsection {
+    margin: 0.65em 0 0;
+    padding: 0;
+    border: 0;
+}
+
+.forge-subsection h3,
+.forge-output h3,
+.forge-playtest h3 {
+    margin: 0 0 0.25em;
+    color: #245b70;
+    font-size: 1.05em;
+}
+
+.forge-subsection p,
+.forge-playtest p {
+    margin: 0 0 0.4em;
+}
+
+.forge-attributes {
+    display: grid;
+    gap: 0.35em;
+    margin-bottom: 0.35em;
+}
+
+.forge-attribute-row {
+    display: grid;
+    grid-template-columns: minmax(4em, 0.8fr) minmax(5em, 1fr) minmax(4em, 0.75fr) auto;
+    gap: 0.35em;
+    align-items: end;
+}
+
+.forge-methods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35em 0.8em;
+    padding: 0.45em 0 0;
+}
+
+.forge-methods legend {
+    padding: 0;
+    font-weight: 700;
+}
+
+.forge-methods label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+}
+
+.forge-methods input {
+    margin: 0;
+}
+
+.forge-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35em;
+    align-items: center;
+}
+
+.forge-button {
+    border: 1px solid #78909c;
+    border-radius: 4px;
+    padding: 0.4em 0.65em;
+    font: inherit;
+    font-size: var(--forge-button-font-size);
+    line-height: 1.15;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.forge-primary {
+    border-color: #147d92;
+    background: #147d92;
+    color: #fff;
+}
+
+.forge-secondary {
+    background: #fff;
+    color: #245b70;
+}
+
+.forge-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.48;
+}
+
+.forge-status {
+    min-height: 1.3em;
+    margin-top: 0.35em;
+    color: #356b40;
+}
+
+.forge-status.forge-error {
+    color: #a12622;
+    font-weight: 700;
+}
+
+.forge-code {
+    box-sizing: border-box;
+    max-height: 25em;
+    margin: 0;
+    padding: 0.65em;
+    overflow: auto;
+    border: 1px solid #d3dce0;
+    border-radius: 4px;
+    background: #fff;
+    color: #17252c;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.73em;
+    line-height: 1.22;
+    white-space: pre;
+}
+
+.forge-code code {
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+}
+
+.forge-playtest {
+    margin-top: 0.55em;
+    padding-top: 0.5em;
+    border-top: 2px solid #d5e0e4;
+}
+
+.forge-playtest-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.forge-health {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em 1.2em;
+    margin: 0.35em 0;
+    font-weight: 700;
+}
+
+.forge-combat-log {
+    min-height: 1.4em;
+    padding: 0.35em 0.5em;
+    border-left: 3px solid #dd9944;
+    background: #fff8eb;
+}
+
+@media (max-width: 700px) {
+    .class-forge {
+        padding-right: 0.2em;
+        font-size: 0.58em;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .forge-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .forge-code {
+        max-height: 12em;
+    }
+
+    .forge-playtest-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .forge-fields {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .forge-attribute-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 /* For Firefox */
 .reveal pre {
     scrollbar-width: thin;
