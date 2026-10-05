@@ -669,6 +669,7 @@ The combat preview is JavaScript that mirrors the selected stats and methods; th
 
 ::: {.callout-warning icon="false"}
 Create a `Circle` class with:
+
 - `radius` in `__init__`
 - `area()`
 - `circumference()`
@@ -743,7 +744,10 @@ class Employee:
 
 class Manager(Employee):
     def __init__(self, name, salary, bonus):
-        super().__init__(name, salary)
+        # Call the parent class's __init__ method
+        # this allows Manager to inherit name 
+        # and salary attributes from Employee
+        super().__init__(name, salary) 
         self.bonus = bonus
 
     def annual_pay(self):
@@ -763,6 +767,7 @@ print(m.annual_pay())
 
 ::: {.callout-warning icon="false"}
 Build `InventoryItem(name, quantity)` with methods:
+
 - `restock(amount)`
 - `sell(amount)` (reject sale if not enough stock)
 - `__str__`
@@ -1461,20 +1466,20 @@ print(f"Top student: {gb.top_student()}")
 
 **Object-Oriented Programming**
 
-* Classes model real concepts with data + behavior
-* `__init__` constructs valid object state
-* Inheritance and composition support code reuse
-* Polymorphism enables flexible, interchangeable objects
+- Classes model real concepts with data + behavior
+- `__init__` constructs valid object state
+- Inheritance and composition support code reuse
+- Polymorphism enables flexible, interchangeable objects
 
 :::
 ::: {.column width="50%"}
 
 **Exceptions**
 
-* Exceptions handle runtime failures cleanly
-* `try` / `except` prevent crashes in expected failure paths
-* `raise` communicates invalid operations explicitly
-* Custom exceptions make domain errors readable and maintainable
+- Exceptions handle runtime failures cleanly
+- `try` / `except` prevent crashes in expected failure paths
+- `raise` communicates invalid operations explicitly
+- Custom exceptions make domain errors readable and maintainable
 
 :::
 ::::
