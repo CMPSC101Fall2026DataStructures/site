@@ -890,6 +890,43 @@ print(divide_from_text("ten", "2"))
 ```
 :::
 
+## The `try`, `except`,  `else` and `finally` Blocks Together
+
+The `else` block runs if the `try` block succeeds (no exceptions are raised). The `finally` block always runs, regardless of whether an exception occurred.
+
+
+Example:
+```python
+try:
+    # 1. Attempt a risky operation
+    user_input = "42"
+    number = int(user_input)
+
+except ValueError:
+    # 2. This runs ONLY if a ValueError happens above
+    print("That was not a valid number!")
+    
+else:
+    # 3. This runs ONLY if no errors happened in the try block
+    print(f"Success! The number squared is {number ** 2}")
+finally:
+    #4: This runs regardless of what happens with exception handling
+    print("The `finally` block has been reached.")
+```
+
+Another Example with `finally`:
+```python
+try:
+    result = 10 / 2
+except ZeroDivisionError:
+    print("Cannot divide by zero.")
+else:
+    print("Division succeeded:", result)
+finally:
+    print("This always runs.")
+```
+
+
 ## Challenge: `else` and `finally`
 
 ```{=html}
