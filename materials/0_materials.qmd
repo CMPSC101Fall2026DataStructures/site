@@ -108,7 +108,7 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Activity 05**: Introduction to Software Testing with Pytest
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity05/accept" target="_blank">Activity05</a>
 
-<!-- ## W8 Exceptions and Error Handling -->
+## W8 Numerical Programs and Complexity Analysis
 
 - **Numerical Programs**
   -  <a href="8_numerical_programs_solutions.html" target="_blank">Slides</a>
