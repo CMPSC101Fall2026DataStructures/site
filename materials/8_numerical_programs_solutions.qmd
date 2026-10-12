@@ -16,6 +16,10 @@ format:
     width: 1200
     height: 800
     margin: 0.05
+fig-width: 10
+fig-height: 5.5
+fig-align: center
+
 ---
 
 <!-- Find your available themes: ls /Applications/quarto/share/formats/revealjs/themes -->
@@ -158,26 +162,268 @@ def fibonacci_recursive(n):
         return 0
     elif n == 1:
         return 1
+    # Recursive case
+    return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
+
+fibonacci_recursive(10)  # Example call
 ```
 :::
 
 ---
 
-## Fibonacci: Recursive Implementation
-
-Complete the recursive approach:
+## Fibonacci: Recursive Implementation with Time complexity Measurement
 
 ::: {.example}
-```python
-    # Recursive case
+```{python fib_time}
+#|echo: true
+import time
+
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start = time.perf_counter()
+        result = func(*args, **kwargs)
+        end = time.perf_counter()
+
+        elapsed = end - start
+        print(f"Function: {func.__name__}")
+        print(f"Input n: {args[0]}")
+        print(f"Result: {result}")
+        print(f"Elapsed time: {elapsed:.8f} seconds")
+
+        return result
+    return wrapper
+
+
+def fibonacci_recursive(n):
+    """
+    Calculate the nth Fibonacci number using recursion.
+
+    Args:
+        n: Position in sequence (0-indexed)
+
+    Returns:
+        The nth Fibonacci number
+    """
+    if n < 0:
+        raise ValueError("n must be non-negative")
+    if n <= 1:
+        return n
+
     return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
 
-# Testing
-for i in range(10):
-    print(f"F({i}) = {fibonacci_recursive(i)}")
-# Output: F(0)=0, F(1)=1, F(2)=1, F(3)=2, F(4)=3, F(5)=5...
+
+@timer
+def calculate_fibonacci(n):
+    return fibonacci_recursive(n)
+
+# Calculate and time the 20th Fibonacci number
+calculate_fibonacci(30)
 ```
 :::
+
+---
+
+## Recursive Fibonacci: Watch the Calls Explode
+
+```{=html}
+<div id="fibRecContainer" style="background-color: #f0f0f0; padding: 10px; border-radius: 10px; margin: 5px auto; max-width: 900px; position: relative; z-index: 100;">
+  <div style="margin-bottom: 8px;">
+    <label for="fibRecInput" style="font-weight: bold; margin-right: 10px; font-size: 16px;">Compute F(n), n =</label>
+    <input type="number" id="fibRecInput" value="30" min="0" max="38" style="padding: 8px; width: 100px; font-size: 16px; border: 2px solid #E74C3C; border-radius: 4px;" onkeypress="if(event.key==='Enter') window.runFibRec();">
+    <button id="fibRecBtn" onclick="window.runFibRec(); return false;" style="padding: 8px 20px; margin-left: 10px; background-color: #E74C3C; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold;">Run Recursion</button>
+  </div>
+
+  <div id="fibRecOutput" style="font-family: monospace; min-height: 30px; background-color: white; padding: 8px; border-radius: 5px; font-size: 12px; line-height: 1.3; column-count: 2; column-gap: 20px;">
+    <div style="color: #888; font-style: italic;">Choose n (0–38) and click "Run Recursion" to count the calls and time the work...</div>
+  </div>
+
+  <canvas id="fibRecCallsCanvas" width="640" height="250" style="margin: 8px auto 0; width: 640px; max-width: 100%; height: auto; background-color: white; border: 2px solid #ccc; display: none; border-radius: 5px;"></canvas>
+  <canvas id="fibRecGrowthCanvas" width="640" height="250" style="margin: 8px auto 0; width: 640px; max-width: 100%; height: auto; background-color: white; border: 2px solid #ccc; display: none; border-radius: 5px;"></canvas>
+</div>
+
+<script>
+(function() {
+  function fibPlain(n) { return n <= 1 ? n : fibPlain(n - 1) + fibPlain(n - 2); }
+
+  function fibCounted(n, tally) {
+    tally[n]++;
+    return n <= 1 ? n : fibCounted(n - 1, tally) + fibCounted(n - 2, tally);
+  }
+
+  // Repeat fast calls so the timer resolution doesn't dominate; report ms per run
+  function timeFib(n) {
+    let reps = 0, result;
+    const start = performance.now();
+    do {
+      result = fibPlain(n);
+      reps++;
+    } while (performance.now() - start < 2 && reps < 100000);
+    return { result: result, ms: (performance.now() - start) / reps };
+  }
+
+  function fmt(x) { return x.toLocaleString(); }
+
+  function drawAxes(ctx, w, h, pad) {
+    ctx.strokeStyle = '#333';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(pad.l, pad.t);
+    ctx.lineTo(pad.l, h - pad.b);
+    ctx.lineTo(w - pad.r, h - pad.b);
+    ctx.stroke();
+  }
+
+  // Bars: how many times each F(k) is recomputed while computing F(n)
+  function drawTally(canvas, tally, n) {
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width, h = canvas.height;
+    const pad = { l: 70, r: 20, t: 28, b: 38 };
+    ctx.clearRect(0, 0, w, h);
+    drawAxes(ctx, w, h, pad);
+
+    ctx.fillStyle = '#333';
+    ctx.font = 'bold 12px Arial';
+    ctx.fillText('Times each F(k) is computed during F(' + n + ')', pad.l, 22);
+
+    const maxV = Math.max.apply(null, tally);
+    const bw = (w - pad.l - pad.r) / tally.length;
+    ctx.font = '11px Arial';
+    for (let k = 0; k < tally.length; k++) {
+      const bh = (tally[k] / maxV) * (h - pad.t - pad.b);
+      const x = pad.l + k * bw;
+      ctx.fillStyle = k === n ? '#27AE60' : '#E74C3C';
+      ctx.fillRect(x + 1, h - pad.b - bh, Math.max(bw - 2, 1), bh);
+      if (tally.length <= 20 || k % 5 === 0) {
+        ctx.fillStyle = '#333';
+        ctx.textAlign = 'center';
+        ctx.fillText(k, x + bw / 2, h - pad.b + 15);
+      }
+    }
+    ctx.textAlign = 'center';
+    ctx.fillText('k (F(k) being computed)', (w + pad.l) / 2, h - 6);
+    ctx.textAlign = 'right';
+    ctx.fillText(fmt(maxV), pad.l - 6, pad.t + 4);
+    ctx.fillText('0', pad.l - 6, h - pad.b);
+    ctx.textAlign = 'left';
+  }
+
+  // Calls (bars, log scale) and measured time (line) for every n up to the chosen n
+  function drawGrowth(canvas, rows) {
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width, h = canvas.height;
+    const pad = { l: 70, r: 70, t: 28, b: 38 };
+    ctx.clearRect(0, 0, w, h);
+    drawAxes(ctx, w, h, pad);
+
+    ctx.fillStyle = '#333';
+    ctx.font = 'bold 12px Arial';
+    ctx.textAlign = 'left';
+    ctx.fillText('Total calls (blue bars, log scale) and time (red line), n = 0…' + (rows.length - 1), pad.l, 22);
+
+    const ph = h - pad.t - pad.b;
+    const maxCalls = Math.max(rows[rows.length - 1].calls, 10);
+    const maxLog = Math.log10(maxCalls);
+    const maxMs = Math.max.apply(null, rows.map(function(r) { return r.ms; })) || 1;
+    const bw = (w - pad.l - pad.r) / rows.length;
+
+    ctx.font = '11px Arial';
+    rows.forEach(function(r, i) {
+      const bh = (Math.log10(Math.max(r.calls, 1)) / maxLog) * ph;
+      const x = pad.l + i * bw;
+      ctx.fillStyle = 'rgba(46,134,193,0.75)';
+      ctx.fillRect(x + 1, h - pad.b - bh, Math.max(bw - 2, 1), bh);
+      if (rows.length <= 20 || i % 5 === 0) {
+        ctx.fillStyle = '#333';
+        ctx.textAlign = 'center';
+        ctx.fillText(i, x + bw / 2, h - pad.b + 15);
+      }
+    });
+
+    ctx.strokeStyle = '#E74C3C';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    rows.forEach(function(r, i) {
+      const x = pad.l + i * bw + bw / 2;
+      const y = h - pad.b - (r.ms / maxMs) * ph;
+      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+
+    ctx.fillStyle = '#2E86C1';
+    ctx.textAlign = 'right';
+    ctx.fillText(fmt(maxCalls) + ' calls', pad.l - 6, pad.t + 4);
+    ctx.fillText('1', pad.l - 6, h - pad.b);
+    ctx.fillStyle = '#E74C3C';
+    ctx.textAlign = 'left';
+    ctx.fillText(maxMs.toFixed(1) + ' ms', w - pad.r + 6, pad.t + 4);
+    ctx.fillText('0 ms', w - pad.r + 6, h - pad.b);
+    ctx.fillStyle = '#333';
+    ctx.textAlign = 'center';
+    ctx.fillText('n', (w + pad.l) / 2, h - 8);
+    ctx.textAlign = 'left';
+  }
+
+  window.runFibRec = function() {
+    const input = document.getElementById('fibRecInput');
+    const output = document.getElementById('fibRecOutput');
+    const c1 = document.getElementById('fibRecCallsCanvas');
+    const c2 = document.getElementById('fibRecGrowthCanvas');
+    const btn = document.getElementById('fibRecBtn');
+    if (!input || !output || !c1 || !c2 || !btn) return;
+
+    const n = parseInt(input.value, 10);
+    if (isNaN(n) || n < 0 || n > 38) {
+      output.innerHTML = '<span style="color: red; font-weight: bold;">❌ Please enter a number between 0 and 38!</span>';
+      c1.style.display = 'none';
+      c2.style.display = 'none';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.style.backgroundColor = '#95A5A6';
+    output.innerHTML = '<div style="color: #8E44AD; font-style: italic;">🔄 Recursing... (large n may take a few seconds)</div>';
+
+    // Yield so the "working" message paints before the blocking computation
+    setTimeout(function() {
+      const tally = new Array(n + 1).fill(0);
+      fibCounted(n, tally);
+      const calls = tally.reduce(function(a, b) { return a + b; }, 0);
+
+      // calls(i) = calls(i-1) + calls(i-2) + 1, with calls(0) = calls(1) = 1
+      const rows = [];
+      for (let i = 0; i <= n; i++) {
+        const t = timeFib(i);
+        const c = i <= 1 ? 1 : rows[i - 1].calls + rows[i - 2].calls + 1;
+        rows.push({ n: i, calls: c, ms: t.ms, result: t.result });
+      }
+      const last = rows[n];
+      const prev = n >= 2 ? rows[n - 1] : null;
+      const ratioLine = prev
+        ? '<div><strong>Calls vs F(' + (n - 1) + '):</strong> ×' + (last.calls / prev.calls).toFixed(2) + ' (approaches the golden ratio ≈ 1.618 per step)</div>'
+        : '';
+      const iterSteps = Math.max(n - 1, 0);
+
+      output.innerHTML =
+        '<div style="color: #E74C3C; font-weight: bold; margin-bottom: 10px;">✅ Recursive result for F(' + n + ')</div>' +
+        '<div><strong>F(' + n + '):</strong> <span style="color: #2E86C1; font-weight: bold;">' + fmt(last.result) + '</span></div>' +
+        '<div><strong>Function calls:</strong> <span style="color: #E74C3C; font-weight: bold;">' + fmt(calls) + '</span></div>' +
+        '<div><strong>Time:</strong> <span style="color: #8E44AD; font-weight: bold;">' + (last.ms < 0.01 ? (last.ms * 1000).toFixed(2) + ' µs' : last.ms.toFixed(3) + ' ms') + '</span></div>' +
+        ratioLine +
+        '<div><strong>Iterative loop would need:</strong> ' + fmt(iterSteps) + ' additions</div>' +
+        '<div><strong>Most recomputed term:</strong> F(' + (n >= 1 ? 1 : 0) + ') is evaluated ' + fmt(tally[n >= 1 ? 1 : 0]) + ' times</div>';
+
+      c1.style.display = 'block';
+      c2.style.display = 'block';
+      drawTally(c1, tally, n);
+      drawGrowth(c2, rows);
+
+      btn.disabled = false;
+      btn.style.backgroundColor = '#E74C3C';
+    }, 50);
+  };
+})();
+</script>
+```
 
 ---
 
@@ -194,7 +440,7 @@ The recursive approach recalculates the same values over and over:
 :::
 
 ::: {style="color: #E74C3C; font-size: 0.8em; text-align: center; margin-top: 0.5em;"}
-*Computing F(40) recursively makes ~331 million function calls! ⏰*
+*Computing F(38) recursively makes ~127 million function calls! What would F(40) take?? The calls accumulate exponentially! ⏰*
 :::
 
 ::: {.callout-note}
@@ -256,6 +502,217 @@ print([fibonacci_iterative(i) for i in range(15)])
 
 ---
 
+## Iterative Fibonacci: Watch the Steps Stay Small
+
+```{=html}
+<div id="fibItContainer" style="background-color: #f0f0f0; padding: 10px; border-radius: 10px; margin: 5px auto; max-width: 900px; position: relative; z-index: 100;">
+  <div style="margin-bottom: 8px;">
+    <label for="fibItInput" style="font-weight: bold; margin-right: 10px; font-size: 16px;">Compute F(n), n =</label>
+    <input type="number" id="fibItInput" value="30" min="0" max="1000" style="padding: 8px; width: 100px; font-size: 16px; border: 2px solid #27AE60; border-radius: 4px;" onkeypress="if(event.key==='Enter') window.runFibIt();">
+    <button id="fibItBtn" onclick="window.runFibIt(); return false;" style="padding: 8px 20px; margin-left: 10px; background-color: #27AE60; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold;">Run Loop</button>
+  </div>
+
+  <div id="fibItOutput" style="font-family: monospace; min-height: 30px; background-color: white; padding: 8px; border-radius: 5px; font-size: 12px; line-height: 1.3; column-count: 2; column-gap: 20px;">
+    <div style="color: #888; font-style: italic;">Choose n (0–1000) and click "Run Loop" to count the additions and time the work...</div>
+  </div>
+
+  <canvas id="fibItStepsCanvas" width="640" height="250" style="margin: 8px auto 0; width: 640px; max-width: 100%; height: auto; background-color: white; border: 2px solid #ccc; display: none; border-radius: 5px;"></canvas>
+  <canvas id="fibItTimeCanvas" width="640" height="250" style="margin: 8px auto 0; width: 640px; max-width: 100%; height: auto; background-color: white; border: 2px solid #ccc; display: none; border-radius: 5px;"></canvas>
+</div>
+
+<script>
+(function() {
+  // BigInt keeps F(n) exact for large n
+  function fibIter(n) {
+    if (n <= 0) return 0n;
+    let prev = 0n, cur = 1n;
+    for (let i = 2; i <= n; i++) {
+      const next = prev + cur;
+      prev = cur;
+      cur = next;
+    }
+    return cur;
+  }
+
+  // Repeat fast runs so the timer resolution doesn't dominate; report ms per run
+  function timeIter(n) {
+    let reps = 0, result;
+    const start = performance.now();
+    do {
+      result = fibIter(n);
+      reps++;
+    } while (performance.now() - start < 2 && reps < 100000);
+    return { result: result, ms: (performance.now() - start) / reps };
+  }
+
+  function fmtMs(ms) {
+    return ms < 0.01 ? (ms * 1000).toFixed(2) + ' µs' : ms.toFixed(3) + ' ms';
+  }
+
+  function fmtBig(b) {
+    const s = b.toString();
+    return s.length > 24 ? s.slice(0, 10) + '…' + s.slice(-6) + ' (' + s.length + ' digits)' : b.toLocaleString();
+  }
+
+  function drawAxes(ctx, w, h, pad) {
+    ctx.strokeStyle = '#333';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(pad.l, pad.t);
+    ctx.lineTo(pad.l, h - pad.b);
+    ctx.lineTo(w - pad.r, h - pad.b);
+    ctx.stroke();
+  }
+
+  function sci(x) {
+    return x < 1e6 ? Math.round(x).toLocaleString() : x.toExponential(1);
+  }
+
+  // Log-scale lines: recursive calls (red) vs iterative additions (green)
+  function drawSteps(canvas, rows) {
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width, h = canvas.height;
+    const pad = { l: 70, r: 20, t: 28, b: 38 };
+    ctx.clearRect(0, 0, w, h);
+    drawAxes(ctx, w, h, pad);
+
+    ctx.fillStyle = '#333';
+    ctx.font = 'bold 12px Arial';
+    ctx.textAlign = 'left';
+    ctx.fillText('Work per F(n), log scale: recursive calls (red) vs loop additions (green)', pad.l, 18);
+
+    const pw = w - pad.l - pad.r, ph = h - pad.t - pad.b;
+    const maxLog = Math.max(Math.log10(Math.max(rows[rows.length - 1].recCalls, 10)), 1);
+    const last = Math.max(rows.length - 1, 1);
+
+    function line(key, color) {
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      rows.forEach(function(r, i) {
+        const x = pad.l + (i / last) * pw;
+        const y = h - pad.b - (Math.log10(Math.max(r[key], 1)) / maxLog) * ph;
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+    }
+    line('recCalls', '#E74C3C');
+    line('iterSteps', '#27AE60');
+
+    ctx.font = '11px Arial';
+    ctx.fillStyle = '#333';
+    ctx.textAlign = 'right';
+    ctx.fillText(sci(Math.pow(10, maxLog)), pad.l - 6, pad.t + 4);
+    ctx.fillText('1', pad.l - 6, h - pad.b);
+    ctx.textAlign = 'center';
+    ctx.fillText('0', pad.l, h - pad.b + 14);
+    ctx.fillText(String(rows.length - 1), w - pad.r, h - pad.b + 14);
+    ctx.fillText('n', (w + pad.l) / 2, h - 6);
+    ctx.textAlign = 'left';
+  }
+
+  // Measured iterative time per n
+  function drawTime(canvas, rows) {
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width, h = canvas.height;
+    const pad = { l: 70, r: 20, t: 28, b: 38 };
+    ctx.clearRect(0, 0, w, h);
+    drawAxes(ctx, w, h, pad);
+
+    ctx.fillStyle = '#333';
+    ctx.font = 'bold 12px Arial';
+    ctx.textAlign = 'left';
+    ctx.fillText('Measured iterative time for F(0)…F(' + (rows.length - 1) + ')', pad.l, 18);
+
+    const pw = w - pad.l - pad.r, ph = h - pad.t - pad.b;
+    const maxMs = Math.max.apply(null, rows.map(function(r) { return r.ms; })) || 1;
+    const last = Math.max(rows.length - 1, 1);
+
+    ctx.strokeStyle = '#27AE60';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    rows.forEach(function(r, i) {
+      const x = pad.l + (i / last) * pw;
+      const y = h - pad.b - (r.ms / maxMs) * ph;
+      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+
+    ctx.font = '11px Arial';
+    ctx.fillStyle = '#333';
+    ctx.textAlign = 'right';
+    ctx.fillText(fmtMs(maxMs), pad.l - 6, pad.t + 4);
+    ctx.fillText('0', pad.l - 6, h - pad.b);
+    ctx.textAlign = 'center';
+    ctx.fillText('0', pad.l, h - pad.b + 14);
+    ctx.fillText(String(rows.length - 1), w - pad.r, h - pad.b + 14);
+    ctx.fillText('n', (w + pad.l) / 2, h - 6);
+    ctx.textAlign = 'left';
+  }
+
+  window.runFibIt = function() {
+    const input = document.getElementById('fibItInput');
+    const output = document.getElementById('fibItOutput');
+    const c1 = document.getElementById('fibItStepsCanvas');
+    const c2 = document.getElementById('fibItTimeCanvas');
+    const btn = document.getElementById('fibItBtn');
+    if (!input || !output || !c1 || !c2 || !btn) return;
+
+    const n = parseInt(input.value, 10);
+    if (isNaN(n) || n < 0 || n > 1000) {
+      output.innerHTML = '<span style="color: red; font-weight: bold;">❌ Please enter a number between 0 and 1000!</span>';
+      c1.style.display = 'none';
+      c2.style.display = 'none';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.style.backgroundColor = '#95A5A6';
+    output.innerHTML = '<div style="color: #8E44AD; font-style: italic;">🔄 Looping...</div>';
+
+    setTimeout(function() {
+      // recursive calls(i) = calls(i-1) + calls(i-2) + 1; kept as BigInt for the exact total
+      const recBig = [1n, 1n];
+      for (let i = 2; i <= n; i++) recBig.push(recBig[i - 1] + recBig[i - 2] + 1n);
+
+      const rows = [];
+      for (let i = 0; i <= n; i++) {
+        const t = timeIter(i);
+        rows.push({
+          n: i,
+          iterSteps: Math.max(i - 1, 0),
+          recCalls: Number(recBig[i]),
+          ms: t.ms,
+          result: t.result
+        });
+      }
+      const last = rows[n];
+      const speedup = last.iterSteps > 0 ? Number(recBig[n] / BigInt(last.iterSteps)) : 1;
+
+      output.innerHTML =
+        '<div style="color: #27AE60; font-weight: bold; margin-bottom: 10px;">✅ Iterative result for F(' + n + ')</div>' +
+        '<div><strong>F(' + n + '):</strong> <span style="color: #2E86C1; font-weight: bold;">' + fmtBig(last.result) + '</span></div>' +
+        '<div><strong>Loop additions:</strong> <span style="color: #27AE60; font-weight: bold;">' + last.iterSteps.toLocaleString() + '</span></div>' +
+        '<div><strong>Time:</strong> <span style="color: #8E44AD; font-weight: bold;">' + fmtMs(last.ms) + '</span></div>' +
+        '<div><strong>Recursion would need:</strong> <span style="color: #E74C3C; font-weight: bold;">' + fmtBig(recBig[n]) + '</span> calls</div>' +
+        '<div><strong>Work ratio (recursive ÷ iterative):</strong> ' + (speedup >= 1e6 ? speedup.toExponential(1) : Math.round(speedup).toLocaleString()) + '×</div>' +
+        '<div><strong>Growth:</strong> linear, O(n) — each step adds one term</div>';
+
+      c1.style.display = 'block';
+      c2.style.display = 'block';
+      drawSteps(c1, rows);
+      drawTime(c2, rows);
+
+      btn.disabled = false;
+      btn.style.backgroundColor = '#27AE60';
+    }, 50);
+  };
+})();
+</script>
+```
+
+---
+
 ## Iterative Fibonacci: The Advantage
 
 ::: {.callout-tip}
@@ -280,7 +737,7 @@ The iterative approach calculates each Fibonacci number exactly once:
 
 ---
 
-## Fibonacci: Memoization (Part 1)
+## Fibonacci: Memoization
 
 Cache previous results to avoid having to rerun the calculations!
 
@@ -303,17 +760,7 @@ def fibonacci_memo(n, memo={}):
     # Check if already calculated
     if n in memo:
         return memo[n]
-```
-:::
 
----
-
-## Fibonacci: Memoization (Part 2)
-
-Complete the implementation and testing.
-
-::: {.example}
-```python
     # Base cases (continued from previous slide)
     if n <= 0:
         return 0
@@ -368,7 +815,7 @@ Memoization stores calculated values:
 
 ---
 
-## Fibonacci: Binet's Formula (Part 1)
+## Fibonacci: Binet's Formula
 
 A direct mathematical formula - no loops or recursion needed!
 
@@ -389,17 +836,6 @@ def fibonacci_binet(n):
     Returns:
         The nth Fibonacci number (approximate for large n)
     """
-```
-:::
-
----
-
-## Fibonacci: Binet's Formula (Part 2)
-
-Complete the implementation:
-
-::: {.example}
-```python
     # The golden ratio
     phi = (1 + math.sqrt(5)) / 2
     psi = (1 - math.sqrt(5)) / 2
@@ -412,6 +848,7 @@ Complete the implementation:
 # Testing
 print([fibonacci_binet(i) for i in range(20)])
 # Output: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377...]
+
 ```
 :::
 
@@ -445,7 +882,7 @@ where $\phi = \frac{1 + \sqrt{5}}{2}$ and $\psi = \frac{1 - \sqrt{5}}{2}$
 
 ---
 
-## Fibonacci: Matrix Method (Part 1)
+## Fibonacci: Matrix Method
 
 Another mathematical approach using matrix exponentiation! (Learn more at [https://ianthehenry.com/posts/fibonacci/](https://ianthehenry.com/posts/fibonacci/))
 
@@ -472,18 +909,6 @@ def matrix_power(matrix, n):
     else:
         return multiply_matrices(matrix, matrix_power(matrix, n - 1))
 
-
-```
-:::
-
----
-
-## Fibonacci: Matrix Method (Part 2)
-
-Complete the implementation with the main Fibonacci function.
-
-::: {.example}
-```python
 def fibonacci_matrix(n):
     """Calculate nth Fibonacci using matrix method."""
     if n <= 0:
@@ -749,7 +1174,7 @@ $L(n) = F(n-1) + F(n+1)$
 
 ---
 
-## Lucas Sequence: Implementation (Part 1)
+## Lucas Sequence: Implementation
 
 We can use the same techniques as Fibonacci!
 
@@ -772,17 +1197,7 @@ def lucas_iterative(n):
         return 2
     elif n == 1:
         return 1
-```
-:::
 
----
-
-## Lucas Sequence: Implementation (Part 2)
-
-Complete the implementation:
-
-::: {.example}
-```python
     # Start with first two Lucas numbers
     prev, current = 2, 1
     
@@ -801,7 +1216,7 @@ print(lucas_seq)
 
 ---
 
-## Lucas: Recursive with Memoization (Part 1)
+## Lucas: Recursive with Memoization
 
 ::: {.example}
 ```python
@@ -822,17 +1237,6 @@ def lucas_memo(n, memo={}):
     # Check cache first
     if n in memo:
         return memo[n]
-```
-:::
-
----
-
-## Lucas: Recursive with Memoization (Part 2)
-
-Complete the implementation:
-
-::: {.example}
-```python
     # Base cases
     if n == 0:
         return 2
@@ -1388,8 +1792,8 @@ def main():
 
 # Define a section of code that runs only when the Python
 # file is executed as a standalone script (at command line)
-# if __name__ == "__main__": 
-#    main()
+if __name__ == "__main__": 
+    main()
 ```
 :::
 
@@ -1440,16 +1844,22 @@ Starting from 27:
 
 ---
 
-## Collatz: Analyzing Stopping Times
+## The Collatz **stopping time**: How Many Steps To Reach 1.
 
-The **stopping time** is how many steps it takes to reach 1.
 
-::: {style="color: #2E86C1; font-size: 0.6em; text-align: center; margin-top: 0.5em;"}
 ::: {.example}
-```python
+
+```{python collatz_analysis}
+#|echo: true
 """
 Find which number has the longest Collatz sequence.
 """
+def collatz(n):
+    sequence = [n]
+    while n != 1:
+        n = n // 2 if n % 2 == 0 else 3 * n + 1
+        sequence.append(n)
+    return sequence
 
 def collatz_analysis(max_start):
     """
@@ -1473,8 +1883,13 @@ def collatz_analysis(max_start):
 
 collatz_analysis(100)
 ```
+
 :::
+
+::: {style="color: #a211eb; font-size: 0.6em; text-align: center; margin-top: 0.5em;"}
+Cool, Right?!
 :::
+
 ---
 
 ## Collatz: Interesting Facts
