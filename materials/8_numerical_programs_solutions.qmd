@@ -143,7 +143,8 @@ The Fibonacci sequence is a series where each number is the sum of the two prece
 The most intuitive approach - directly follows the mathematical definition!
 
 ::: {.example}
-```python
+```{python fib_rec}
+#|echo: true
 """
 Recursive Fibonacci - elegant but slow for large numbers!
 """
@@ -185,14 +186,11 @@ def timer(func):
         end = time.perf_counter()
 
         elapsed = end - start
-        print(f"Function: {func.__name__}")
-        print(f"Input n: {args[0]}")
-        print(f"Result: {result}")
-        print(f"Elapsed time: {elapsed:.8f} seconds")
-
+        
+        mgs = f"Function: {func.__name__},\n Input n: {args[0]}, \n Result: {result}, \n Elapsed time: {elapsed:.8f} seconds"
+        print(mgs)
         return result
     return wrapper
-
 
 def fibonacci_recursive(n):
     """
@@ -211,13 +209,14 @@ def fibonacci_recursive(n):
 
     return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
 
-
 @timer
 def calculate_fibonacci(n):
     return fibonacci_recursive(n)
 
 # Calculate and time the 20th Fibonacci number
-calculate_fibonacci(30)
+print("Calculating 30th Fibonacci number:")
+print(f"Result: {calculate_fibonacci(30)}")
+
 ```
 :::
 
@@ -456,7 +455,8 @@ The recursive approach recalculates the same values over and over:
 Much faster! Build from the bottom up instead of top down.
 
 ::: {.example}
-```python
+```{python fib_iter}
+#|echo: true
 """
 Iterative Fibonacci - fast and efficient!
 """
@@ -474,17 +474,6 @@ def fibonacci_iterative(n):
         return 0
     elif n == 1:
         return 1
-```
-:::
-
----
-
-## Fibonacci: Iterative Implementation
-
-Complete the iterative approach:
-
-::: {.example}
-```python
     # Start with first two numbers
     prev, current = 0, 1
     
@@ -742,7 +731,8 @@ The iterative approach calculates each Fibonacci number exactly once:
 Cache previous results to avoid having to rerun the calculations!
 
 ::: {.example}
-```python
+```{python fib_memo}
+#|echo: true
 """
 Memoized Fibonacci - combines elegance with efficiency!
 """
@@ -820,7 +810,8 @@ Memoization stores calculated values:
 A direct mathematical formula - no loops or recursion needed!
 
 ::: {.example}
-```python
+```{python fib-binet}
+#|echo: true
 """
 Binet's Formula - closed-form solution using the golden ratio!
 """
@@ -887,7 +878,8 @@ where $\phi = \frac{1 + \sqrt{5}}{2}$ and $\psi = \frac{1 - \sqrt{5}}{2}$
 Another mathematical approach using matrix exponentiation! (Learn more at [https://ianthehenry.com/posts/fibonacci/](https://ianthehenry.com/posts/fibonacci/))
 
 ::: {.example}
-```python
+```{python fib-matrix}
+#|echo: true
 """
 Matrix method - fast for very large n using exponentiation!
 """
@@ -1179,7 +1171,8 @@ $L(n) = F(n-1) + F(n+1)$
 We can use the same techniques as Fibonacci!
 
 ::: {.example}
-```python
+```{python lucas-iter}}
+#|echo: true
 """
 Lucas sequence using iterative approach.
 """
@@ -1219,7 +1212,8 @@ print(lucas_seq)
 ## Lucas: Recursive with Memoization
 
 ::: {.example}
-```python
+```{python lucas-memo}
+#|echo: true
 """
 Lucas sequence using memoization for efficiency.
 """
@@ -1323,7 +1317,8 @@ Like Fibonacci, but each number is the sum of the THREE preceding ones!
 ## Tribonacci: Implementation
 
 ::: {.example}
-```python
+```{python tribonacci}
+#|echo: true
 """
 Tribonacci sequence - sum of three previous numbers!
 """
@@ -1612,7 +1607,8 @@ A unique sequence with a spiral geometric interpretation!
 ## Padovan: Implementation
 
 ::: {.example}
-```python
+```{python padovan}
+#|echo: true
 """
 Padovan sequence - appears in spiral triangles!
 """
@@ -1659,7 +1655,8 @@ Closely related to the Pythagorean approximation of √2!
 ## Pell: Implementation
 
 ::: {.example}
-```python
+```{python pell}
+#|echo: true
 """
 Pell sequence - doubles the previous term then adds one before!
 """
@@ -1740,7 +1737,8 @@ The conjecture states that **no matter what positive integer you start with, you
 ## Collatz: Basic Implementation
 
 ::: {.example}
-```python
+```{python collatz}
+#|echo: true
 """
 Collatz sequence - does every number reach 1?
 """
