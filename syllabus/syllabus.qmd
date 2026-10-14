@@ -225,19 +225,18 @@ The instructor will be using Discord to pass important information along to the 
 
 It is important for the students of the course to learn how to program. Generative AI may help to write code, but the programmer will not benefit in learning programming. Therefore, the use of artificial intelligence to generate code is not permitted unless otherwise stated in a particular assignment. Students will be asked to supply verbal explanations of assignments to supplement their code (by __Code Reviews__).
 
-### _Attendance_
+### _Lateness_
+
 
 Students are expected to come to class **prepared, on time, and to stay engaged** for the duration of the class period. This includes both class and lab sessions. This behavior is core to our [shared departmental values](https://www.cis.allegheny.edu/teaching/policies/) and is in addition to the college’s attendance policy.
 
-#### _Lateness_
+In class, there is a sign in sheet for students to sign in. Students are expected to sign in at the beginning of class and to remain in class for the duration of the class period. Students who leave early or arrive at least fifteen minutes late will not be able to sign the sign in sheet and will be marked as "absence" to class.
 
-One missed class or lab session counts as one absence. Coming to class/lab late, leaving early, or missing a large portion of a class/lab session will result in your being marked as “late” to class. Coming to class/lab unprepared may also result in being marked “late”. Being marked “late” to class three times during the course of a semester is equal to one absence.
+### _Attendance_
 
-Excluding the first week of the semester, students can have **eight** absences without any impact to their grade. These accommodations are meant to cover illness and emergency, so you should always come to class if you are able to do so.
+One missed class or lab sessions counts as one absence. As a general guideline, if students miss more than **eight** days of class during the semester then they risk receiving a letter grade reduction. These accommodations are meant to cover illness and emergency, to allow for personal circumstances, and to provide flexibility in case of unforeseen events. Therefore, so you should always come to class if you are able to do so. 
 
-As a general guideline, students cannot miss more than two weeks of class in total throughout the academic semester without receiving a letter grade reduction.
-
-For this course, excluding the first week and eight excused absences, overall course grade will go down by 1/3 of a letter grade for each additional absence or absence equivalence regardless of base grade.
+For this course, excluding the first week and eight excused absences, the overall course grade will go down by 1/3 of a letter grade for each additional absence or absence equivalence regardless of base grade.
 
 #### _Preparedness_
 
