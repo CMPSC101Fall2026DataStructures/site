@@ -112,8 +112,8 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Numerical Programs**
   -  <a href="8_numerical_programs_solutions.html" target="_blank">Slides</a>
 
-<!-- - **Lab 03**: Midterm Exam Review
-  - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/lab03/accept" target="_blank">Lab03</a> -->
+- **Lab 03**: Midterm Exam Review
+  - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/lab03/accept" target="_blank">Lab03</a>
 
 ---
 
