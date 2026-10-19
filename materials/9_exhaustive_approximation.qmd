@@ -1,5 +1,5 @@
 ---
-title: "Chapter 3: EXHAUSTIVE AND APPROXIMATE SOLUTIONS"
+title: "Exhaustive and Approximate Solutions"
 subtitle: "Some Approximation Techniques in Python: Numerical Search Methods and Their Applications"
 author: "Oliver Bonham-Carter"
 format:

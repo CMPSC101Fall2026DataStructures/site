@@ -67,7 +67,7 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Lab 01**: Mastering Python Loops
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/lab01/accept" target="_blank">Lab01</a>
 
-## W3 Reviewing Python II
+## W3. Reviewing Python II
 
 - **Loops, Dictionaries and Lists ** 
   -  <a href="3_ii_introToPython_solutions.html" target="_blank">Slides</a>
@@ -78,7 +78,7 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Activity 02**: Firefly Collector - Debugging Lists, Dictionaries, and Literals
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity02/accept" target="_blank">Activity02</a>
 
-## W4 Functions
+## W4. Functions
 
 - **Functions and Lambda Functions**
   -  <a href="5_lambdaFunctions.html" target="_blank">Slides</a>
@@ -86,7 +86,7 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Activity 03**: Loops, Conditionals, Lists, Dictionaries and Sets
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity03/accept" target="_blank">Activity03</a>
 
-## W5 Higher-Order Functions, Decorators, and Classes
+## W5. Higher-Order Functions, Decorators, and Classes
 
 - **Higher-Order Functions, Decorators, and Classes**
   -  <a href="6_higherOrderFunctions_decorators_classes.html" target="_blank">Slides</a>
@@ -97,23 +97,31 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Lab 02**: Mastering Python Data Structures
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/lab02/accept" target="_blank">Lab02</a>
 
-## W6 Classes and Object Oriented Programming
+## W6. Classes and Object Oriented Programming
 
 - **Object Oriented Programming**
   -  <a href="7_objectOrientedProgramming_exceptions.html" target="_blank">Slides</a>
 
-## W7 Classes and Exceptions and Error Handling
+## W7. Classes and Exceptions and Error Handling
 
 - **Activity 05**: Introduction to Software Testing with Pytest
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity05/accept" target="_blank">Activity05</a>
 
-## W8 Numerical Programs and Complexity Analysis
+## W8. Numerical Programs and Complexity Analysis
 
-- **Numerical Programs**
+- **Numerical Programs and Complexity Analysis**
+- 
   -  <a href="8_numerical_programs_solutions.html" target="_blank">Slides</a>
 
 - **Lab 03**: Midterm Exam Review
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/lab03/accept" target="_blank">Lab03</a>
+
+
+## W9. Numerical Solutions
+
+- **Exhaustive and Approximate Solutions**
+  -  <a href="9_exhaustive_approximation.html" target="_blank">Slides</a>
+
 
 ---
 
