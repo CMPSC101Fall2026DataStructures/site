@@ -122,6 +122,8 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Exhaustive and Approximate Solutions**
   -  <a href="9_exhaustive_approximation.html" target="_blank">Slides</a>
 
+- **Activity 06**: Program Documentation with Sphinx
+  - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity06/accept" target="_blank">Activity06</a>
 
 ---
 
