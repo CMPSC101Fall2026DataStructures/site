@@ -17,8 +17,8 @@ format:
     height: 800
     margin: 0.05
 ---
-<!-- Find your available themes: ls /Applications/quarto/share/formats/revealjs/themes -->
-<!-- ::: {style="color: #2E86C1; font-size: 0.9em; text-align: center; margin-top: 0.5em;"} -->
+
+<!-- ::: {style="color: #2E86C1; font-size: 0.9em; text-align: center; margin-top: 0.5em;"} Your text here ::: -->
 
 # On For Today
 
@@ -999,7 +999,17 @@ print(read_first_line("notes.txt"))
 :::
 
 
-## `else` and `finally`
+
+
+
+
+## `Try`, `except`, `else` and `finally`
+
+::: {style="color: #af0eee; font-size: 0.9em; text-align: center; margin-top: 0.5em;"}
+(We covered these before but let's see them in action with file operations!)
+:::
+
+
 
 ::: {.callout-important icon="false"}
 ## Full Exception Structure
@@ -1019,10 +1029,15 @@ def read_first_line(path):
 
 print(read_first_line("notes.txt"))
 ```
+:::
 
+::: {.callout-note icon="false"}
+
+- `try` attempts to open the file.
 - `else` runs only if no exception occurs.
 - `finally` runs no matter what.
 :::
+
 
 ## Raising Exceptions Yourself
 

@@ -22,11 +22,7 @@ execute:
 jupyter: python3
 ---
 
-<!-- Find your available themes: ls /Applications/quarto/share/formats/revealjs/themes -->
-<!-- ::: {style="color: #2E86C1; font-size: 0.9em; text-align: center; margin-top: 0.5em;"} 
-
-<!-- &nbsp; -->
-
+<!-- ::: {style="color: #2E86C1; font-size: 0.9em; text-align: center; margin-top: 0.5em;"} Your text here ::: -->
 
 ## So, What are we talking about today?
 

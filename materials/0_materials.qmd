@@ -5,6 +5,7 @@ title: "Materials"
     # - "*.qmd"
     # - "lab-notes/*reports.qmd"
 ---
+<!-- ::: {style="color: #2E86C1; font-size: 0.9em; text-align: center; margin-top: 0.5em;"} Your text here ::: -->
 
 <center>
 **CMPSC101 :: Data Structures :: Fall 2026**
@@ -125,8 +126,12 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Activity 06**: Program Documentation with Sphinx
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity06/accept" target="_blank">Activity06</a>
 
----
+## W10. File Operations and Data Structures
+- **File Operations and Data Structures**
+  -  <a href="10_file_operations_structured_data.html" target="_blank">Slides</a>
 
+---
+<!-- 
 :::{.callout-important}
 **Midterm Exam for CS101**
 
@@ -135,7 +140,7 @@ The midterm exam will be held on Friday, 23rd October 2026 at 2:30pm (during lab
 I encourage you to start preparing for the exam by reviewing the material covered in the first eight weeks of the course, focusing on the challenge problems and key concepts. A study guide will be provided closer to the exam date. The exam will be paper-based, closed-book and closed-notes.
 :::
 
----
+--- -->
 
 
 

@@ -18,6 +18,8 @@ format:
     margin: 0.05
 ---
 
+<!-- ::: {style="color: #2E86C1; font-size: 0.9em; text-align: center; margin-top: 0.5em;"} Your text here ::: -->
+
 # On For Today
 
 ::: {.callout-tip icon="true"}

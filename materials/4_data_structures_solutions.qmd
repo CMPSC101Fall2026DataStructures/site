@@ -17,18 +17,11 @@ format:
     height: 800
     margin: 0.05
 ---
-<!-- chapter 2 -->
-<!-- Find your available themes: ls /Applications/quarto/share/formats/revealjs/themes -->
-<!-- ::: {style="color: #2E86C1; font-size: 0.9em; text-align: center; margin-top: 0.5em;"} -->
 
-<!-- ::: {style="color: #2E86C1; font-size: 0.9em; text-align: center; margin-top: 0.5em;"} 
-::: {.callout} my blue text :::
-::: -->
+<!-- ::: {style="color: #2E86C1; font-size: 0.9em; text-align: center; margin-top: 0.5em;"} Your text here ::: -->
 
 # On for today ... 
 
-
-<!-- ::: {.callout-tip} -->
 ::: {.callout-blue}
 
 - List and dictionary data structures 

@@ -18,14 +18,7 @@ format:
     margin: 0.05
 ---
 
-<!-- Add blue text: -->
-<!-- ::: {style="color: #2E86C1; font-size: 0.9em; text-align: center; margin-top: 0.5em;"}  -->
-
-<!-- ::: {.callout} -->
-<!-- my blue text -->
-<!-- ::: -->
-<!-- ::: -->
-
+<!-- ::: {style="color: #2E86C1; font-size: 0.9em; text-align: center; margin-top: 0.5em;"} Your text here ::: -->
 
 # Welcome to Python Programming!
 
