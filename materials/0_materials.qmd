@@ -130,9 +130,12 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **File Operations and Data Structures**
   -  <a href="10_file_operations_structured_data.html" target="_blank">Slides</a>
 
+- **Activity 07**: Socket programming, pygame and File Operations
+  - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity07/accept" target="_blank">Activity07</a>
+
 ---
-<!-- 
-:::{.callout-important}
+
+<!-- :::{.callout-important}
 **Midterm Exam for CS101**
 
 The midterm exam will be held on Friday, 23rd October 2026 at 2:30pm (during lab time).
