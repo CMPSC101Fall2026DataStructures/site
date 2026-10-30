@@ -133,6 +133,10 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Activity 07**: Socket programming, pygame and File Operations
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity07/accept" target="_blank">Activity07</a>
 
+<!-- 
+- **Lab 04**: Taylor Series Programming For Approximation
+  - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/lab04/accept" target="_blank">Lab04</a> -->
+
 ---
 
 <!-- :::{.callout-important}
