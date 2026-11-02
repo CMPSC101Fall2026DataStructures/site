@@ -137,6 +137,13 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Lab 04**: Taylor Series Programming For Approximation
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/lab04/accept" target="_blank">Lab04</a>
 
+
+## W11. File Modules and Packages
+
+- **File Modules and Packages**
+  -  <a href="11_python_modules_and_libraries.html" target="_blank">Slides</a>
+
+
 ---
 
 <!-- :::{.callout-important}
