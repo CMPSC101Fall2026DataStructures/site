@@ -146,6 +146,7 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Activity 08**: Building Web-Based Data Applications with Streamlit
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/activity08/accept" target="_blank">Activity08</a>
 
+
 - **Lab05**: Space Invaders: Python Modules Lab
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/lab05/accept" target="_blank">Lab05</a>
 
