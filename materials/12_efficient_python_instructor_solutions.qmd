@@ -1,0 +1,424 @@
+---
+title: "THE EFFICIENCY CHALLENGE"
+subtitle: "Instructor Solutions and Discussion Guide"
+author: "Oliver Bonham-Carter"
+format:
+  revealjs:
+    theme: white
+    highlight-style: github
+    code-block-background: true
+    code-block-border-left: "#31BAE9"
+    slide-number: true
+    chalkboard: true
+    scrollable: true
+    transition: none
+    css: inspiration/custom_big_o.css
+    width: 1200
+    height: 800
+    margin: 0.05
+    footer: "Python Programming - Instructor Solutions"
+---
+
+# On For Today 🎯
+
+::: {.callout-tip icon="true"}
+## Let's explore the solutions!
+
+* 🧑‍🏫 **Review the instructor example** — Count library loans
+* 🧰 **See eight possible solutions** — One for each group challenge
+* ✅ **Test the details** — Ties, duplicates, empty inputs, and more
+* ⏱️ **Measure the code** — Reuse the same timing approach as the groups
+* 🗣️ **Guide the discussion** — Connect the method to its efficiency
+:::
+
+::: {.callout-note icon="false"}
+**The Big Idea:** These are **possible solutions**, not the only correct answers. Invite groups to explain and test their own approaches!
+:::
+
+---
+
+## How to Use This Deck 🧑‍🏫
+
+* Show the relevant solution **after** groups have worked and presented.
+* Each challenge has a solution, tests, and a discussion of efficiency.
+* The dataset slide repeats the student deck's generator and input sizes.
+* For each challenge, use a **fresh Python session**, or redefine `solve` and `make_data` before testing and timing.
+
+::: {.callout-important icon="false"}
+**Complexity notation:** `n` is the input length, `u` the number of distinct items, `k` a window or requested count, and `r` the number of matching IDs where applicable. Hash-table costs are **expected**; string hashing and comparisons also depend on string length.
+:::
+
+---
+
+## A Shared Timing Tool ⏱️
+
+After defining a challenge's `solve` and `make_data`, run:
+
+```python
+from timeit import repeat
+
+for n in sizes:  # Set sizes from that challenge's data slide.
+    data = make_data(n)  # Build data outside the timer.
+    times = repeat(lambda: solve(data), repeat=5, number=1)
+    print(f"n={n}: best={min(times):.6f} seconds; runs={times}")
+```
+
+* Run the small correctness tests **first**. The timer measures a complete call, not data generation or printing.
+* Compare methods on the **same input and computer**. Measurements vary; do not promise a fixed speedup.
+* `n` is the generator argument: for guest lists it describes **each** list.
+* If a method is too slow, stop it and try a smaller input.
+
+# Part 1: The Library Example 📚
+
+## Count the Loans — A Possible Solution
+
+```python
+def solve(loans):
+    counts = {}
+    for book_id in loans:
+        counts[book_id] = counts.get(book_id, 0) + 1
+    return counts
+
+small = [101, 205, 101, 310, 205, 101]
+assert solve(small) == {101: 3, 205: 2, 310: 1}
+assert solve([]) == {}
+print(solve(small))
+```
+
+::: {.callout-tip icon="false"}
+**Why it works:** Each loan updates one dictionary entry. Expected time is **O(n)** and extra space is **O(u)** for distinct book IDs. Repeatedly scanning the loans for every distinct ID can take **O(nu)**.
+:::
+
+---
+
+## Library Example — Measure & Discuss ⏱️
+
+```python
+def make_data(n):
+    return [100 + (i * 17) % 500 for i in range(n)]
+
+sizes = [100_000, 200_000]
+```
+
+Run the shared timing tool with the library `solve`. Each suggested input has **500 distinct IDs**.
+
+🗣️ **Ask:** Why is a dictionary useful here? How would memory change if every loan had a different ID?
+
+# Part 2: Group Challenge Solutions 🏆
+
+## Challenge 1: The Game Leaderboard 🎮
+
+**Goal:** Sort by score descending, then by name ascending.
+
+```python
+def solve(data):
+    return sorted(data, key=lambda player: (-player[1], player[0]))
+
+small = [("Zoe", 80), ("Ana", 95), ("Bo", 80)]
+assert solve(small) == [("Ana", 95), ("Bo", 80), ("Zoe", 80)]
+assert solve([]) == []
+assert small == [("Zoe", 80), ("Ana", 95), ("Bo", 80)]
+print(solve(small))
+```
+
+::: {.callout-tip icon="false"}
+**Key Insight:** A negative score puts higher scores first; the name is the tie-breaker. `sorted` returns a new list.
+:::
+
+---
+
+## Challenge 1 — Measure & Discuss ⏱️
+
+```python
+def make_data(n):
+    return [(f"player{i:06d}", (i * 37) % 1000)
+            for i in range(n)]
+
+sizes = [20_000, 40_000]
+```
+
+* **Time:** Worst-case **O(n log n)** for sorting; **space:** O(n) for the returned list and sorting/key storage.
+* **Discussion:** Ties use ascending names. Repeatedly finding the next maximum can take O(n²); sorting organizes the records in one operation.
+* Python's sort can exploit existing order, so these particular timings need not display worst-case growth.
+
+---
+
+## Challenge 2: The Message Counter 📰
+
+**Goal:** Count words case-insensitively.
+
+```python
+def solve(data):
+    counts = {}
+    for word in data:
+        word = word.lower()
+        counts[word] = counts.get(word, 0) + 1
+    return counts
+
+small = ["Python", "is", "fun", "python", "FUN"]
+assert solve(small) == {"python": 2, "is": 1, "fun": 2}
+assert solve([]) == {}
+print(solve(small))
+```
+
+::: {.callout-tip icon="false"}
+**Key Insight:** Normalize each word before counting so `"Python"` and `"python"` share one entry.
+:::
+
+---
+
+## Challenge 2 — Measure & Discuss ⏱️
+
+```python
+def make_data(n):
+    return [f"Word{(i * 17) % 1000}" for i in range(n)]
+
+sizes = [100_000, 200_000]
+```
+
+* **Time:** Expected **O(n)**, assuming bounded word length; **space:** O(u) entries, plus their stored characters.
+* **Discussion:** More distinct words mean more dictionary entries. Recounting the list for each distinct normalized word can take O(nu).
+* **Alternative:** `collections.Counter(word.lower() for word in data)` expresses the same idea.
+
+---
+
+## Challenge 3: The Guest List Overlap 🎟️
+
+**Goal:** Return unique IDs in both lists, sorted.
+
+```python
+def solve(data):
+    first, second = data
+    return sorted(set(first) & set(second))
+
+small = ([7, 2, 7, 5], [5, 7, 7, 9])
+assert solve(small) == [5, 7]
+assert solve(([], [1, 2])) == []
+assert solve(([2, 2], [2, 2])) == [2]
+print(solve(small))
+```
+
+::: {.callout-tip icon="false"}
+**Key Insight:** Sets remove duplicates, and their intersection keeps only IDs in both. Sort the result to satisfy the output rule.
+:::
+
+---
+
+## Challenge 3 — Measure & Discuss ⏱️
+
+```python
+def make_data(n):
+    return (list(range(n)), list(range(n // 2, n + n // 2)))
+
+sizes = [50_000, 100_000]
+```
+
+* For list lengths `a`, `b` and `r` matching IDs: expected **O(a + b + r log r)** time and **O(a + b)** extra space in the worst case.
+* **Discussion:** Set construction avoids repeated list searches, but sorted output requires an additional sort.
+* For these even sizes, each input has `n` IDs and `n / 2` match.
+
+---
+
+## Challenge 4: The Duplicate Detector 📦
+
+**Goal:** Report each repeated ID once, in second-occurrence order.
+
+```python
+def solve(data):
+    seen, reported, result = set(), set(), []
+    for package_id in data:
+        if package_id in seen and package_id not in reported:
+            result.append(package_id)
+            reported.add(package_id)
+        seen.add(package_id)
+    return result
+
+assert solve([3, 1, 3, 2, 1, 3]) == [3, 1]
+assert solve([8, 8, 8]) == [8]
+assert solve([]) == []
+print(solve([3, 1, 3, 2, 1, 3]))
+```
+
+---
+
+## Challenge 4 — Measure & Discuss ⏱️
+
+```python
+def make_data(n):
+    return [i % 10_000 for i in range(n)]
+
+sizes = [100_000, 200_000]
+```
+
+* **Time:** Expected **O(n)**; **space:** O(u) for sets and the result.
+* **Discussion:** The result list preserves the order of the *second* encounters. The `reported` set prevents a third occurrence from adding the ID again.
+* Checking a growing list for each ID can take O(n²); set membership is expected O(1).
+
+---
+
+## Challenge 5: The Busy Calendar 📅
+
+**Goal:** Merge overlapping **and touching** half-open intervals.
+
+```python
+def solve(data):
+    merged = []
+    for start, end in sorted(data):
+        if merged and start <= merged[-1][1]:
+            old_start, old_end = merged[-1]
+            merged[-1] = (old_start, max(old_end, end))
+        else:
+            merged.append((start, end))
+    return merged
+
+small = [(5, 7), (1, 3), (2, 6), (9, 10), (10, 12)]
+assert solve(small) == [(1, 7), (9, 12)]
+assert solve([(1, 10), (2, 3)]) == [(1, 10)]
+assert solve([]) == []
+print(solve(small))
+```
+
+---
+
+## Challenge 5 — Measure & Discuss ⏱️
+
+```python
+def make_data(n):
+    return [(i * 2, i * 2 + 3) for i in range(n - 1, -1, -1)]
+
+sizes = [20_000, 40_000]
+```
+
+* **Time:** Worst-case **O(n log n)** for sorting plus O(n) for the sweep; **space:** O(n).
+* **Discussion:** Sorting brings potential overlaps together. `max` preserves the outer end of a contained interval; `<=` merges touching intervals as requested.
+* `sorted` leaves the input unchanged. The reverse-ordered generated intervals all merge into one interval.
+
+---
+
+## Challenge 6: The Hot Streak 🌡️
+
+**Goal:** Find the largest sum of `k` consecutive values.
+
+```python
+def solve(data):
+    values, k = data
+    current = sum(values[i] for i in range(k))
+    best = current
+    for i in range(k, len(values)):
+        current += values[i] - values[i - k]
+        best = max(best, current)
+    return best
+
+assert solve(([2, 1, 5, 1, 3, 2], 3)) == 9
+assert solve(([-4, -2, -7], 2)) == -6
+assert solve(([7], 1)) == 7
+print(solve(([2, 1, 5, 1, 3, 2], 3)))
+```
+
+---
+
+## Challenge 6 — Measure & Discuss ⏱️
+
+```python
+def make_data(n):
+    return ([(i * 13) % 61 - 20 for i in range(n)], 100)
+
+sizes = [100_000, 200_000]
+```
+
+* **Time:** **O(n)**; **space:** O(1) auxiliary space. The contract guarantees `1 <= k <= n`.
+* **Discussion:** Subtract the leaving value and add the entering one instead of summing every window again.
+* Initialize `best` from the first window, not zero: all window sums may be negative. Recomputing each window costs O((n − k + 1)k).
+
+---
+
+## Challenge 7: The Closest Race Times 🚲
+
+**Goal:** Find the smallest absolute difference between two times.
+
+```python
+def solve(data):
+    times = sorted(data)
+    return min(times[i] - times[i - 1]
+               for i in range(1, len(times)))
+
+assert solve([42, 17, 25, 20]) == 3
+assert solve([10, 3, 10]) == 0
+assert solve([8, 2]) == 6
+print(solve([42, 17, 25, 20]))
+```
+
+::: {.callout-tip icon="false"}
+**Key Insight:** After sorting, a non-neighboring pair cannot be closer than every neighboring pair between them. Equal times give a difference of zero.
+:::
+
+---
+
+## Challenge 7 — Measure & Discuss ⏱️
+
+```python
+def make_data(n):
+    return [(i * 7919) % 1_000_003 for i in range(n)]
+
+sizes = [20_000, 40_000]
+```
+
+* **Time:** Worst-case **O(n log n)** for sorting plus O(n) for the scan; **space:** O(n).
+* **Discussion:** Checking all pairs takes O(n²). Sorting a copy avoids changing the original list.
+* The challenge guarantees at least two times.
+
+---
+
+## Challenge 8: The Playlist Favorites 🎵
+
+**Goal:** Return up to `k` names by count descending, then name ascending.
+
+```python
+from collections import Counter
+
+def solve(data):
+    plays, k = data
+    counts = Counter(plays)
+    names = sorted(counts, key=lambda name: (-counts[name], name))
+    return names[:k]
+
+small = (["Echo", "Wave", "Echo", "Sun", "Wave", "Rain"], 3)
+assert solve(small) == ["Echo", "Wave", "Rain"]
+assert solve((["A", "A"], 5)) == ["A"]
+assert solve(([], 2)) == []
+assert solve((["A"], 0)) == []
+print(solve(small))
+```
+
+---
+
+## Challenge 8 — Measure & Discuss ⏱️
+
+```python
+def make_data(n):
+    plays = [f"Song{(i * 17) % 1000:04d}" for i in range(n)]
+    return (plays, 10)
+
+sizes = [100_000, 200_000]
+```
+
+* **Time:** Expected **O(n + u log u)**; **space:** O(u), assuming bounded name length.
+* **Discussion:** `(-count, name)` makes ties deterministic. Slicing naturally handles `k = 0` and `k > u`.
+* A heap can select a small top `k` without fully sorting all names, but it must preserve the same tie rules. Counting still takes expected O(n).
+
+# Part 3: Wrap-Up 🎉
+
+## What Did We Learn?
+
+::: {.callout-important icon="false"}
+**Correctness first, then efficiency!** Ask students to explain what their code returns, show a small test, and connect their measurements to the work their algorithm performs.
+:::
+
+* 🧰 **Choose the right tool:** sorting, dictionaries, sets, or a sliding window.
+* 🔍 **Check edge cases:** ties, empty inputs, duplicates, and negative values.
+* ⏱️ **Measure fairly:** same data, same machine, input built outside the timer.
+* 🧠 **Explain trade-offs:** extra memory, ordering requirements, and expected versus worst-case behavior.
+
+::: {.callout-note icon="false"}
+**Takeaway:** Different correct solutions can be worth celebrating. The best discussion explains **why** an approach works and when it scales!
+:::

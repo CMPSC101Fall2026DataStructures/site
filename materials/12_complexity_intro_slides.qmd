@@ -1,7 +1,7 @@
 ---
 title: "ALGORITHM COMPLEXITIES"
 subtitle: "Understanding How Things Scale in Everyday Life"
-author: "CS 101 - Fall 2025"
+author: "Oliver Bonham-Carter"
 format:
   revealjs:
     theme: default

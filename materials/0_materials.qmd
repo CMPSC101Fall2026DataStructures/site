@@ -154,6 +154,8 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Algorithm Complexity, Efficiency, and Performance**
   -  <a href="12_complexity_intro_slides.html" target="_blank">Slides</a>
 
+- **Efficiency Group Work Activity** Group work on solving problems with efficient solutions
+  - <a href="12_efficient_python_group_project.html" target="_blank">Slides</a>
 
 <!-- :::{.callout-important}
 **Midterm Exam for CS101**
