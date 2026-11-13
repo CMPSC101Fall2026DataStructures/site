@@ -157,6 +157,12 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Efficiency Group Work Activity** Group work on solving problems with efficient solutions
   - <a href="12_efficient_python_group_project.html" target="_blank">Slides</a>
 
+
+- **Lab 06**: Data Analysis and Visualization 
+  - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/lab06/accept" target="_blank">Lab06</a>
+
+
+
 <!-- :::{.callout-important}
 **Midterm Exam for CS101**
 
