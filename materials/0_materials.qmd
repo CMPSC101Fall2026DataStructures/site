@@ -161,6 +161,10 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Lab 06**: Data Analysis and Visualization 
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/lab06/accept" target="_blank">Lab06</a>
 
+## W13. Final Project Business
+
+- **Final Project**: A project in which you will apply the skills learned in the course to a real-world programming problem. You can work in pairs or individually to design, implement, and present your solution, game or application.
+  - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/final-project/accept" target="_blank">Final Project</a>
 
 
 <!-- :::{.callout-important}
@@ -173,13 +177,13 @@ I encourage you to start preparing for the exam by reviewing the material covere
 
 --- -->
 
+## Special Notes
 
-
-<!-- ## Special Notes
 ::: {.callout-note}
 ## Please plan accordingly for the following important deadlines:
-- The final project will be due on April 30th, 2026 at 9:00am.
-- Presentations will be held on Friday, 24th April 2026 during lab.
-- These are hard deadlines and no late submissions can be accepted.
-::: -->
 
+- The **final project** will be due on Monday, 7th December 2026 at 9:00am.
+- **Presentations** will be held on Friday, 4th December 2026 during lab.
+- **Pitch one-on-ones** will be held on Monday, November 23rd December 2026
+- These are hard deadlines and no late submissions can be accepted.
+::: 
