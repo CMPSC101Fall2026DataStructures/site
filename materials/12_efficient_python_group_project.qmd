@@ -19,6 +19,11 @@ format:
     footer: "Python Programming - The Efficiency Challenge"
 ---
 
+
+<!-- ::: {style="color: #8E44AD;"}
+**Key Insight:** Think of efficiency like organizing a toolbox 🧰. The right tool can save many trips back and forth! :::  -->
+
+
 # On For Today 🎯
 
 ::: {.callout-tip icon="true"}

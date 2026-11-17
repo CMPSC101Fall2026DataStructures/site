@@ -172,6 +172,8 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Final Project**: A project in which you will apply the skills learned in the course to a real-world programming problem. You can work in pairs or individually to design, implement, and present your solution, game or application.
   - <a href="https://classroom50.org/cmpsc101f2026/cmpsc101-fall2026/assignments/final-project/accept" target="_blank">Final Project</a>
 
+- **Application Study**: Writing a file content searching program as a real-world application
+  -  <a href="13_Applications_filesearch.html" target="_blank">Slides</a>
 
 <!-- :::{.callout-important}
 **Midterm Exam for CS101**

@@ -114,26 +114,38 @@
 }
 
 .callout-green {
+    border-radius: 10px;
+    padding: 0.6em;
+    margin: 0.3em 0;
     background-color: #e8f5e8;
     border-left: 5px solid #4caf50;
-    font-size: 0.6em;
+    font-size: 0.8em;
 }
 
 .callout-red {
+    border-radius: 10px;
+    padding: 0.6em;
+    margin: 0.3em 0;
     background-color: #e3f2fd;
     border-left: 5px solid #f32172;
     font-size: 0.8em;
 }
 
 .callout-yellow {
+    border-radius: 10px;
+    padding: 0.6em;
+    margin: 0.3em 0;
     background-color: #fff8e1;
     border-left: 5px solid #ffc107;
-    font-size: 0.6em;
+    font-size: 0.8em;
 }
-.callout-red {
+.callout-tomato {
+    border-radius: 10px;
+    padding: 0.6em;
+    margin: 0.3em 0;
     background-color: #ffebee;
     border-left: 5px solid #f44336;
-    font-size: 0.6em;
+    font-size: 0.8em;
 }
 
 .callout-tip {
