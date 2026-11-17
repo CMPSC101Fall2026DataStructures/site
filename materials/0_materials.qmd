@@ -1,5 +1,6 @@
 ---
 title: "Materials"
+css: custom_big_o.css
 # listing:
   # contents:
     # - "*.qmd"
@@ -20,6 +21,11 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Project Downloads**: [Starter files, tutorials, and other downloadable project materials](1_project_files.html)
 
 :::
+
+<!-- add a line drop -->
+<center>
+&#x200B;
+</center>
 
 <!-- ![](../graphics/levelup.png){width=10%} -->
 
@@ -179,11 +185,21 @@ I encourage you to start preparing for the exam by reviewing the material covere
 
 ## Special Notes
 
+:::{.callout-important}
+- **Pitch one-on-ones** will be held on **Friday, 20 November 2026 during lab time**. This is a change from the time and date that was given in the Final Project README.md. Please plan accordingly.
+:::
+
+<!-- add a line drop -->
+<center>
+&#x200B;
+</center>
+
 ::: {.callout-note}
-## Please plan accordingly for the following important deadlines:
+## Please note the following important deadlines:
 
 - The **final project** will be due on Monday, 7th December 2026 at 9:00am.
 - **Presentations** will be held on Friday, 4th December 2026 during lab.
-- **Pitch one-on-ones** will be held on Monday, November 23rd December 2026
+
+
 - These are hard deadlines and no late submissions can be accepted.
 ::: 
