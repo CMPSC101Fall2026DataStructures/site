@@ -175,6 +175,9 @@ Here you will find a listing of lesson materials for the course such as slides, 
 - **Application Study**: Writing a file content searching program as a real-world application
   -  <a href="13_Applications_filesearch.html" target="_blank">Slides</a>
 
+- **Final Project Pitch One-on-Ones during lab time**: Discuss your final project ideas and progress.
+  - <a href="https://forms.gle/ZhLbQjSonscG4qaZ8" target="_blank">Final Project Pitch One-on-Ones</a>
+
 <!-- :::{.callout-important}
 **Midterm Exam for CS101**
 
