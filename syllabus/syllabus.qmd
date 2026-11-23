@@ -159,8 +159,8 @@ The grade that a student receives in this class will be based on the following c
 |Category              | Percentage | Assessment metric
 |:-------------------- | :--------- | :-----------------
 |In-Class Activities | 15%   | check mark grade
-|Labs                | 40%   | letter grade
-|Code Reviews        | 10%   | letter grade
+|Labs                | 50%   | letter grade
+|Code Reviews        | 0%   | letter grade
 |Midterm Exam        | 15%   | letter grade
 |Final Project       | 20%   | letter grade
 |Total               | 100%  |
