@@ -1,5 +1,5 @@
 ---
-title: "THE EFFICIENCY CHALLENGE"
+title: "THE Efficiency Challenge and Activity 09"
 subtitle: "Working Together to Make Python Code Scale"
 author: "Oliver Bonham-Carter"
 format:
@@ -88,8 +88,11 @@ Imagine searching a classroom attendance list once for every student in a whole 
 :::
  -->
 
+# Activity 09: The Efficiency Challenge
 
-# Part 1: How Do I Improve Efficiency?
+---
+
+## Part 1: How Do I Improve Efficiency?
 
 <center>
 ![](graphics/strategy_i.png){width=30%}
